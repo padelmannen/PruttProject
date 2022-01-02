@@ -30,7 +30,7 @@ public class Pawn extends Piece {
                 return false;
             }
             if (sideSteps == 0)
-                if (!(spotIsNull(end.getX, end.getY)) {  //not allowed to take straight forward
+                if (!(spotIsNull(board, end.getX, end.getY))) {  //not allowed to take straight forward
                     return false;
                 }
             if (sideSteps > 1){
@@ -42,7 +42,7 @@ public class Pawn extends Piece {
                 return false;
             }
             if (sideSteps == 0)
-                if (!(spotIsNull(end.getX, end.getY)){   //not allowed to take straight forward
+                if (!(spotIsNull(board, end.getX, end.getY))){   //not allowed to take straight forward
                 return false;
             }
             if (sideSteps > 1){
@@ -53,30 +53,34 @@ public class Pawn extends Piece {
         return true;
     }
 
-    private boolean acceptedFirstMove() {
-        int forwardSteps = Math.abs(start.getX() - end.getX());
-        int sideSteps = Math.abs(start.getY() - end.getY());
+    private boolean acceptedFirstMove(Board board) {
+        int sideSteps = Math.abs(start.getX() - end.getX());
+        int forwardSteps = Math.abs(start.getY() - end.getY());
+
 
         if (!(sideSteps == 0 && (forwardSteps == 1 || forwardSteps == 2))) {  //one OR two steps forward, not allowed to take!
             return false;
         }
         if (forwardSteps == 2) { //not allowed to jump over piece from start
             if (this.isWhite()) {
-                if (!(spotIsNull( start.getX(), start.getY() + 1))) {
+                if (!(spotIsNull(board, start.getX(), start.getY() + 1))) {
                     return false;
                 }
             }
             else{
-                if (!(spotIsNull( start.getX(), start.getY() - 1))) {
+                if (!(spotIsNull(board, start.getX(), start.getY() - 1))) {
                     return false;
                 }
             }
         }
         moves++;
+        if (forwardSteps == 2){
+            moves ++;
+        }
         return true;
     }
 
-    private boolean spotIsNull(int x, int y) {
+    private boolean spotIsNull(Board board, int x, int y) {
         return board.getBox(x, y) == null;
 
 }

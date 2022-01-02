@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Rook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Pawn.java" afterDir="false" />
     </list>
@@ -62,7 +63,13 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1641127523391</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="commit">
+      <created>1641131497922</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1641131497922</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
