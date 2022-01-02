@@ -10,15 +10,44 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public boolean acceptedMove(Board board, Spot start,
-                                Spot end) {
+    public boolean acceptedMove(Board board, Spot start, Spot end) {
+
         // we can't move the piece to a spot that has
         // a piece of the same colour
-        if (end.getPiece().isWhite() == this.isWhite()) {
+        if (end.getPiece().isWhite() == this.isWhite()) {    //cannot go to square with same piece colour
             return false;
         }
-        if (moves == 0) {  //other rules when first move
+
+        if (moves == 0) {  //other rules apply when first move of pawn
             return acceptedFirstMove();
+        }
+
+        int forwardSteps = start.getX() - end.getX();
+        int sideSteps = Math.abs(start.getY() - end.getY());
+
+        if (this.isWhite()) {
+            if (!(forwardSteps == 1)) {  //must go one step forward
+                return false;
+            }
+            if (sideSteps == 0)
+                if (!(spotIsNull(end.getX, end.getY)) {  //not allowed to take straight forward
+                    return false;
+                }
+            if (sideSteps > 1){
+                return false;
+            }
+        }
+        else{  //for black pawns
+            if (!(forwardSteps == -1)) {   //must go one step forward
+                return false;
+            }
+            if (sideSteps == 0)
+                if (!(spotIsNull(end.getX, end.getY)){   //not allowed to take straight forward
+                return false;
+            }
+            if (sideSteps > 1){
+                return false;
+            }
         }
         moves++;
         return true;
@@ -32,14 +61,25 @@ public class Pawn extends Piece {
             return false;
         }
         if (forwardSteps == 2) { //not allowed to jump over piece from start
-            if (!(this.isWhite() && (board.getBox(start.getY() + 1, start.getY()) == null))) {  //for white pieces
-                return false;
+            if (this.isWhite()) {
+                if (!(spotIsNull( start.getX(), start.getY() + 1))) {
+                    return false;
+                }
             }
-            if (!(!(this.isWhite()) && (board.getBox(start.getY() - 1, start.getY()) == null))) {  //for blackPieces
-                return false;
+            else{
+                if (!(spotIsNull( start.getX(), start.getY() - 1))) {
+                    return false;
+                }
             }
         }
         moves++;
         return true;
     }
+
+    private boolean spotIsNull(int x, int y) {
+        return board.getBox(x, y) == null;
+
+}
+
+
 }
