@@ -14,12 +14,13 @@ public class Spot extends JButton {
 
     public Spot(String spotPiece, int row, int col){
 
+        this.row = row;
+        this.col = col;
+
         if(!Objects.equals(spotPiece, "N")){
             this.pieceName = spotPiece.substring(5);
             this.piece = null;
             this.color = spotPiece.substring(0,5);
-            System.out.println(pieceName);
-            System.out.println(color);
             setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/" + color + pieceName + ".png"))));
         }
 
@@ -36,6 +37,14 @@ public class Spot extends JButton {
         }
         setOpaque(true);
         setBorderPainted(false);
+    }
+
+    public String getPieceName(){
+        return pieceName;
+    }
+
+    public String getPieceColor(){
+        return color;
     }
 
     public Piece getPiece(){

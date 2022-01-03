@@ -15,15 +15,15 @@ public class Board extends JFrame implements ActionListener {
 //    private final Integer[] rows = {1,2,3,4,5,6,7,8};
 //    private final String[] columns = {"a","b","c","d","e","f","g","h"};
 
-    private final Spot[][] spots;
-    private Spot movBut;
+    private final Spot[][] gameboard;
+    private Spot movBut = null;
     private int curRow;
     private int curCol;
     private Spot[] possibleMoves;
     private Color[] prevColor;
 
     public Board() throws IOException {
-        spots = new Spot[8][8];
+        gameboard = new Spot[8][8];
         setupBoard();
         setVisible(true);
         pack();
@@ -43,7 +43,7 @@ public class Board extends JFrame implements ActionListener {
                 Spot curBut = new Spot(pos, row, col);
                 curBut.addActionListener(this);
                 add(curBut);
-                spots[row][col] = curBut;
+                gameboard[row][col] = curBut;
                 col++;
             }
             row++;
@@ -53,51 +53,38 @@ public class Board extends JFrame implements ActionListener {
     }
 
     public Spot getBox(int row, int col){
-        return spots[row][col];
+        return gameboard[row][col];
     }
 
     public void move(Spot newSpot){
-
-        int newRow = newSpot.getX()/72;
-        int newCol = newSpot.getY()/76;
-        System.out.println("old: " + String.valueOf(curRow) + " " + String.valueOf(curCol));
-        System.out.println("new: " + String.valueOf(newRow) + " " + String.valueOf(newCol));
-
+        movBut.setRow(newSpot.getRow());movBut.setCol(newSpot.getCol());
+        gameboard[movBut.getRow()][movBut.getCol()] = movBut;
+        movBut = null;
 
     }
 
 
-    public void showMoves(Spot button){
-        curRow = button.getX()/76;
-        curCol = button.getY()/72;
-        System.out.println("pressed: " + String.valueOf(curRow) + " " + String.valueOf(curCol));
-
-        possibleMoves = new Spot[2];
-        prevColor = new Color[2];
-
-        curRow = button.getX()/76;
-        curCol = button.getY()/72;
-
-        for(Spot move : possibleMoves){
-            move.setBackground(Color.green);
-        }
-
+    public void showMoves(Spot curSpot){
+//        for(Spot[] spots : gameboard){
+//            for(Spot spot : spots){
+//                //kolla om man får gå hit
+//            }
+//        }
     }
 
     public void actionPerformed(ActionEvent e) {
         Spot presBut = (Spot)e.getSource();
-        System.out.println(movBut);
+
         if(movBut == null){
-            System.out.println("if");
-            movBut = presBut;
-            showMoves(movBut);
+            if(presBut.getPieceName() != null){
+                showMoves(presBut);
+                movBut = presBut;
+            }
         }
         else {
-            System.out.println("else");
             move(presBut);
             movBut = null;
         }
-
     }
 
     public static void main(String[] args) throws IOException {
