@@ -6,6 +6,7 @@ import java.util.Objects;
 
 public class Spot extends JButton {
 
+
     private Piece piece;
     private int x;
     private int y;
@@ -26,4 +27,33 @@ public class Spot extends JButton {
         setBorderPainted(false);
     }
 
+    public Piece getPiece() {
+        return this.piece;
+    }
+
+
+    public void setPiece(Piece p)
+    {
+        this.piece = p;
+    }
+
+    public int getX()
+    {
+        return this.x;
+    }
+
+    public void setX(int x)
+    {
+        this.x = x;
+    }
+
+    public int getY()
+    {
+        return this.y;
+    }
+
+    public void setY(int y)
+    {
+        this.y = y;
+    }
 }

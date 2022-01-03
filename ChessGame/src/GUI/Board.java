@@ -16,6 +16,7 @@ public class Board extends JFrame implements ActionListener {
 
     private JButton prevBut;
     private Color prevColor;
+    Spot[][] boxes;
 
     public Board() throws IOException {
         setupBoard();
@@ -61,5 +62,9 @@ public class Board extends JFrame implements ActionListener {
 
     public static void main(String[] args) throws IOException {
         new Board();
+    }
+
+    public Spot getBox(int x, int y) {
+        return boxes[x][y];
     }
 }

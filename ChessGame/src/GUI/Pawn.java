@@ -19,7 +19,7 @@ public class Pawn extends Piece {
         }
 
         if (moves == 0) {  //other rules apply when first move of pawn
-            return acceptedFirstMove();
+            return acceptedFirstMove(board, start, end);
         }
 
         int forwardSteps = start.getX() - end.getX();
@@ -29,11 +29,12 @@ public class Pawn extends Piece {
             if (!(forwardSteps == 1)) {  //must go one step forward
                 return false;
             }
-            if (sideSteps == 0)
+            if (sideSteps == 0) {
                 if (!(spotIsNull(board, end.getX, end.getY))) {  //not allowed to take straight forward
                     return false;
                 }
-            if (sideSteps > 1){
+            }
+            else if (sideSteps > 1){
                 return false;
             }
         }
@@ -41,11 +42,12 @@ public class Pawn extends Piece {
             if (!(forwardSteps == -1)) {   //must go one step forward
                 return false;
             }
-            if (sideSteps == 0)
-                if (!(spotIsNull(board, end.getX, end.getY))){   //not allowed to take straight forward
-                return false;
+            if (sideSteps == 0){
+                if (!(spotIsNull(board, end.getX, end.getY))) {   //not allowed to take straight forward
+                    return false;
+                }
             }
-            if (sideSteps > 1){
+            else if (sideSteps > 1){
                 return false;
             }
         }
@@ -53,7 +55,8 @@ public class Pawn extends Piece {
         return true;
     }
 
-    private boolean acceptedFirstMove(Board board) {
+
+    private boolean acceptedFirstMove(Board board, Spot start, Spot end) {
         int sideSteps = Math.abs(start.getX() - end.getX());
         int forwardSteps = Math.abs(start.getY() - end.getY());
 
