@@ -58,11 +58,7 @@ public class Board extends JFrame implements ActionListener {
         int newCol = newSpot.getY()/76;
         System.out.println("old: " + String.valueOf(curRow) + " " + String.valueOf(curCol));
         System.out.println("new: " + String.valueOf(newRow) + " " + String.valueOf(newCol));
-        spots[newRow][newCol] = new Spot(movBut.getPiece(), newRow, newCol);
-        spots[curRow][curCol] = new Spot("N", curRow, curCol);
 
-        possibleMoves[0].setBackground(prevColor[0]);
-        possibleMoves[1].setBackground(prevColor[1]);
 
     }
 
@@ -71,21 +67,17 @@ public class Board extends JFrame implements ActionListener {
         curRow = button.getX()/76;
         curCol = button.getY()/72;
         System.out.println("pressed: " + String.valueOf(curRow) + " " + String.valueOf(curCol));
-/*
+
         possibleMoves = new Spot[2];
         prevColor = new Color[2];
 
         curRow = button.getX()/76;
         curCol = button.getY()/72;
-        possibleMoves[0] = board[curRow-1][curCol];
-        possibleMoves[1] = board[curRow-2][curCol];
-        prevColor[0] = board[curRow-1][curCol].getBackground();
-        prevColor[1] = board[curRow-2][curCol].getBackground();
 
         for(Spot move : possibleMoves){
             move.setBackground(Color.green);
         }
-*/
+
     }
 
     public void actionPerformed(ActionEvent e) {
