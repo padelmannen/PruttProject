@@ -12,16 +12,13 @@ import java.util.Arrays;
 
 public class Board extends JFrame implements ActionListener {
 
-    private final Spot[][] gameboard;
+    private Spot[][] gameboard;
     private Spot movBut = null;
-//    private int curRow;
-//    private int curCol;
-//    private Spot[] possibleMoves;
-//    private Color[] prevColor;
 
     public Board() throws IOException {
         gameboard = new Spot[8][8];
         setupBoard();
+
         setVisible(true);
         pack();
     }
@@ -39,8 +36,8 @@ public class Board extends JFrame implements ActionListener {
             for(String pos : positions){
                 Spot curBut = new Spot(pos, row, col);
                 curBut.addActionListener(this);
-                add(curBut);
                 gameboard[row][col] = curBut;
+                add(gameboard[row][col]);
                 col++;
             }
             row++;
@@ -49,18 +46,57 @@ public class Board extends JFrame implements ActionListener {
         }
     }
 
+    public void updateBoard(){
+        for(Spot[] spots : gameboard) {
+            for (Spot spot : spots) {
+                Spot curBut = spot.getSpot();
+                System.out.println(String.valueOf(curBut.getPieceColor()) + " " +
+                        String.valueOf(curBut.getPieceName()) + " " +
+                        String.valueOf(curBut.getRow()) + " " +
+                        String.valueOf(curBut.getCol()));
+                gameboard[curBut.getRow()][curBut.getCol()] = curBut;
+                //add(gameboard[curBut.getRow()][curBut.getCol()]);
+            }
+            for (int row = 0; row < 8; row++) {
+                for (int col = 0; col < 8; col++) {
+                    add(gameboard[row][col]);
+                }
+            }
+        }
+        System.out.println("gameboard updated");
+    }
+
     public Spot getBox(int row, int col){
         return gameboard[row][col];
     }
 
     public void move(Spot newSpot){
-        movBut.setRow(newSpot.getRow());    // byt ut rad och kolumn till nya värden i spotobjektet
+
+/*        int row = movBut.getRow();
+        int col = movBut.getRow();*/
+        System.out.println("moved " + String.valueOf(movBut.getPieceColor()) + String.valueOf(movBut.getPieceName()) +
+                " to " + String.valueOf(newSpot.getRow()) + " " + String.valueOf(newSpot.getCol()));
+
+/*        movBut.setRow(newSpot.getRow());    // byt ut rad och kolumn till nya värden i spotobjektet
         movBut.setCol(newSpot.getCol());
-        gameboard[movBut.getRow()][movBut.getCol()] = movBut;   // lägg in knappen som ska flyttas på ny plats
+        newSpot.setRow(row);
+        newSpot.setCol(col);*/
+        newSpot.setIcon(movBut.getIcon());
+        newSpot.setPiece(movBut.getPiece());
+        movBut.setIcon(null);
+        movBut.setPiece(null);
+
+        //gameboard[newSpot.getRow()][newSpot.getCol()] = movBut;   // lägg in knappen som ska flyttas på ny plats
+
+        gameboard[newSpot.getRow()][newSpot.getCol()].setIcon(movBut.getIcon());
+        gameboard[movBut.getRow()][movBut.getCol()].setIcon(null);
+
+
         movBut = null;      // knappen är flyttad, ingen knapp väntar nu på att flyttas
 
+        updateBoard();
+        pack();
     }
-
 
     public void showMoves(Spot curSpot){
 //        for(Spot[] spots : gameboard){

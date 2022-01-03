@@ -4,13 +4,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
 
+
+
 public class Spot extends JButton {
 
-    private Piece piece;
-    private String pieceName;
-    private String color;
+    private Piece piece = null;
+    private String pieceName = null;
+    private String color = null;
     private int row;
     private int col;
+    private Icon icon = null;
 
     public Spot(String spotPiece, int row, int col){
 
@@ -19,16 +22,10 @@ public class Spot extends JButton {
 
         if(!Objects.equals(spotPiece, "N")){
             this.pieceName = spotPiece.substring(5);
-            this.piece = null;
             this.color = spotPiece.substring(0,5);
-            setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/" + color + pieceName + ".png"))));
+            this.icon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/" + color + pieceName + ".png")));
         }
 
-        else{
-            this.pieceName = null;
-            this.piece = null;
-            this.color = null;
-        }
         if((row+col) % 2 == 0){
             setBackground(Color.darkGray);
         }
@@ -37,6 +34,10 @@ public class Spot extends JButton {
         }
         setOpaque(true);
         setBorderPainted(false);
+    }
+
+    public Spot getSpot(){
+        return this;
     }
 
     public String getPieceName(){
@@ -70,4 +71,9 @@ public class Spot extends JButton {
     public void setCol(int col) {
         this.col = col;
     }
+
+    public Icon getIcon(){
+        return this.icon;
+    }
+
 }
