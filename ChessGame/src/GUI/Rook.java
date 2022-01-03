@@ -58,7 +58,7 @@ public class Rook extends Piece {
     }
 
     private boolean spotIsNull(Board board, int x, int y) {
-        return board.getBox(x, y) == null;
+        return board.getBox(x, y).getPiece() == null;
 
     }
 }

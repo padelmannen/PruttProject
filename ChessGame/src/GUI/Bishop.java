@@ -21,35 +21,35 @@ public class Bishop extends Piece {
     }
 
     private boolean clearPath(Board board, Spot start, Spot end) {
-        int yStart = start.getY();
+        int colStart = start.getCol();
         int yEnd = end.getY();
         int xStart = start.getX();
         int xEnd = end.getX();
 
-        int stepLength = Math.abs(yStart-yEnd);
+        int stepLength = Math.abs(colStart -yEnd);
 
-        if (xStart>xEnd && yStart>yEnd) {   //south west
+        if (xStart>xEnd && colStart >yEnd) {   //south west
             for (int i = 1; i < stepLength; i++){
                 int xPos = xStart - i;
-                int yPos = yStart - i;
+                int yPos = colStart - i;
                 if (!(spotIsNull(board, xPos, yPos))) {
                     return false;
                 }
             }
         }
-        else if (xStart>xEnd && yStart<yEnd) { //north west
+        else if (xStart>xEnd && colStart <yEnd) { //north west
             for (int i = 1; i < stepLength; i++){
                 int xPos = xStart - i;
-                int yPos = yStart + i;
+                int yPos = colStart + i;
                 if (!(spotIsNull(board, xPos, yPos))) {
                     return false;
                 }
             }
         }
-        else if (xStart<xEnd && yStart>yEnd) {  // south east
+        else if (xStart<xEnd && colStart >yEnd) {  // south east
             for (int i = 1; i < stepLength; i++){
                 int xPos = xStart + i;
-                int yPos = yStart - i;
+                int yPos = colStart - i;
                 if (!(spotIsNull(board, xPos, yPos))) {
                     return false;
                 }
@@ -58,7 +58,7 @@ public class Bishop extends Piece {
         else {                                      //north east
             for (int i = 1; i < stepLength; i++) {
                 int xPos = xStart + i;
-                int yPos = yStart + i;
+                int yPos = colStart + i;
                 if (!(spotIsNull(board, xPos, yPos))) {
                     return false;
                 }
@@ -75,7 +75,7 @@ public class Bishop extends Piece {
     }
 
     private boolean spotIsNull(Board board, int x, int y) {
-        return board.getBox(x, y) == null;
+        return board.getBox(x, y).getPiece() == null;
 
     }
 }
