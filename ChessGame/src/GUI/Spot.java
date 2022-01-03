@@ -6,9 +6,9 @@ import java.util.Objects;
 
 public class Spot extends JButton {
 
-    private final Piece piece;
-    private final String pieceName;
-    private final String color;
+    private Piece piece;
+    private String pieceName;
+    private String color;
     private int row;
     private int col;
 
@@ -22,6 +22,7 @@ public class Spot extends JButton {
             System.out.println(color);
             setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/" + color + pieceName + ".png"))));
         }
+
         else{
             this.pieceName = null;
             this.piece = null;
@@ -40,24 +41,24 @@ public class Spot extends JButton {
     public Piece getPiece(){
         return piece;
     }
-/*
+
     public void setPiece(Piece p) {
         this.piece = p;
     }
 
-    public int getX() {
-        return this.x;
+    public int getRow() {
+        return this.row;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setRow(int row) {
+        this.row = row;
     }
 
-    public int getY() {
-        return this.y;
+    public int getCol() {
+        return this.col;
     }
 
-    public void setY(int y) {
-        this.y = y;
-    }*/
+    public void setCol(int col) {
+        this.col = col;
+    }
 }
