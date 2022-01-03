@@ -21,8 +21,8 @@ public class Queen extends Piece {
     }
 
     private boolean clearPath(Board board, Spot start, Spot end) {
-        int yStart = start.getY();
-        int yEnd = end.getY();
+        int yStart = start.getRow();
+        int yEnd = end.getRow();
         int xStart = start.getX();
         int xEnd = end.getX();
 
@@ -89,13 +89,13 @@ public class Queen extends Piece {
 
     private boolean acceptedDirection(Spot start, Spot end) {
         int xDiff = Math.abs(start.getX() - end.getX());
-        int yDiff = Math.abs(start.getY() - end.getY());
+        int yDiff = Math.abs(start.getRow() - end.getRow());
 
         return xDiff == yDiff || xDiff == 0 || yDiff == 0;
     }
 
-    private boolean spotIsNull(Board board, int x, int y) {
-        return board.getBox(x, y).getPiece() == null;
+    private boolean spotIsNull(Board board, int col, int row) {
+        return board.getBox(col, row).getPiece() == null;
 
     }
 }

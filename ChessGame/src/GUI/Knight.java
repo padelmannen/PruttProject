@@ -15,8 +15,8 @@ public class Knight extends Piece {
         if (end.getPiece().isWhite() == this.isWhite()) {
             return false;
         }
-        int x = Math.abs(start.getX() - end.getX());
-        int y = Math.abs(start.getY() - end.getY());
-        return x * y == 2;
+        int colDiff = Math.abs(start.getCol() - end.getCol());
+        int rowDiff = Math.abs(start.getRow() - end.getRow());
+        return colDiff * rowDiff == 2;
     }
 }
