@@ -6,19 +6,24 @@ import java.util.Objects;
 
 public class Spot extends JButton {
 
-    private final String piece;
+    private final Piece piece;
+    private final String pieceName;
     private final String color;
+    private int row;
+    private int col;
 
     public Spot(String spotPiece, int row, int col){
 
         if(!Objects.equals(spotPiece, "N")){
-            this.piece = spotPiece.substring(5);
+            this.pieceName = spotPiece.substring(5);
+            this.piece = null;
             this.color = spotPiece.substring(0,5);
-            System.out.println(piece);
+            System.out.println(pieceName);
             System.out.println(color);
-            setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/" + color + piece + ".png"))));
+            setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/" + color + pieceName + ".png"))));
         }
         else{
+            this.pieceName = null;
             this.piece = null;
             this.color = null;
         }
@@ -32,33 +37,27 @@ public class Spot extends JButton {
         setBorderPainted(false);
     }
 
-    public String getPiece(){
+/*    public String getPiece(){
         return piece;
     }
 
-
-    public void setPiece(Piece p)
-    {
+    public void setPiece(Piece p) {
         this.piece = p;
     }
 
-    public int getX()
-    {
+    public int getX() {
         return this.x;
     }
 
-    public void setX(int x)
-    {
+    public void setX(int x) {
         this.x = x;
     }
 
-    public int getY()
-    {
+    public int getY() {
         return this.y;
     }
 
-    public void setY(int y)
-    {
+    public void setY(int y) {
         this.y = y;
-    }
+    }*/
 }
