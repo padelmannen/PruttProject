@@ -57,9 +57,10 @@ public class Board extends JFrame implements ActionListener {
     }
 
     public void move(Spot newSpot){
-        movBut.setRow(newSpot.getRow());movBut.setCol(newSpot.getCol());
-        gameboard[movBut.getRow()][movBut.getCol()] = movBut;
-        movBut = null;
+        movBut.setRow(newSpot.getRow());    // byt ut rad och kolumn till nya värden i spotobjektet
+        movBut.setCol(newSpot.getCol());
+        gameboard[movBut.getRow()][movBut.getCol()] = movBut;   // lägg in knappen som ska flyttas på ny plats
+        movBut = null;      // knappen är flyttad, ingen knapp väntar nu på att flyttas
 
     }
 
@@ -67,7 +68,8 @@ public class Board extends JFrame implements ActionListener {
     public void showMoves(Spot curSpot){
 //        for(Spot[] spots : gameboard){
 //            for(Spot spot : spots){
-//                //kolla om man får gå hit
+//                  //kolla om man får gå hit
+                    // om ja, ändra bakgrundsfärg till grön
 //            }
 //        }
     }
