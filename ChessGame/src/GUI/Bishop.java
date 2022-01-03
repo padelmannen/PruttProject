@@ -21,45 +21,45 @@ public class Bishop extends Piece {
     }
 
     private boolean clearPath(Board board, Spot start, Spot end) {
-        int yStart = start.getY();
-        int yEnd = end.getY();
-        int xStart = start.getX();
-        int xEnd = end.getX();
+        int colStart = start.getCol();
+        int colEnd = end.getY();
+        int rowStart = start.getX();
+        int rowEnd = end.getX();
 
-        int stepLength = Math.abs(yStart-yEnd);
+        int stepLength = Math.abs(colStart - colEnd);
 
-        if (xStart>xEnd && yStart>yEnd) {   //south west
+        if (rowStart > rowEnd && colStart > colEnd) {   //south west
             for (int i = 1; i < stepLength; i++){
-                int xPos = xStart - i;
-                int yPos = yStart - i;
-                if (!(spotIsNull(board, xPos, yPos))) {
+                int colPos = rowStart - i;
+                int rowPos = colStart - i;
+                if (!(spotIsNull(board, colPos, rowPos))) {
                     return false;
                 }
             }
         }
-        else if (xStart>xEnd && yStart<yEnd) { //north west
+        else if (rowStart > rowEnd && colStart < colEnd) { //north west
             for (int i = 1; i < stepLength; i++){
-                int xPos = xStart - i;
-                int yPos = yStart + i;
-                if (!(spotIsNull(board, xPos, yPos))) {
+                int colPos = rowStart - i;
+                int rowPos = colStart + i;
+                if (!(spotIsNull(board, colPos, rowPos))) {
                     return false;
                 }
             }
         }
-        else if (xStart<xEnd && yStart>yEnd) {  // south east
+        else if (rowStart < rowEnd && colStart > colEnd) {  // south east
             for (int i = 1; i < stepLength; i++){
-                int xPos = xStart + i;
-                int yPos = yStart - i;
-                if (!(spotIsNull(board, xPos, yPos))) {
+                int colPos = rowStart + i;
+                int rowPos = colStart - i;
+                if (!(spotIsNull(board, colPos, rowPos))) {
                     return false;
                 }
             }
         }
         else {                                      //north east
             for (int i = 1; i < stepLength; i++) {
-                int xPos = xStart + i;
-                int yPos = yStart + i;
-                if (!(spotIsNull(board, xPos, yPos))) {
+                int colPos = rowStart + i;
+                int rowPos = colStart + i;
+                if (!(spotIsNull(board, colPos, rowPos))) {
                     return false;
                 }
             }
@@ -68,14 +68,14 @@ public class Bishop extends Piece {
     }
 
     private boolean acceptedDirection(Spot start, Spot end) {
-        int xDiff = Math.abs(start.getX() - end.getX());
-        int yDiff = Math.abs(start.getY() - end.getY());
+        int colDiff = Math.abs(start.getCol() - end.getCol());
+        int rowDiff = Math.abs(start.getRow() - end.getRow());
 
-        return (xDiff == yDiff);
+        return (colDiff == rowDiff);
     }
 
-    private boolean spotIsNull(Board board, int x, int y) {
-        return board.getBox(x, y) == null;
+    private boolean spotIsNull(Board board, int col, int row) {
+        return board.getBox(col, row).getPiece() == null;
 
     }
 }

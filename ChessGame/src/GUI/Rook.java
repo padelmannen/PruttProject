@@ -21,28 +21,26 @@ public class Rook extends Piece {
     }
 
     private boolean clearPath(Board board, Spot start, Spot end) {
-        int yStart = start.getY();
-        int yEnd = end.getY();
-        int xStart = start.getX();
-        int xEnd = end.getX();
+        int rowStart = start.getRow();
+        int rowEnd = end.getRow();
+        int colStart = start.getCol();
+        int colEnd = end.getCol();
 
+        int colMin = Math.min(colStart, colEnd);
+        int colMax = Math.max(colStart, colEnd);
+        int rowMin = Math.min(rowStart, rowEnd);
+        int rowMax = Math.max(rowStart, rowEnd);
 
-        int xMin = Math.min(xStart, xEnd);
-        int xMax = Math.max(xStart, xEnd);
-        int yMin = Math.min(yStart, yEnd);
-        int yMax = Math.max(yStart, yEnd);
-
-
-        if (xMin == xMax) {
-            for (int yPos = yMin; yPos < yMax; yPos++) {
-                if (!(spotIsNull(board, xStart, yPos))) {
+        if (colMin == colMax) {   //horizontal
+            for (int rowPos = rowMin; rowPos < rowMax; rowPos++) {
+                if (!(spotIsNull(board, colStart, rowPos))) {
                     return false;
                 }
             }
         }
-        else {
-            for (int xPos = xMin; xPos < xMax; xPos++) {
-                if (!(spotIsNull(board, xPos, yStart))) {
+        else if (rowMin == rowMax){  //vertical
+            for (int colPos = colMin; colPos < colMax; colPos++) {
+                if (!(spotIsNull(board, colPos, rowStart))) {
                     return false;
                 }
             }
@@ -58,7 +56,7 @@ public class Rook extends Piece {
     }
 
     private boolean spotIsNull(Board board, int x, int y) {
-        return board.getBox(x, y) == null;
+        return board.getBox(x, y).getPiece() == null;
 
     }
 }

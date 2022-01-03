@@ -22,15 +22,15 @@ public class Pawn extends Piece {
             return acceptedFirstMove(board, start, end);
         }
 
-        int forwardSteps = start.getX() - end.getX();
-        int sideSteps = Math.abs(start.getY() - end.getY());
+        int forwardSteps = start.getCol() - end.getCol();
+        int sideSteps = Math.abs(start.getRow() - end.getRow());
 
         if (this.isWhite()) {
-            if (!(forwardSteps == 1)) {  //must go one step forward
+            if (!(forwardSteps == -1)) {  //must go one step forward
                 return false;
             }
             if (sideSteps == 0) {
-                if (!(spotIsNull(board, end.getX(), end.getY()))) {  //not allowed to take straight forward
+                if (!(spotIsNull(board, end.getCol(), end.getRow()))) {  //not allowed to take straight forward
                     return false;
                 }
             }
@@ -39,11 +39,11 @@ public class Pawn extends Piece {
             }
         }
         else{  //for black pawns
-            if (!(forwardSteps == -1)) {   //must go one step forward
+            if (!(forwardSteps == 1)) {   //must go one step forward
                 return false;
             }
             if (sideSteps == 0){
-                if (!(spotIsNull(board, end.getX(), end.getY()))) {   //not allowed to take straight forward
+                if (!(spotIsNull(board, end.getCol(), end.getCol()))) {   //not allowed to take straight forward
                     return false;
                 }
             }
@@ -57,8 +57,8 @@ public class Pawn extends Piece {
 
 
     private boolean acceptedFirstMove(Board board, Spot start, Spot end) {
-        int sideSteps = Math.abs(start.getX() - end.getX());
-        int forwardSteps = Math.abs(start.getY() - end.getY());
+        int sideSteps = Math.abs(start.getCol() - end.getCol());
+        int forwardSteps = Math.abs(start.getRow() - end.getRow());
 
 
         if (!(sideSteps == 0 && (forwardSteps == 1 || forwardSteps == 2))) {  //one OR two steps forward, not allowed to take!
@@ -66,12 +66,12 @@ public class Pawn extends Piece {
         }
         if (forwardSteps == 2) { //not allowed to jump over piece from start
             if (this.isWhite()) {
-                if (!(spotIsNull(board, start.getX(), start.getY() + 1))) {
+                if (!(spotIsNull(board, start.getCol(), start.getRow() - 1))) {
                     return false;
                 }
             }
             else{
-                if (!(spotIsNull(board, start.getX(), start.getY() - 1))) {
+                if (!(spotIsNull(board, start.getCol(), start.getRow() + 1))) {
                     return false;
                 }
             }
@@ -83,10 +83,13 @@ public class Pawn extends Piece {
         return true;
     }
 
-    private boolean spotIsNull(Board board, int x, int y) {
-        return board.getBox(x, y) == null;
+    private boolean spotIsNull(Board board, int col, int row) {
+        return board.getBox(col, row).getPiece() == null;
+    }
 
-}
+    public int getNumOfMoves(){
+        return moves;
+    }
 
 
 }

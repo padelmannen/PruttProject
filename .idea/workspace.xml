@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="move inte klar">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Spot.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Spot.java" afterDir="false" />
+    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/startPositions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChessGame/GUI/startPositions.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,16 +178,16 @@
       <updated>1641218294314</updated>
     </task>
     <task id="LOCAL−00018" summary="move inte klar">
-      <created>1641219536657</created>
+      <created>1641224523203</created>
       <option name="number" value="LOCAL−00018" />
       <option name="presentableId" value="LOCAL−00018" />
-      <updated>1641219536657</updated>
+      <updated>1641224523203</updated>
     </task>
     <task id="LOCAL−00019" summary="move inte klar">
-      <created>1641219588373</created>
+      <created>1641224597632</created>
       <option name="number" value="LOCAL−00019" />
       <option name="presentableId" value="LOCAL−00019" />
-      <updated>1641219588373</updated>
+      <updated>1641224597632</updated>
     </task>
     <option name="localTasksCounter" value="20" />
     <servers />
