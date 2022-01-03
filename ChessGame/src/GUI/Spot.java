@@ -6,10 +6,14 @@ import java.util.Objects;
 
 public class Spot extends JButton {
 
-    public Spot(String pos, int row, int col){
+    private final String type;
 
-        if(!Objects.equals(pos, "N")){
-            setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/" + pos + ".png"))));
+    public Spot(String type, int row, int col){
+
+        this.type = type;
+
+        if(!Objects.equals(type, "N")){
+            setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/" + type + ".png"))));
         }
         if((row+col) % 2 == 0){
             setBackground(Color.darkGray);
@@ -21,5 +25,11 @@ public class Spot extends JButton {
         setOpaque(true);
         setBorderPainted(false);
     }
+
+    public String getType(){
+        return type;
+    }
+
+
 
 }
