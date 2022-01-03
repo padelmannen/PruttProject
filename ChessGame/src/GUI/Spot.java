@@ -6,6 +6,10 @@ import java.util.Objects;
 
 public class Spot extends JButton {
 
+    private Piece piece;
+    private int x;
+    private int y;
+
     public Spot(String pos, int row, int col){
 
         if(!Objects.equals(pos, "N")){
