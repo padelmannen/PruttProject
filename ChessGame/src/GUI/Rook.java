@@ -57,7 +57,7 @@ public class Rook extends Piece {
         int xDiff = Math.abs(start.getX() - end.getX());
         int yDiff = Math.abs(start.getY() - end.getY());
 
-        return (xDiff == 0 && yDiff != 0) || (xDiff != 0 && yDiff == 0);
+        return xDiff == 0 || yDiff == 0;
     }
 
     private boolean spotIsNull(Board board, int x, int y) {
