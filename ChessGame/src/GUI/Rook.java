@@ -17,10 +17,7 @@ public class Rook extends Piece {
         if (!(acceptedDirection(start, end))) {
             return false;
         }
-        if (!(clearPath(board, start, end))) {
-            return false;
-        }
-        return true;
+        return clearPath(board, start, end);
     }
 
     private boolean clearPath(Board board, Spot start, Spot end) {
