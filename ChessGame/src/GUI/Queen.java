@@ -21,64 +21,64 @@ public class Queen extends Piece {
     }
 
     private boolean clearPath(Board board, Spot start, Spot end) {
-        int yStart = start.getRow();
-        int yEnd = end.getRow();
-        int xStart = start.getX();
-        int xEnd = end.getX();
+        int rowStart = start.getRow();
+        int rowEnd = end.getRow();
+        int colStart = start.getCol();
+        int colEnd = end.getCol();
 
-        int xMin = Math.min(xStart, xEnd);
-        int xMax = Math.max(xStart, xEnd);
-        int yMin = Math.min(yStart, yEnd);
-        int yMax = Math.max(yStart, yEnd);
+        int colMin = Math.min(colStart, colEnd);
+        int colMax = Math.max(colStart, colEnd);
+        int rowMin = Math.min(rowStart, rowEnd);
+        int rowMax = Math.max(rowStart, rowEnd);
 
-        int stepLength = Math.abs(yStart-yEnd);
+        int stepLength = Math.abs(rowStart - rowEnd);
 
 
-        if (xMin == xMax) {   //horizontal
-            for (int yPos = yMin; yPos < yMax; yPos++) {
-                if (!(spotIsNull(board, xStart, yPos))) {
+        if (colMin == colMax) {   //horizontal
+            for (int rowPos = rowMin; rowPos < rowMax; rowPos++) {
+                if (!(spotIsNull(board, colStart, rowPos))) {
                     return false;
                 }
             }
         }
-        else if (yMin == yMax){  //vertical
-            for (int xPos = xMin; xPos < xMax; xPos++) {
-                if (!(spotIsNull(board, xPos, yStart))) {
+        else if (rowMin == rowMax){  //vertical
+            for (int colPos = colMin; colPos < colMax; colPos++) {
+                if (!(spotIsNull(board, colPos, rowStart))) {
                     return false;
                 }
             }
         }
-        else if (xStart>xEnd && yStart>yEnd) {   //south west
+        else if (colStart > colEnd && rowStart > rowEnd) {   //south west
             for (int i = 1; i < stepLength; i++){
-                int xPos = xStart - i;
-                int yPos = yStart - i;
-                if (!(spotIsNull(board, xPos, yPos))) {
+                int colPos = colStart - i;
+                int rowPos = rowStart - i;
+                if (!(spotIsNull(board, colPos, rowPos))) {
                     return false;
                 }
             }
         }
-        else if (xStart>xEnd) { //north west
+        else if (colStart > colEnd) { //north west
             for (int i = 1; i < stepLength; i++){
-                int xPos = xStart - i;
-                int yPos = yStart + i;
-                if (!(spotIsNull(board, xPos, yPos))) {
+                int colPos = colStart - i;
+                int rowPos = rowStart + i;
+                if (!(spotIsNull(board, colPos, rowPos))) {
                     return false;
                 }
             }
         }
-        else if (yStart>yEnd) {  // south east
+        else if (rowStart > rowEnd) {  // south east
             for (int i = 1; i < stepLength; i++){
-                int xPos = xStart + i;
-                int yPos = yStart - i;
-                if (!(spotIsNull(board, xPos, yPos))) {
+                int colPos = colStart + i;
+                int rowPos = rowStart - i;
+                if (!(spotIsNull(board, colPos, rowPos))) {
                     return false;
                 }
             }
         }
         else {                                      //north east
             for (int i = 1; i < stepLength; i++) {
-                int xPos = xStart + i;
-                int yPos = yStart + i;
+                int xPos = colStart + i;
+                int yPos = rowStart + i;
                 if (!(spotIsNull(board, xPos, yPos))) {
                     return false;
                 }
@@ -88,10 +88,10 @@ public class Queen extends Piece {
     }
 
     private boolean acceptedDirection(Spot start, Spot end) {
-        int xDiff = Math.abs(start.getX() - end.getX());
-        int yDiff = Math.abs(start.getRow() - end.getRow());
+        int colDiff = Math.abs(start.getCol() - end.getCol());
+        int rowDiff = Math.abs(start.getRow() - end.getRow());
 
-        return xDiff == yDiff || xDiff == 0 || yDiff == 0;
+        return colDiff == rowDiff || colDiff == 0 || rowDiff == 0;
     }
 
     private boolean spotIsNull(Board board, int col, int row) {
