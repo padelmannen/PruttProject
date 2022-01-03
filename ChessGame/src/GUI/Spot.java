@@ -37,10 +37,10 @@ public class Spot extends JButton {
         setBorderPainted(false);
     }
 
-/*    public String getPiece(){
+    public Piece getPiece(){
         return piece;
     }
-
+/*
     public void setPiece(Piece p) {
         this.piece = p;
     }
