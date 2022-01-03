@@ -52,6 +52,10 @@ public class Board extends JFrame implements ActionListener {
         }
     }
 
+    public Spot getBox(int row, int col){
+        return spots[row][col];
+    }
+
     public void move(Spot newSpot){
 
         int newRow = newSpot.getX()/72;
