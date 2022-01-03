@@ -26,6 +26,9 @@ public class Spot extends JButton {
             this.icon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/" + color + pieceName + ".png")));
         }
 
+        setFirstPiece();
+
+
         if((row+col) % 2 == 0){
             setBackground(Color.darkGray);
         }
@@ -34,6 +37,39 @@ public class Spot extends JButton {
         }
         setOpaque(true);
         setBorderPainted(false);
+    }
+
+    public void setFirstPiece(){
+        if (Objects.equals(color, "White")) {
+            if (Objects.equals(pieceName, "Pawn")) {
+                piece = new Pawn(true);
+            } else if (Objects.equals(pieceName, "King")) {
+                piece = new King(true);
+            } else if (Objects.equals(pieceName, "Queen")) {
+                piece = new Queen(true);
+            } else if (Objects.equals(pieceName, "Knight")) {
+                piece = new Knight(true);
+            } else if (Objects.equals(pieceName, "Bishop")) {
+                piece = new Bishop(true);
+            } else if (Objects.equals(pieceName, "Rook")) {
+                piece = new Rook(true);
+            }
+        }
+        else if (Objects.equals(color, "Black")) {
+            if (Objects.equals(pieceName, "Pawn")) {
+                piece = new Pawn(false);
+            } else if (Objects.equals(pieceName, "King")) {
+                piece = new King(false);
+            } else if (Objects.equals(pieceName, "Queen")) {
+                piece = new Queen(false);
+            } else if (Objects.equals(pieceName, "Knight")) {
+                piece = new Knight(false);
+            } else if (Objects.equals(pieceName, "Bishop")) {
+                piece = new Bishop(false);
+            } else if (Objects.equals(pieceName, "Rook")) {
+                piece = new Rook(false);
+            }
+        }
     }
 
     public Spot getSpot(){

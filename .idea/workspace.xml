@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/startPositions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ChessGame/GUI/startPositions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Spot.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Spot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +190,13 @@
       <option name="presentableId" value="LOCAL−00019" />
       <updated>1641224597632</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL−00020" summary="move inte klar">
+      <created>1641225190552</created>
+      <option name="number" value="LOCAL−00020" />
+      <option name="presentableId" value="LOCAL−00020" />
+      <updated>1641225190552</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
