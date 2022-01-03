@@ -1,8 +1,8 @@
-BR BKn BB BQ BKi BB BKn BR
-BP BP BP BP BP BP BP BP
+BlackRook BlackKnight BlackBishop BlackQueen BlackKing BlackBishop BlackKnight BlackRook
+BlackPawn BlackPawn BlackPawn BlackPawn BlackPawn BlackPawn BlackPawn BlackPawn
 N N N N N N N N
 N N N N N N N N
 N N N N N N N N
 N N N N N N N N
-WP WP WP WP WP WP WP WP
-WR WKn WB WQ WKi WB WKn WR
+WhitePawn WhitePawn WhitePawn WhitePawn WhitePawn WhitePawn WhitePawn WhitePawn
+WhiteRook WhiteKnight WhiteBishop WhiteQueen WhiteKing WhiteBishop WhiteKnight WhiteRook

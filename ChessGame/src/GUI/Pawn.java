@@ -85,8 +85,11 @@ public class Pawn extends Piece {
 
     private boolean spotIsNull(Board board, int col, int row) {
         return board.getBox(col, row).getPiece() == null;
+    }
 
-}
+    public int getNumOfMoves(){
+        return moves;
+    }
 
 
 }
