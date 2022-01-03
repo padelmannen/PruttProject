@@ -30,7 +30,7 @@ public class Pawn extends Piece {
                 return false;
             }
             if (sideSteps == 0) {
-                if (!(spotIsNull(board, end.getX, end.getY))) {  //not allowed to take straight forward
+                if (!(spotIsNull(board, end.getX(), end.getY()))) {  //not allowed to take straight forward
                     return false;
                 }
             }
@@ -43,7 +43,7 @@ public class Pawn extends Piece {
                 return false;
             }
             if (sideSteps == 0){
-                if (!(spotIsNull(board, end.getX, end.getY))) {   //not allowed to take straight forward
+                if (!(spotIsNull(board, end.getX(), end.getY()))) {   //not allowed to take straight forward
                     return false;
                 }
             }
