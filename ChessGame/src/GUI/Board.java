@@ -11,16 +11,13 @@ import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class Board extends JFrame implements ActionListener {
-//    private final String[] colors = {"Black","White"};
-//    private final Integer[] rows = {1,2,3,4,5,6,7,8};
-//    private final String[] columns = {"a","b","c","d","e","f","g","h"};
 
     private final Spot[][] gameboard;
     private Spot movBut = null;
-    private int curRow;
-    private int curCol;
-    private Spot[] possibleMoves;
-    private Color[] prevColor;
+//    private int curRow;
+//    private int curCol;
+//    private Spot[] possibleMoves;
+//    private Color[] prevColor;
 
     public Board() throws IOException {
         gameboard = new Spot[8][8];
