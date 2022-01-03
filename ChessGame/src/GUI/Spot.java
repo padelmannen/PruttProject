@@ -13,7 +13,7 @@ public class Spot extends JButton {
     private String color = null;
     private int row;
     private int col;
-    private Icon icon = null;
+    private Icon icon;
 
     public Spot(String spotPiece, int row, int col){
 
@@ -37,6 +37,10 @@ public class Spot extends JButton {
         }
         setOpaque(true);
         setBorderPainted(false);
+    }
+
+    public void setIcon(Icon i){
+        icon = i;
     }
 
     public void setFirstPiece(){
@@ -112,4 +116,7 @@ public class Spot extends JButton {
         return this.icon;
     }
 
+    public void removeIcon() {
+        icon = null;
+    }
 }
