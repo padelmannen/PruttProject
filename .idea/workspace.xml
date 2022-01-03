@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Spot.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Spot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/startPositions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/startPositions.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +61,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Board" />
         <item itemvalue="Application.Board" />
       </list>
     </recent_temporary>
@@ -130,6 +131,17 @@
     </task>
     <option name="localTasksCounter" value="10" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
