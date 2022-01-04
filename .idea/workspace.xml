@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="">
+    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="klar bonde in game">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -238,18 +239,12 @@
       <updated>1641314751894</updated>
     </task>
     <task id="LOCAL−00028" summary="klar bonde in game">
-      <created>1641317885594</created>
+      <created>1641317663986</created>
       <option name="number" value="LOCAL−00028" />
       <option name="presentableId" value="LOCAL−00028" />
-      <updated>1641317885594</updated>
+      <updated>1641317663986</updated>
     </task>
-    <task id="LOCAL−00029" summary="klar bonde in game">
-      <created>1641318308825</created>
-      <option name="number" value="LOCAL−00029" />
-      <option name="presentableId" value="LOCAL−00029" />
-      <updated>1641318308825</updated>
-    </task>
-    <option name="localTasksCounter" value="30" />
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

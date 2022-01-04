@@ -14,12 +14,21 @@ import java.util.Stack;
 
 public class Board extends JFrame implements ActionListener {
 
+    private JPanel gamePanel = new JPanel();
+    private JPanel messagePanel = new JPanel();
+    private JLabel messageLabel = new JLabel();
     private Spot[][] gameboard;
     private Spot movBut;
     private Stack <Spot> possiblemoves = new Stack<>();
 
     public Board() throws IOException {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameboard = new Spot[8][8];
+        setLayout(new FlowLayout());
+        messageLabel.setText("Svart/vit spelare startar");
+        messagePanel.add(messageLabel);
+        add(messagePanel);
+        add(gamePanel);
         setupBoard();
 
         setVisible(true);
@@ -27,8 +36,7 @@ public class Board extends JFrame implements ActionListener {
     }
 
     private void setupBoard() throws IOException {
-        setLayout((new GridLayout(8, 8)));
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        gamePanel.setLayout((new GridLayout(8, 8)));
 
         BufferedReader startPos = new BufferedReader(new FileReader("ChessGame/src/GUI/startPositions.txt"));
         String line = startPos.readLine();
@@ -40,7 +48,7 @@ public class Board extends JFrame implements ActionListener {
                 Spot curBut = new Spot(pos, row, col);
                 curBut.addActionListener(this);
                 gameboard[row][col] = curBut;
-                add(gameboard[row][col]);
+                gamePanel.add(gameboard[row][col]);
                 col++;
             }
             row++;
@@ -144,15 +152,19 @@ public class Board extends JFrame implements ActionListener {
         if(movBut == null){
             if(presBut.getPiece() != null){
                 if(showMoves(presBut)){
+                    messageLabel.setText("Välj ny plats");
                     movBut = presBut;
                 };
             }
         }
         else {
             if(movBut.getPiece().acceptedMove(this, movBut.getSpot(), presBut)){
+                messageLabel.setText("Svart/vit spelares tur");
                 move(presBut);
                 removeShowedMoves();
-                movBut = null;
+            }
+            else{
+                messageLabel.setText("Välj en giltig plats");
             }
         }
     }
