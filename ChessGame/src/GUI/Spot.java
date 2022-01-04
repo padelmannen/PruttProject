@@ -13,7 +13,7 @@ public class Spot extends JButton {
     private String color = null;
     private int row;
     private int col;
-    private Icon icon;
+    //private Icon icon;
 
     public Spot(String spotPiece, int row, int col){
 
@@ -23,7 +23,9 @@ public class Spot extends JButton {
         if(!Objects.equals(spotPiece, "N")){
             this.pieceName = spotPiece.substring(5);
             this.color = spotPiece.substring(0,5);
-            this.icon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/" + color + pieceName + ".png")));
+            Icon icon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/" + color + pieceName + ".png")));
+            //this.icon = createImageIcon()
+            this.setIcon(icon);
         }
 
         setFirstPiece();
@@ -39,9 +41,9 @@ public class Spot extends JButton {
         setBorderPainted(false);
     }
 
-    public void setIcon(Icon i){
-        icon = i;
-    }
+    //public void setIcon(Icon i){
+    //    icon = i;
+    //}
 
     public void setFirstPiece(){
         if (Objects.equals(color, "White")) {
@@ -112,11 +114,11 @@ public class Spot extends JButton {
         this.col = col;
     }
 
-    public Icon getIcon(){
-        return this.icon;
-    }
+    //public Icon getIcon(){
+    //    return this.icon;
+   // }
 
-    public void removeIcon() {
-        icon = null;
-    }
+   // public void removeIcon() {
+        //icon = null;
+    //}
 }

@@ -96,8 +96,9 @@ public class Board extends JFrame implements ActionListener {
 
 //        gameboard[newSpot.getRow()][newSpot.getCol()].setIcon(movBut.getIcon());
 //        gameboard[movBut.getRow()][movBut.getCol()].setIcon(null);
+        gameboard[oldRow][oldCol].setIcon(null);
         gameboard[newRow][newCol].setIcon(moveIcon);
-        gameboard[oldRow][oldCol].removeIcon();
+
 
 
         movBut = null;      // knappen är flyttad, ingen knapp väntar nu på att flyttas
