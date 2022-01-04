@@ -35,14 +35,14 @@ public class Rook extends Piece {
 
         if (colMin == colMax) {   //horizontal
             for (int rowPos = rowMin; rowPos < rowMax; rowPos++) {
-                if (!(spotIsNull(board, colStart, rowPos))) {
+                if (!(spotIsNull(board, rowPos, colStart))) {
                     return false;
                 }
             }
         }
         else if (rowMin == rowMax){  //vertical
             for (int colPos = colMin; colPos < colMax; colPos++) {
-                if (!(spotIsNull(board, colPos, rowStart))) {
+                if (!(spotIsNull(board, rowStart, colPos))) {
                     return false;
                 }
             }
@@ -57,8 +57,8 @@ public class Rook extends Piece {
         return xDiff == 0 || yDiff == 0;
     }
 
-    private boolean spotIsNull(Board board, int x, int y) {
-        return board.getBox(x, y).getPiece() == null;
+    private boolean spotIsNull(Board board, int row, int col) {
+        return board.getBox(row, col).getPiece() == null;
 
     }
 }
