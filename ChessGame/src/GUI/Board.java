@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 public class Board extends JFrame implements ActionListener {
@@ -125,7 +126,7 @@ public class Board extends JFrame implements ActionListener {
         }
     }
 
-    private void removeShowedMoves(){
+    private void removeShowedMoves() throws EmptyStackException{
         while (possiblemoves.peek() != null){
             possiblemoves.pop().removeAcceptedMoveColor();
         }

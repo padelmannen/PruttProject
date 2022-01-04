@@ -6,7 +6,7 @@ public class Pawn extends Piece {
 
     public Pawn(boolean white) {
         super(white);
-        moves = 0;
+        moves = 1;
     }
 
     @Override
@@ -24,21 +24,21 @@ public class Pawn extends Piece {
             return acceptedFirstMove(board, start, end);
         }
 
-        int forwardSteps = start.getCol() - end.getCol();
-        int sideSteps = Math.abs(start.getRow() - end.getRow());
+        int forwardSteps = start.getRow() - end.getRow();
+        int sideSteps = Math.abs(start.getCol() - end.getCol());
 
         if (this.isWhite()) {
             if (!(forwardSteps == -1)) {  //must go one step forward
                 return false;
             }
             if (sideSteps == 0) {
-                if (!(spotIsNull(board, end.getCol(), end.getRow()))) {  //not allowed to take straight forward
-                    return false;
-                }
+                //not allowed to take straight forward
+                return spotIsNull(board, end.getCol(), end.getRow());
             }
-            else if (sideSteps > 1){
-                return false;
+            if (sideSteps == 1) {
+                return !(spotIsNull(board, end.getCol(), end.getRow()));
             }
+
         }
         else{  //for black pawns
             if (!(forwardSteps == 1)) {   //must go one step forward
@@ -53,15 +53,17 @@ public class Pawn extends Piece {
                 return false;
             }
         }
-        moves++;
         return true;
+    }
+
+    public void increasePawnMoves(){
+        moves++;
     }
 
 
     private boolean acceptedFirstMove(Board board, Spot start, Spot end) {
         int sideSteps = Math.abs(start.getCol() - end.getCol());
         int forwardSteps = Math.abs(start.getRow() - end.getRow());
-
 
         if (!(sideSteps == 0 && (forwardSteps == 1 || forwardSteps == 2))) {  //one OR two steps forward, not allowed to take!
             return false;
@@ -77,10 +79,6 @@ public class Pawn extends Piece {
                     return false;
                 }
             }
-        }
-        moves++;
-        if (forwardSteps == 2){
-            moves ++;
         }
         return true;
     }
