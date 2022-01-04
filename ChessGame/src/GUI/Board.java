@@ -136,7 +136,6 @@ public class Board extends JFrame implements ActionListener {
                     messageLabel.setText("Pjäsen går inte att flytta");
                 }
             }
-
         }
         else {
             if(movBut.getPiece().acceptedMove(this, movBut.getSpot(), presBut)){
