@@ -34,14 +34,14 @@ public class Rook extends Piece {
         int rowMax = Math.max(rowStart, rowEnd);
 
         if (colMin == colMax) {   //horizontal
-            for (int rowPos = rowMin; rowPos < rowMax; rowPos++) {
+            for (int rowPos = rowMin+1; rowPos < rowMax; rowPos++) {
                 if (!(spotIsNull(board, rowPos, colStart))) {
                     return false;
                 }
             }
         }
-        else if (rowMin == rowMax){  //vertical
-            for (int colPos = colMin; colPos < colMax; colPos++) {
+        if (rowMin == rowMax){  //vertical
+            for (int colPos = colMin+1; colPos < colMax; colPos++) {
                 if (!(spotIsNull(board, rowStart, colPos))) {
                     return false;
                 }
