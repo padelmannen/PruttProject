@@ -58,7 +58,6 @@ public class Spot extends JButton {
         setBackground(spotColor);
         setOpaque(true);
         setBorderPainted(false);
-
     }
 
 

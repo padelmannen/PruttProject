@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Spot.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Spot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,13 +222,7 @@
       <option name="presentableId" value="LOCAL−00024" />
       <updated>1641291649314</updated>
     </task>
-    <task id="LOCAL−00025" summary="move inte klar">
-      <created>1641307220284</created>
-      <option name="number" value="LOCAL−00025" />
-      <option name="presentableId" value="LOCAL−00025" />
-      <updated>1641307220284</updated>
-    </task>
-    <option name="localTasksCounter" value="26" />
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
