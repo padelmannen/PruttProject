@@ -38,7 +38,6 @@ public class Pawn extends Piece {
             if (sideSteps == 1) {
                 return !(spotIsNull(board, end.getCol(), end.getRow()));
             }
-
         }
         else{  //for black pawns
             if (!(forwardSteps == 1)) {   //must go one step forward
