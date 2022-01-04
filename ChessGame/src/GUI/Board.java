@@ -21,12 +21,15 @@ public class Board extends JFrame implements ActionListener {
     private Spot[][] gameboard;
     private Spot movBut;
     private Stack <Spot> possiblemoves = new Stack<>();
+    private boolean whiteTurn = true;
 
     public Board() throws IOException {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(800, 800);
+        //setResizable(false);
         gameboard = new Spot[8][8];
         setLayout(new FlowLayout());
-        messageLabel.setText("Svart/vit spelare startar");
+        messageLabel.setText("Vit spelare startar");
         messagePanel.add(messageLabel);
         messagePanel.setMaximumSize(new Dimension(200, 200));
 
@@ -36,7 +39,7 @@ public class Board extends JFrame implements ActionListener {
         setupBoard();
 
         setVisible(true);
-        pack();
+        //pack();
     }
 
     private void setupBoard() throws IOException {
@@ -70,7 +73,13 @@ public class Board extends JFrame implements ActionListener {
         Spot oldSpot = gameboard[movBut.getRow()][movBut.getCol()];
         Piece movedPiece = movBut.getPiece();
 
+        if (newSpot.getPiece() instanceof King){
+            handleVictory();
+        }
+
         newSpot.setIcon(movBut.getIcon());
+
+
         newSpot.setPiece(movedPiece);
 
         oldSpot.setIcon(null);
@@ -79,7 +88,19 @@ public class Board extends JFrame implements ActionListener {
         if (movedPiece instanceof Pawn) {
             handleMovedPawn(newSpot, movedPiece);  //för att hålla koll på när bonden ska förvandlas
         }
+
+
         movBut = null;      // knappen är flyttad, ingen knapp väntar nu på att flyttas
+    }
+
+    private void handleVictory() {
+        if (whiteTurn){
+            messageLabel.setText("Vit vinner!");
+        }
+        else{
+            messageLabel.setText("Svart vinner!");
+        }
+
     }
 
     private void handleMovedPawn(Spot newSpot, Piece pawn) {
@@ -128,12 +149,25 @@ public class Board extends JFrame implements ActionListener {
 
         if(movBut == null){
             if(presBut.getPiece() != null){
-                if(showMoves(presBut)){
-                    messageLabel.setText("Välj ny plats");
-                    movBut = presBut;
+                if (presBut.getPiece().isWhite() == whiteTurn) {
+
+
+                    if (showMoves(presBut)) {
+                        messageLabel.setText("Välj ny plats");
+                        movBut = presBut;
+                    }
+                    else {
+                        messageLabel.setText("Pjäsen går inte att flytta");
+                    }
                 }
-                else{
-                    messageLabel.setText("Pjäsen går inte att flytta");
+                else {
+                    if (whiteTurn){
+                        messageLabel.setText("Välj din egen färg, Vit spelar!");
+                    }
+                    else{
+                        messageLabel.setText("Välj din egen färg, Svart spelar!");
+
+                    }
                 }
             }
         }
@@ -141,12 +175,18 @@ public class Board extends JFrame implements ActionListener {
             if(movBut.getPiece().acceptedMove(this, movBut.getSpot(), presBut)){
                 messageLabel.setText("Svart/vit spelares tur");
                 move(presBut);
+                switchTurn();
                 removeShowedMoves();
+
             }
             else{
                 messageLabel.setText("Välj en giltig plats");
             }
         }
+    }
+
+    private void switchTurn() {
+        whiteTurn = !whiteTurn;
     }
 
     public static void main(String[] args) throws IOException {

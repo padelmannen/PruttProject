@@ -11,8 +11,8 @@ public class Spot extends JButton {
     private Piece piece;
     private String pieceName = null;
     private String color = null;
-    private int row;
-    private int col;
+    private final int row;
+    private final int col;
     private final Color spotColor;
 
     public Spot(String spotPiece, int row, int col){
@@ -31,12 +31,11 @@ public class Spot extends JButton {
 
 
         if((row+col) % 2 == 0){
-            spotColor = Color.lightGray;
+            spotColor = new Color (233,220,211);
             setBackground(spotColor);
         }
         else{
-            spotColor = Color.darkGray;
-
+            spotColor = new Color (141,121,106);;
             setBackground(spotColor);
         }
         setOpaque(true);
@@ -93,14 +92,6 @@ public class Spot extends JButton {
         return this;
     }
 
-    public String getPieceName(){
-        return pieceName;
-    }
-
-    public String getPieceColor(){
-        return color;
-    }
-
     public Piece getPiece(){
         return piece;
     }
@@ -113,23 +104,9 @@ public class Spot extends JButton {
         return this.row;
     }
 
-    public void setRow(int row) {
-        this.row = row;
-    }
 
     public int getCol() {
         return this.col;
     }
 
-    public void setCol(int col) {
-        this.col = col;
-    }
-
-    //public Icon getIcon(){
-    //    return this.icon;
-   // }
-
-   // public void removeIcon() {
-        //icon = null;
-    //}
 }
