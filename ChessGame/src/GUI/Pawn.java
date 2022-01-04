@@ -56,8 +56,11 @@ public class Pawn extends Piece {
         //return true;
     }
 
-    public void increasePawnMoves(){
+    public void increasePawnMoves(int stepLength){
         moves++;
+        if (stepLength == 2){
+            moves++;
+        }
     }
 
 

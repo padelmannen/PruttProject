@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Stack;
 
 public class Board extends JFrame implements ActionListener {
@@ -27,6 +28,9 @@ public class Board extends JFrame implements ActionListener {
         setLayout(new FlowLayout());
         messageLabel.setText("Svart/vit spelare startar");
         messagePanel.add(messageLabel);
+        messagePanel.setMaximumSize(new Dimension(200, 200));
+
+
         add(messagePanel);
         add(gamePanel);
         setupBoard();
@@ -57,73 +61,46 @@ public class Board extends JFrame implements ActionListener {
         }
     }
 
-    public void updateBoard(){
-        for(Spot[] spots : gameboard) {
-            for (Spot spot : spots) {
-                Spot curBut = spot.getSpot();
-//                System.out.println(String.valueOf(curBut.getPieceColor()) + " " +
-//                        String.valueOf(curBut.getPieceName()) + " " +
-//                        String.valueOf(curBut.getRow()) + " " +
-//                        String.valueOf(curBut.getCol()));
-                gameboard[curBut.getRow()][curBut.getCol()] = curBut;
-                //add(gameboard[curBut.getRow()][curBut.getCol()]);
-            }
-        }
-        /*for (int row = 0; row < 8; row++) {
-            for (int col = 0; col < 8; col++) {
-                add(gameboard[row][col]);
-            }
-        }*/
-        System.out.println("gameboard updated");
-    }
-
     public Spot getBox(int row, int col){
         return gameboard[row][col];
     }
 
     public void move(Spot newSpot){
 
-/*        int row = movBut.getRow();
-        int col = movBut.getRow();*/
-        //System.out.println("moved " + String.valueOf(movBut.getPieceColor()) + String.valueOf(movBut.getPieceName()) +
-          //      " to " + String.valueOf(newSpot.getRow()) + " " + String.valueOf(newSpot.getCol()));
-
-/*        movBut.setRow(newSpot.getRow());    // byt ut rad och kolumn till nya värden i spotobjektet
-        movBut.setCol(newSpot.getCol());
-        newSpot.setRow(row);
-        newSpot.setCol(col);*/
-        //newSpot.setIcon(movBut.getIcon());
-        //newSpot.setPiece(movBut.getPiece());
-        //movBut.setIcon(null);
-        //movBut.setPiece(null);
-
-        //gameboard[newSpot.getRow()][newSpot.getCol()] = movBut;   // lägg in knappen som ska flyttas på ny plats
-
-        int oldRow = movBut.getRow();
-        int oldCol = movBut.getCol();
-        int newRow = newSpot.getRow();
-        int newCol = newSpot.getCol();
-        Icon moveIcon = movBut.getIcon();
+        Spot oldSpot = gameboard[movBut.getRow()][movBut.getCol()];
         Piece movedPiece = movBut.getPiece();
-        if (movedPiece instanceof Pawn){
-            ((Pawn) movedPiece).increasePawnMoves();
 
+        newSpot.setIcon(movBut.getIcon());
+        newSpot.setPiece(movedPiece);
+
+        oldSpot.setIcon(null);
+        oldSpot.setPiece(null);
+
+        if (movedPiece instanceof Pawn) {
+            handleMovedPawn(newSpot, movedPiece);  //för att hålla koll på när bonden ska förvandlas
         }
-
-//        gameboard[newSpot.getRow()][newSpot.getCol()].setIcon(movBut.getIcon());
-//        gameboard[movBut.getRow()][movBut.getCol()].setIcon(null);
-        gameboard[oldRow][oldCol].setIcon(null);
-        gameboard[oldRow][oldCol].setPiece(null);
-        gameboard[newRow][newCol].setIcon(moveIcon);
-        gameboard[newRow][newCol].setPiece(movedPiece);
-
-
-
-
         movBut = null;      // knappen är flyttad, ingen knapp väntar nu på att flyttas
+    }
 
-        //updateBoard();
-        //pack();
+    private void handleMovedPawn(Spot newSpot, Piece pawn) {
+        int stepLength = Math.abs(newSpot.getRow() - movBut.getRow());
+        ((Pawn) pawn).increasePawnMoves(stepLength);  //öka antalet steg för bonden
+        if (((Pawn) pawn).getNumOfMoves() == 6) {       //om bonden nått över till andra sidan
+            transformPawn(newSpot, pawn);               //förvandla bonden
+        }
+    }
+
+    private void transformPawn(Spot spot, Piece pawn) {
+        if (pawn.isWhite()){
+            spot.setPiece(new Queen(true));
+            Icon queenIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/WhiteQueen.png")));
+            spot.setIcon(queenIcon);
+        }
+        else {
+            spot.setPiece(new Queen(false));
+            Icon queenIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/BlackQueen.png")));
+            spot.setIcon(queenIcon);
+        }
     }
 
     public boolean showMoves(Spot curSpot){
