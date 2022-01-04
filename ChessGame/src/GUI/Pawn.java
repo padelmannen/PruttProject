@@ -6,7 +6,7 @@ public class Pawn extends Piece {
 
     public Pawn(boolean white) {
         super(white);
-        moves = 1;
+        moves = 0;
     }
 
     @Override
