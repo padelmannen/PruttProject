@@ -18,7 +18,7 @@ public class King extends Piece {
 
             int col = Math.abs(start.getCol() - end.getCol());
             int row = Math.abs(start.getRow() - end.getRow());
-            if (col + row == 1) {
+            if(col + row == 1 || col == 1 & row == 1) {
                 return true;
             }
             return false;
