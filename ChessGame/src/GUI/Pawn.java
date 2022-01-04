@@ -64,7 +64,9 @@ public class Pawn extends Piece {
     private boolean acceptedFirstMove(Board board, Spot start, Spot end) {
         int sideSteps = Math.abs(start.getCol() - end.getCol());
         int forwardSteps = Math.abs(start.getRow() - end.getRow());
-
+        if (end.getPiece() != null ) {
+            return false;
+        }
 
         if (!(sideSteps == 0 && (forwardSteps == 1 || forwardSteps == 2))) {  //one OR two steps forward, not allowed to take!
             return false;
