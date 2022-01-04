@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="move inte klar">
+    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="kung klar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +227,13 @@
       <option name="presentableId" value="LOCAL−00025" />
       <updated>1641310991849</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL−00026" summary="kung klar">
+      <created>1641311786763</created>
+      <option name="number" value="LOCAL−00026" />
+      <option name="presentableId" value="LOCAL−00026" />
+      <updated>1641311786763</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -248,7 +255,8 @@
     <MESSAGE value="board -&gt; spots" />
     <MESSAGE value="commit" />
     <MESSAGE value="move inte klar" />
-    <option name="LAST_COMMIT_MESSAGE" value="move inte klar" />
+    <MESSAGE value="kung klar" />
+    <option name="LAST_COMMIT_MESSAGE" value="kung klar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
