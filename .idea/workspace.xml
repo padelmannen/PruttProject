@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="textruta tillagd">
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" afterDir="false" />
+    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="layout inte så snygg">
+      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/GameControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +250,13 @@
       <option name="presentableId" value="LOCAL−00029" />
       <updated>1641321565868</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL−00030" summary="layout inte så snygg">
+      <created>1641321877417</created>
+      <option name="number" value="LOCAL−00030" />
+      <option name="presentableId" value="LOCAL−00030" />
+      <updated>1641321877417</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -274,7 +281,8 @@
     <MESSAGE value="klar bonde startdrag" />
     <MESSAGE value="klar bonde in game" />
     <MESSAGE value="textruta tillagd" />
-    <option name="LAST_COMMIT_MESSAGE" value="textruta tillagd" />
+    <MESSAGE value="layout inte så snygg" />
+    <option name="LAST_COMMIT_MESSAGE" value="layout inte så snygg" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
