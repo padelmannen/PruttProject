@@ -6,7 +6,7 @@ public class Pawn extends Piece {
 
     public Pawn(boolean white) {
         super(white);
-        moves = 0;
+        moves = 1;
     }
 
     @Override
@@ -28,30 +28,32 @@ public class Pawn extends Piece {
         int sideSteps = Math.abs(start.getCol() - end.getCol());
 
         if (this.isWhite()) {
-            if (!(forwardSteps == -1)) {  //must go one step forward
-                return false;
-            }
-            if (sideSteps == 0) {
-                //not allowed to take straight forward
-                return (spotIsNull(board, end.getCol(), end.getCol()));
-            }
-            if (sideSteps == 1) {
-                return !(spotIsNull(board, end.getCol(), end.getCol()));
-            }
-        }
-        else{  //for black pawns
             if (!(forwardSteps == 1)) {  //must go one step forward
                 return false;
             }
             if (sideSteps == 0) {
                 //not allowed to take straight forward
-                return (spotIsNull(board, end.getCol(), end.getCol()));
+                return (spotIsNull(board, end.getRow(), end.getCol()));
             }
             if (sideSteps == 1) {
-                return !(spotIsNull(board, end.getCol(), end.getCol()));
+                return !(spotIsNull(board, end.getRow(), end.getCol()));
             }
+            return false;
         }
-        return true;
+        else{  //for black pawns
+            if (!(forwardSteps == -1)) {  //must go one step forward
+                return false;
+            }
+            if (sideSteps == 0) {
+                //not allowed to take straight forward
+                return (spotIsNull(board, end.getRow(), end.getCol()));
+            }
+            if (sideSteps == 1) {
+                return !(spotIsNull(board, end.getRow(), end.getCol()));
+            }
+            return false;
+        }
+        //return true;
     }
 
     public void increasePawnMoves(){

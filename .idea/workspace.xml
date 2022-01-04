@@ -226,7 +226,13 @@
       <option name="presentableId" value="LOCAL−00025" />
       <updated>1641311857508</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL−00026" summary="klar bonde startdrag">
+      <created>1641313395160</created>
+      <option name="number" value="LOCAL−00026" />
+      <option name="presentableId" value="LOCAL−00026" />
+      <updated>1641313395161</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -248,7 +254,8 @@
     <MESSAGE value="board -&gt; spots" />
     <MESSAGE value="commit" />
     <MESSAGE value="move inte klar" />
-    <option name="LAST_COMMIT_MESSAGE" value="move inte klar" />
+    <MESSAGE value="klar bonde startdrag" />
+    <option name="LAST_COMMIT_MESSAGE" value="klar bonde startdrag" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -257,6 +264,11 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ChessGame/src/GUI/Pawn.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
