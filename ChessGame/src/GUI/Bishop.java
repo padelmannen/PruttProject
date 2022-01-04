@@ -19,7 +19,6 @@ public class Bishop extends Piece {
         if (!(acceptedDirection(start, end))) {
             return false;
         }
-        System.out.println("ok");
         return clearPath(board, start, end);
     }
 
@@ -31,7 +30,7 @@ public class Bishop extends Piece {
 
         int stepLength = Math.abs(colStart - colEnd);
 
-        if (rowStart > rowEnd && colStart > colEnd ) {   //south west
+        if (rowStart > rowEnd && colStart > colEnd) {   //south west
             for (int i = 1; i < stepLength; i++){
                 int rowPos = rowStart - i;
                 int colPos = colStart - i;
@@ -77,7 +76,6 @@ public class Bishop extends Piece {
     }
 
     private boolean spotIsNull(Board board, int row, int col) {
-        System.out.println(String.valueOf(row) +" "+ String.valueOf(col));
         return board.getBox(row, col).getPiece() == null;
 
     }

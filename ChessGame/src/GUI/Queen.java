@@ -35,53 +35,52 @@ public class Queen extends Piece {
 
         int stepLength = Math.abs(rowStart - rowEnd);
 
-
         if (colMin == colMax) {   //horizontal
-            for (int rowPos = rowMin; rowPos < rowMax; rowPos++) {
-                if (!(spotIsNull(board, colStart, rowPos))) {
+            for (int rowPos = rowMin+1; rowPos < rowMax; rowPos++) {
+                if (!(spotIsNull(board, rowPos, colStart))) {
                     return false;
                 }
             }
         }
         else if (rowMin == rowMax){  //vertical
-            for (int colPos = colMin; colPos < colMax; colPos++) {
-                if (!(spotIsNull(board, colPos, rowStart))) {
+            for (int colPos = colMin+1; colPos < colMax; colPos++) {
+                if (!(spotIsNull(board, rowStart, colPos))) {
                     return false;
                 }
             }
         }
-        else if (colStart > colEnd && rowStart > rowEnd) {   //south west
+        else if (rowStart > rowEnd && colStart > colEnd) {   //south west
             for (int i = 1; i < stepLength; i++){
-                int colPos = colStart - i;
                 int rowPos = rowStart - i;
-                if (!(spotIsNull(board, colPos, rowPos))) {
-                    return false;
-                }
-            }
-        }
-        else if (colStart > colEnd) { //north west
-            for (int i = 1; i < stepLength; i++){
                 int colPos = colStart - i;
-                int rowPos = rowStart + i;
-                if (!(spotIsNull(board, colPos, rowPos))) {
+                if (!(spotIsNull(board, rowPos, colPos))) {
                     return false;
                 }
             }
         }
-        else if (rowStart > rowEnd) {  // south east
+        else if (rowStart > rowEnd) { //north west
             for (int i = 1; i < stepLength; i++){
+                int rowPos = rowStart - i;
                 int colPos = colStart + i;
-                int rowPos = rowStart - i;
-                if (!(spotIsNull(board, colPos, rowPos))) {
+                if (!(spotIsNull(board, rowPos, colPos))) {
+                    return false;
+                }
+            }
+        }
+        else if (colStart > colEnd) {  // south east
+            for (int i = 1; i < stepLength; i++){
+                int rowPos = rowStart + i;
+                int colPos = colStart - i;
+                if (!(spotIsNull(board, rowPos, colPos))) {
                     return false;
                 }
             }
         }
         else {                                      //north east
             for (int i = 1; i < stepLength; i++) {
-                int xPos = colStart + i;
-                int yPos = rowStart + i;
-                if (!(spotIsNull(board, xPos, yPos))) {
+                int rowPos = rowStart + i;
+                int colPos = colStart + i;
+                if (!(spotIsNull(board, rowPos, colPos))) {
                     return false;
                 }
             }
@@ -96,8 +95,8 @@ public class Queen extends Piece {
         return colDiff == rowDiff || colDiff == 0 || rowDiff == 0;
     }
 
-    private boolean spotIsNull(Board board, int col, int row) {
-        return board.getBox(col, row).getPiece() == null;
+    private boolean spotIsNull(Board board, int row, int col) {
+        return board.getBox(row, col).getPiece() == null;
 
     }
 }
