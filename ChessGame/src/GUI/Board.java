@@ -117,15 +117,18 @@ public class Board extends JFrame implements ActionListener {
         //pack();
     }
 
-    public void showMoves(Spot curSpot){
+    public boolean showMoves(Spot curSpot){
+        boolean movePossible = false;
         for(Spot[] spots : gameboard){
             for(Spot spot : spots){
                   if (curSpot.getPiece().acceptedMove(this, curSpot, spot)) {
+                      movePossible = true;
                       spot.setAcceptedMoveColor();
                       possiblemoves.push(spot);
                   }
             }
         }
+        return movePossible;
     }
 
     private void removeShowedMoves(){
@@ -139,8 +142,9 @@ public class Board extends JFrame implements ActionListener {
 
         if(movBut == null){
             if(presBut.getPiece() != null){
-                showMoves(presBut);
-                movBut = presBut;
+                if(showMoves(presBut)){
+                    movBut = presBut;
+                };
             }
         }
         else {
