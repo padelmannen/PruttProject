@@ -99,6 +99,7 @@ public class Board extends JFrame implements ActionListener {
         Piece movedPiece = movBut.getPiece();
         if (movedPiece instanceof Pawn){
             ((Pawn) movedPiece).increasePawnMoves();
+
         }
 
 //        gameboard[newSpot.getRow()][newSpot.getCol()].setIcon(movBut.getIcon());
