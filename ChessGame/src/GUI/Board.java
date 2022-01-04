@@ -154,8 +154,12 @@ public class Board extends JFrame implements ActionListener {
                 if(showMoves(presBut)){
                     messageLabel.setText("Välj ny plats");
                     movBut = presBut;
-                };
+                }
+                else{
+                    messageLabel.setText("Pjäsen går inte att flytta");
+                }
             }
+
         }
         else {
             if(movBut.getPiece().acceptedMove(this, movBut.getSpot(), presBut)){

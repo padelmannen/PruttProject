@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="klar bonde in game">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="textruta tillagd">
       <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -244,7 +243,13 @@
       <option name="presentableId" value="LOCAL−00028" />
       <updated>1641317663986</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL−00029" summary="textruta tillagd">
+      <created>1641321565868</created>
+      <option name="number" value="LOCAL−00029" />
+      <option name="presentableId" value="LOCAL−00029" />
+      <updated>1641321565868</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -268,7 +273,8 @@
     <MESSAGE value="move inte klar" />
     <MESSAGE value="klar bonde startdrag" />
     <MESSAGE value="klar bonde in game" />
-    <option name="LAST_COMMIT_MESSAGE" value="klar bonde in game" />
+    <MESSAGE value="textruta tillagd" />
+    <option name="LAST_COMMIT_MESSAGE" value="textruta tillagd" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
