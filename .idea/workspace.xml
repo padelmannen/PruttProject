@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="kung klar">
+    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Bishop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Pawn.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,16 +221,16 @@
       <updated>1641291649314</updated>
     </task>
     <task id="LOCAL−00025" summary="move inte klar">
-      <created>1641310991849</created>
+      <created>1641311857508</created>
       <option name="number" value="LOCAL−00025" />
       <option name="presentableId" value="LOCAL−00025" />
-      <updated>1641310991849</updated>
+      <updated>1641311857508</updated>
     </task>
-    <task id="LOCAL−00026" summary="kung klar">
-      <created>1641311786763</created>
+    <task id="LOCAL−00026" summary="klar bonde startdrag">
+      <created>1641313395160</created>
       <option name="number" value="LOCAL−00026" />
       <option name="presentableId" value="LOCAL−00026" />
-      <updated>1641311786763</updated>
+      <updated>1641313395161</updated>
     </task>
     <option name="localTasksCounter" value="27" />
     <servers />
@@ -255,8 +254,8 @@
     <MESSAGE value="board -&gt; spots" />
     <MESSAGE value="commit" />
     <MESSAGE value="move inte klar" />
-    <MESSAGE value="kung klar" />
-    <option name="LAST_COMMIT_MESSAGE" value="kung klar" />
+    <MESSAGE value="klar bonde startdrag" />
+    <option name="LAST_COMMIT_MESSAGE" value="klar bonde startdrag" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -265,6 +264,11 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ChessGame/src/GUI/Pawn.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

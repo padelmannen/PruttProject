@@ -13,7 +13,7 @@ public class Spot extends JButton {
     private String color = null;
     private int row;
     private int col;
-    private Color spotColor;
+    private final Color spotColor;
     //private Icon icon;
 
     public Spot(String spotPiece, int row, int col){
