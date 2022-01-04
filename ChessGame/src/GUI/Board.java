@@ -8,12 +8,15 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Stack;
 
 public class Board extends JFrame implements ActionListener {
 
     private Spot[][] gameboard;
     private Spot movBut;
+    private Stack <Spot> possiblemoves = new Stack<>();
 
     public Board() throws IOException {
         gameboard = new Spot[8][8];
@@ -93,11 +96,15 @@ public class Board extends JFrame implements ActionListener {
         int newRow = newSpot.getRow();
         int newCol = newSpot.getCol();
         Icon moveIcon = movBut.getIcon();
+        Piece movedPiece = movBut.getPiece();
 
 //        gameboard[newSpot.getRow()][newSpot.getCol()].setIcon(movBut.getIcon());
 //        gameboard[movBut.getRow()][movBut.getCol()].setIcon(null);
         gameboard[oldRow][oldCol].setIcon(null);
+        gameboard[oldRow][oldCol].setPiece(null);
         gameboard[newRow][newCol].setIcon(moveIcon);
+        gameboard[newRow][newCol].setPiece(movedPiece);
+
 
 
 
@@ -107,26 +114,35 @@ public class Board extends JFrame implements ActionListener {
         //pack();
     }
 
-  //  public void showMoves(Spot curSpot){
-//        for(Spot[] spots : gameboard){
-//            for(Spot spot : spots){
-//                  //kolla om man får gå hit
-                    // om ja, ändra bakgrundsfärg till grön
-//            }
-//        }
-   // }
+    public void showMoves(Spot curSpot){
+        for(Spot[] spots : gameboard){
+            for(Spot spot : spots){
+                  if (curSpot.getPiece().acceptedMove(this, curSpot, spot)) {
+                      spot.setAcceptedMoveColor();
+                      possiblemoves.push(spot);
+                  }
+            }
+        }
+    }
+
+    private void removeShowedMoves(){
+        while (possiblemoves.peek() != null){
+            possiblemoves.pop().removeAcceptedMoveColor();
+        }
+    }
 
     public void actionPerformed(ActionEvent e) {
         Spot presBut = (Spot)e.getSource();
 
         if(movBut == null){
-            if(presBut.getPieceName() != null){
-                //showMoves(presBut);
+            if(presBut.getPiece() != null){
+                showMoves(presBut);
                 movBut = presBut;
             }
         }
         else {
             move(presBut);
+            removeShowedMoves();
             movBut = null;
         }
     }

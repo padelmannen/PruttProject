@@ -10,8 +10,10 @@ public class King extends Piece {
     public boolean acceptedMove(Board board, Spot start, Spot end) {
             // we can't move the piece to a Spot that
             // has a piece of the same color
-            if (end.getPiece().isWhite() == this.isWhite()) {
-                return false;
+            if (end.getPiece() != null ) {
+                if (end.getPiece().isWhite() == this.isWhite()) {    //cannot go to square with same piece colour
+                    return false;
+                }
             }
 
             int col = Math.abs(start.getCol() - end.getCol());

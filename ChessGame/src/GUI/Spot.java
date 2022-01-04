@@ -8,11 +8,12 @@ import java.util.Objects;
 
 public class Spot extends JButton {
 
-    private Piece piece = null;
+    private Piece piece;
     private String pieceName = null;
     private String color = null;
     private int row;
     private int col;
+    private Color spotColor;
     //private Icon icon;
 
     public Spot(String spotPiece, int row, int col){
@@ -32,10 +33,12 @@ public class Spot extends JButton {
 
 
         if((row+col) % 2 == 0){
-            setBackground(Color.darkGray);
+            spotColor = Color.darkGray;
+            setBackground(spotColor);
         }
         else{
-            setBackground(Color.lightGray);
+            spotColor = Color.lightGray;
+            setBackground(spotColor);
         }
         setOpaque(true);
         setBorderPainted(false);
@@ -44,6 +47,20 @@ public class Spot extends JButton {
     //public void setIcon(Icon i){
     //    icon = i;
     //}
+
+    public void setAcceptedMoveColor() {
+        setBackground(Color.green);
+        setOpaque(true);
+        setBorderPainted(false);
+    }
+
+    public void removeAcceptedMoveColor(){
+        setBackground(spotColor);
+        setOpaque(true);
+        setBorderPainted(false);
+
+    }
+
 
     public void setFirstPiece(){
         if (Objects.equals(color, "White")) {
