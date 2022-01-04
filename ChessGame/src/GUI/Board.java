@@ -21,6 +21,8 @@ public class Board extends JFrame implements ActionListener {
     private Spot[][] gameboard;
     private Spot movBut;
     private Stack <Spot> possiblemoves = new Stack<>();
+    private boolean whiteKingCheck = false;  //kan behövas
+    private boolean blackKingCheck = false; //kan behövas
     private boolean whiteTurn = true;
 
     public Board() throws IOException {
@@ -88,8 +90,6 @@ public class Board extends JFrame implements ActionListener {
         if (movedPiece instanceof Pawn) {
             handleMovedPawn(newSpot, movedPiece);  //för att hålla koll på när bonden ska förvandlas
         }
-
-
         movBut = null;      // knappen är flyttad, ingen knapp väntar nu på att flyttas
     }
 
@@ -100,7 +100,6 @@ public class Board extends JFrame implements ActionListener {
         else{
             messageLabel.setText("Svart vinner!");
         }
-
     }
 
     private void handleMovedPawn(Spot newSpot, Piece pawn) {
@@ -148,39 +147,47 @@ public class Board extends JFrame implements ActionListener {
         Spot presBut = (Spot)e.getSource();
 
         if(movBut == null){
-            if(presBut.getPiece() != null){
-                if (presBut.getPiece().isWhite() == whiteTurn) {
-
-
-                    if (showMoves(presBut)) {
-                        messageLabel.setText("Välj ny plats");
-                        movBut = presBut;
-                    }
-                    else {
-                        messageLabel.setText("Pjäsen går inte att flytta");
-                    }
-                }
-                else {
-                    if (whiteTurn){
-                        messageLabel.setText("Välj din egen färg, Vit spelar!");
-                    }
-                    else{
-                        messageLabel.setText("Välj din egen färg, Svart spelar!");
-
-                    }
-                }
-            }
+            checkChosenSpot(presBut);
         }
         else {
             if(movBut.getPiece().acceptedMove(this, movBut.getSpot(), presBut)){
                 messageLabel.setText("Svart/vit spelares tur");
                 move(presBut);
+                checkForCheck(); //kolla ifall motsåndaren står i schack
                 switchTurn();
                 removeShowedMoves();
 
             }
             else{
                 messageLabel.setText("Välj en giltig plats");
+            }
+        }
+    }
+
+    private void checkForCheck() { //metod som kollar om någon pjäs hotar motståndarens kung
+    //todo: kolla om en kung står i schack
+    }
+
+    private void checkChosenSpot(Spot presBut) {
+
+        if(presBut.getPiece() != null){
+            if (presBut.getPiece().isWhite() == whiteTurn) {
+                if (showMoves(presBut)) {
+                    messageLabel.setText("Välj ny plats");
+                    movBut = presBut;
+                }
+            }
+            else {
+                messageLabel.setText("Pjäsen går inte att flytta");
+            }
+        }
+        else {
+            if (whiteTurn){
+                messageLabel.setText("Välj din egen färg, Vit spelar!");
+            }
+            else{
+                messageLabel.setText("Välj din egen färg, Svart spelar!");
+
             }
         }
     }
