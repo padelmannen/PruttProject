@@ -33,23 +33,22 @@ public class Pawn extends Piece {
             }
             if (sideSteps == 0) {
                 //not allowed to take straight forward
-                return spotIsNull(board, end.getCol(), end.getRow());
+                return (spotIsNull(board, end.getCol(), end.getCol()));
             }
             if (sideSteps == 1) {
-                return !(spotIsNull(board, end.getCol(), end.getRow()));
+                return !(spotIsNull(board, end.getCol(), end.getCol()));
             }
         }
         else{  //for black pawns
-            if (!(forwardSteps == 1)) {   //must go one step forward
+            if (!(forwardSteps == 1)) {  //must go one step forward
                 return false;
             }
-            if (sideSteps == 0){
-                if (!(spotIsNull(board, end.getCol(), end.getCol()))) {   //not allowed to take straight forward
-                    return false;
-                }
+            if (sideSteps == 0) {
+                //not allowed to take straight forward
+                return (spotIsNull(board, end.getCol(), end.getCol()));
             }
-            else if (sideSteps > 1){
-                return false;
+            if (sideSteps == 1) {
+                return !(spotIsNull(board, end.getCol(), end.getCol()));
             }
         }
         return true;
@@ -64,17 +63,18 @@ public class Pawn extends Piece {
         int sideSteps = Math.abs(start.getCol() - end.getCol());
         int forwardSteps = Math.abs(start.getRow() - end.getRow());
 
+
         if (!(sideSteps == 0 && (forwardSteps == 1 || forwardSteps == 2))) {  //one OR two steps forward, not allowed to take!
             return false;
         }
         if (forwardSteps == 2) { //not allowed to jump over piece from start
             if (this.isWhite()) {
-                if (!(spotIsNull(board, start.getCol(), start.getRow() - 1))) {
+                if (!(spotIsNull(board, start.getRow() - 1, start.getCol()))) {
                     return false;
                 }
             }
             else{
-                if (!(spotIsNull(board, start.getCol(), start.getRow() + 1))) {
+                if (!(spotIsNull(board, start.getRow() + 1, start.getCol()))) {
                     return false;
                 }
             }
@@ -82,8 +82,8 @@ public class Pawn extends Piece {
         return true;
     }
 
-    private boolean spotIsNull(Board board, int col, int row) {
-        return board.getBox(col, row).getPiece() == null;
+    private boolean spotIsNull(Board board, int row, int col) {
+        return board.getBox(row, col).getPiece() == null;
     }
 
     public int getNumOfMoves(){
