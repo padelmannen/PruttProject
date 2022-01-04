@@ -107,14 +107,14 @@ public class Board extends JFrame implements ActionListener {
         //pack();
     }
 
-    public void showMoves(Spot curSpot){
+  //  public void showMoves(Spot curSpot){
 //        for(Spot[] spots : gameboard){
 //            for(Spot spot : spots){
 //                  //kolla om man får gå hit
                     // om ja, ändra bakgrundsfärg till grön
 //            }
 //        }
-    }
+   // }
 
     public void actionPerformed(ActionEvent e) {
         Spot presBut = (Spot)e.getSource();
