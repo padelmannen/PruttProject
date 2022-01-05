@@ -29,7 +29,6 @@ public class Spot extends JButton {
 
         setFirstPiece();
 
-
         if((row+col) % 2 == 0){
             spotColor = new Color (233,220,211);
             setBackground(spotColor);
@@ -43,15 +42,11 @@ public class Spot extends JButton {
     }
 
     public void setAcceptedMoveColor() {
-        setBackground(Color.green);
-        setOpaque(true);
-        setBorderPainted(false);
+        setBackground(new Color (63, 154, 33, 107));
     }
 
     public void removeAcceptedMoveColor(){
         setBackground(spotColor);
-        setOpaque(true);
-        setBorderPainted(false);
     }
 
 

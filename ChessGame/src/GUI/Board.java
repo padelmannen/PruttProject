@@ -18,6 +18,7 @@ public class Board extends JFrame implements ActionListener {
     private JPanel gamePanel = new JPanel();
     private JPanel messagePanel = new JPanel();
     private JLabel messageLabel = new JLabel();
+    private JLabel checkLabel = new JLabel();
     private Spot[][] gameboard;
     private Spot movBut;
     private Stack <Spot> possiblemoves = new Stack<>();
@@ -31,8 +32,11 @@ public class Board extends JFrame implements ActionListener {
         //setResizable(false);
         gameboard = new Spot[8][8];
         setLayout(new FlowLayout());
+        messagePanel.setLayout(new GridLayout(2,1));
         messageLabel.setText("Vit spelare startar");
         messagePanel.add(messageLabel);
+        checkLabel.setText("Ingen schack");
+        messagePanel.add(checkLabel);
         messagePanel.setMaximumSize(new Dimension(200, 200));
 
 
@@ -151,10 +155,15 @@ public class Board extends JFrame implements ActionListener {
         }
         else {
             if(movBut.getPiece().acceptedMove(this, movBut.getSpot(), presBut)){
-                messageLabel.setText("Svart/vit spelares tur");
                 move(presBut);
                 checkForCheck(); //kolla ifall motsåndaren står i schack
                 switchTurn();
+                if(whiteTurn){
+                    messageLabel.setText("Vit spelares tur");
+                }
+                else{
+                    messageLabel.setText("Svart spelares tur");
+                }
                 removeShowedMoves();
 
             }
@@ -165,7 +174,38 @@ public class Board extends JFrame implements ActionListener {
     }
 
     private void checkForCheck() { //metod som kollar om någon pjäs hotar motståndarens kung
-    //todo: kolla om en kung står i schack
+        Spot blackKingSpot = null;
+        Spot whiteKingSpot = null;
+
+        for (Spot[] spots : gameboard) {
+            for (Spot spot : spots) {
+                if (spot.getPiece() != null && spot.getPiece().getClass() == King.class) {
+                    if (spot.getPiece().isWhite()) {
+                        whiteKingSpot = spot;
+                    } else {
+                        blackKingSpot = spot;
+                    }
+                }
+            }
+        }
+        for (Spot[] spots : gameboard) {
+            for (Spot spot : spots) {
+                if(spot.getPiece() != null){
+                    if (spot.getPiece().isWhite()){
+                        if (spot.getPiece().acceptedMove(this, blackKingSpot, spot)) {
+                            System.out.println("check");
+                            checkLabel.setText("Svart kung i schack");
+                        }
+                    }
+                    else{
+                        if (spot.getPiece().acceptedMove(this, whiteKingSpot, spot)) {
+                            System.out.println("check");
+                            checkLabel.setText("Vit kung i schack");
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private void checkChosenSpot(Spot presBut) {
