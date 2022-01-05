@@ -192,6 +192,8 @@ public class Board extends JFrame implements ActionListener {
                 }
             }
         }
+
+        //kollar just nu om båda är i schack eftersom egna drag kan medföra att ens kung hamnar i schack
         for (Spot[] spots : gameboard) {
             for (Spot spot : spots) {
                 if(spot.getPiece() != null){
