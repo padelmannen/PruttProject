@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="fungerande schackfunktion">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="byta vald pjäs">
       <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Fredrik" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -302,7 +302,13 @@
       <option name="presentableId" value="LOCAL−00036" />
       <updated>1641394747951</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL−00037" summary="byta vald pjäs">
+      <created>1641397465578</created>
+      <option name="number" value="LOCAL−00037" />
+      <option name="presentableId" value="LOCAL−00037" />
+      <updated>1641397465578</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -333,7 +339,8 @@
     <MESSAGE value="commit" />
     <MESSAGE value="check funkar" />
     <MESSAGE value="fungerande schackfunktion" />
-    <option name="LAST_COMMIT_MESSAGE" value="fungerande schackfunktion" />
+    <MESSAGE value="byta vald pjäs" />
+    <option name="LAST_COMMIT_MESSAGE" value="byta vald pjäs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
