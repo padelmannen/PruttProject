@@ -26,9 +26,13 @@ public class Board extends JFrame implements ActionListener {
     public Board() throws IOException {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 800);
+        setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.HORIZONTAL;
+
         //setResizable(false);
         gameboard = new Spot[8][8];
-        setLayout(new FlowLayout());
+        //setLayout(new FlowLayout());
         messagePanel.setLayout(new GridLayout(3,1));
         messageLabel.setText("Vit spelare startar");
         messagePanel.add(messageLabel);
@@ -179,6 +183,8 @@ public class Board extends JFrame implements ActionListener {
     private void checkForCheck() { //metod som kollar om någon pjäs hotar motståndarens kung
         Spot blackKingSpot = null;
         Spot whiteKingSpot = null;
+        whiteCheckLabel.setText("");
+        blackCheckLabel.setText("");
         blackKingCheck = false;
         whiteKingCheck = false;
 

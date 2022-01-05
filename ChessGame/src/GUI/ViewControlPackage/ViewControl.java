@@ -15,7 +15,7 @@ class ViewControl extends JFrame implements ActionListener {
     JLabel whiteCheckStatus;
     Board gameboard = new Board();
 
-    public ViewControl() throws IOException {
+    public ViewControl() throws IOException, NullPointerException {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setupView();
     }
@@ -50,7 +50,7 @@ class ViewControl extends JFrame implements ActionListener {
         gamePanel.add(gameboard);
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, NullPointerException {
         new ViewControl();
     }
 

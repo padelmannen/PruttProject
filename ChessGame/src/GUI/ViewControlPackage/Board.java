@@ -11,7 +11,7 @@ import java.util.*;
 
 public class Board extends JFrame implements ActionListener {
 
-    private final Spot[][] gameboard;
+    public final Spot[][] gameboard;
     private Spot movBut;
     public final Stack <Spot> possiblemoves = new Stack<>();
     public boolean whiteKingCheck = false;
@@ -20,12 +20,12 @@ public class Board extends JFrame implements ActionListener {
     public boolean whiteWin = false;
     public boolean blackWin = false;
 
-    public Board() throws IOException {
+    public Board() throws IOException, NullPointerException {
         gameboard = new Spot[8][8];
         setupBoard();
     }
 
-    private void setupBoard() throws IOException {
+    private void setupBoard() throws IOException, NullPointerException {
 
         BufferedReader startPos = new BufferedReader(new FileReader("ChessGame/src/GUI/startPositions.txt"));
         String line = startPos.readLine();
