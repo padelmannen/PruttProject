@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="">
+    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Spot.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Spot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,7 +282,13 @@
       <option name="presentableId" value="LOCAL−00033" />
       <updated>1641332773004</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL−00034" summary="commit">
+      <created>1641391316946</created>
+      <option name="number" value="LOCAL−00034" />
+      <option name="presentableId" value="LOCAL−00034" />
+      <updated>1641391316946</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -303,7 +308,6 @@
     <MESSAGE value="bishop" />
     <MESSAGE value="startpos" />
     <MESSAGE value="board -&gt; spots" />
-    <MESSAGE value="commit" />
     <MESSAGE value="move inte klar" />
     <MESSAGE value="klar bonde startdrag" />
     <MESSAGE value="klar bonde in game" />
@@ -312,7 +316,8 @@
     <MESSAGE value="fixat bondeförvandling, png-namn, och snyggat till board-klassen" />
     <MESSAGE value="snyggat till klasserna" />
     <MESSAGE value="känner av om kungen blivit dödad" />
-    <option name="LAST_COMMIT_MESSAGE" value="känner av om kungen blivit dödad" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

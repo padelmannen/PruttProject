@@ -18,7 +18,8 @@ public class Board extends JFrame implements ActionListener {
     private JPanel gamePanel = new JPanel();
     private JPanel messagePanel = new JPanel();
     private JLabel messageLabel = new JLabel();
-    private JLabel checkLabel = new JLabel();
+    private JLabel whiteCheckLabel = new JLabel();
+    private JLabel blackCheckLabel = new JLabel();
     private Spot[][] gameboard;
     private Spot movBut;
     private Stack <Spot> possiblemoves = new Stack<>();
@@ -32,11 +33,11 @@ public class Board extends JFrame implements ActionListener {
         //setResizable(false);
         gameboard = new Spot[8][8];
         setLayout(new FlowLayout());
-        messagePanel.setLayout(new GridLayout(2,1));
+        messagePanel.setLayout(new GridLayout(3,1));
         messageLabel.setText("Vit spelare startar");
         messagePanel.add(messageLabel);
-        checkLabel.setText("Ingen schack");
-        messagePanel.add(checkLabel);
+        messagePanel.add(whiteCheckLabel);
+        messagePanel.add(blackCheckLabel);
         messagePanel.setMaximumSize(new Dimension(200, 200));
 
 
@@ -85,7 +86,6 @@ public class Board extends JFrame implements ActionListener {
 
         newSpot.setIcon(movBut.getIcon());
 
-
         newSpot.setPiece(movedPiece);
 
         oldSpot.setIcon(null);
@@ -104,6 +104,10 @@ public class Board extends JFrame implements ActionListener {
         else{
             messageLabel.setText("Svart vinner!");
         }
+        remove(gamePanel);
+        messagePanel.remove(blackCheckLabel);
+        messagePanel.remove(whiteCheckLabel);
+        repaint();
     }
 
     private void handleMovedPawn(Spot newSpot, Piece pawn) {
@@ -192,15 +196,13 @@ public class Board extends JFrame implements ActionListener {
             for (Spot spot : spots) {
                 if(spot.getPiece() != null){
                     if (spot.getPiece().isWhite()){
-                        if (spot.getPiece().acceptedMove(this, blackKingSpot, spot)) {
-                            System.out.println("check");
-                            checkLabel.setText("Svart kung i schack");
+                        if (spot.getPiece().acceptedMove(this, spot, blackKingSpot)) {
+                            blackCheckLabel.setText("Svart kung i schack");
                         }
                     }
                     else{
-                        if (spot.getPiece().acceptedMove(this, whiteKingSpot, spot)) {
-                            System.out.println("check");
-                            checkLabel.setText("Vit kung i schack");
+                        if (spot.getPiece().acceptedMove(this, spot, whiteKingSpot)) {
+                            whiteCheckLabel.setText("Vit kung i schack");
                         }
                     }
                 }
