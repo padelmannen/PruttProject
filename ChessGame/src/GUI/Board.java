@@ -8,10 +8,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Stack;
+import java.util.*;
 
 public class Board extends JFrame implements ActionListener {
 
@@ -76,7 +73,6 @@ public class Board extends JFrame implements ActionListener {
     }
 
     public void move(Spot newSpot){
-
         Spot oldSpot = gameboard[movBut.getRow()][movBut.getCol()];
         Piece movedPiece = movBut.getPiece();
 
@@ -145,8 +141,8 @@ public class Board extends JFrame implements ActionListener {
         return movePossible;
     }
 
-    private void removeShowedMoves(){
-        while (possiblemoves.peek() != null){
+    private void removeShowedMoves() {
+        while (!possiblemoves.isEmpty()){
             possiblemoves.pop().removeAcceptedMoveColor();
         }
     }
@@ -169,7 +165,11 @@ public class Board extends JFrame implements ActionListener {
                     messageLabel.setText("Svart spelares tur");
                 }
                 removeShowedMoves();
-
+            }
+            else if(movBut.getPiece().isWhite() == presBut.getPiece().isWhite()){
+                movBut = presBut;
+                removeShowedMoves();
+                checkChosenSpot(presBut);
             }
             else{
                 messageLabel.setText("Välj en giltig plats");
@@ -183,7 +183,7 @@ public class Board extends JFrame implements ActionListener {
 
         for (Spot[] spots : gameboard) {
             for (Spot spot : spots) {
-                if (spot.getPiece() != null && spot.getPiece().getClass() == King.class) {
+                if (spot.getPiece() != null && spot.getPiece() instanceof King) {
                     if (spot.getPiece().isWhite()) {
                         whiteKingSpot = spot;
                     } else {
