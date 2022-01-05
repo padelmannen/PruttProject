@@ -8,30 +8,44 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.SQLOutput;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
+import java.util.Stack;
 
 public class Board extends JFrame implements ActionListener {
-//    private final String[] colors = {"Black","White"};
-//    private final Integer[] rows = {1,2,3,4,5,6,7,8};
-//    private final String[] columns = {"a","b","c","d","e","f","g","h"};
 
-    private final Spot[][] board;
+    private JPanel gamePanel = new JPanel();
+    private JPanel messagePanel = new JPanel();
+    private JLabel messageLabel = new JLabel();
+    private Spot[][] gameboard;
     private Spot movBut;
-    private int curRow;
-    private int curCol;
-    private Spot[] possibleMoves;
-    private Color[] prevColor;
+    private Stack <Spot> possiblemoves = new Stack<>();
+    private boolean whiteKingCheck = false;  //kan behövas
+    private boolean blackKingCheck = false; //kan behövas
+    private boolean whiteTurn = true;
 
     public Board() throws IOException {
-        board = new Spot[8][8];
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(800, 800);
+        //setResizable(false);
+        gameboard = new Spot[8][8];
+        setLayout(new FlowLayout());
+        messageLabel.setText("Vit spelare startar");
+        messagePanel.add(messageLabel);
+        messagePanel.setMaximumSize(new Dimension(200, 200));
+
+
+        add(messagePanel);
+        add(gamePanel);
         setupBoard();
+
         setVisible(true);
-        pack();
+        //pack();
     }
 
     private void setupBoard() throws IOException {
-        setLayout((new GridLayout(8, 8)));
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        gamePanel.setLayout((new GridLayout(8, 8)));
 
         BufferedReader startPos = new BufferedReader(new FileReader("ChessGame/src/GUI/startPositions.txt"));
         String line = startPos.readLine();
@@ -42,8 +56,8 @@ public class Board extends JFrame implements ActionListener {
             for(String pos : positions){
                 Spot curBut = new Spot(pos, row, col);
                 curBut.addActionListener(this);
-                add(curBut);
-                board[row][col] = curBut;
+                gameboard[row][col] = curBut;
+                gamePanel.add(gameboard[row][col]);
                 col++;
             }
             row++;
@@ -52,55 +66,134 @@ public class Board extends JFrame implements ActionListener {
         }
     }
 
-    public void move(Spot newSpot){
-
-        int newRow = newSpot.getX()/72;
-        int newCol = newSpot.getY()/76;
-        System.out.println("old: " + String.valueOf(curRow) + " " + String.valueOf(curCol));
-        System.out.println("new: " + String.valueOf(newRow) + " " + String.valueOf(newCol));
-        board[newRow][newCol] = new Spot(movBut.getPiece(), newRow, newCol);
-        board[curRow][curCol] = new Spot("N", curRow, curCol);
-
-        possibleMoves[0].setBackground(prevColor[0]);
-        possibleMoves[1].setBackground(prevColor[1]);
-
+    public Spot getBox(int row, int col){
+        return gameboard[row][col];
     }
 
+    public void move(Spot newSpot){
 
-    public void showMoves(Spot button){
-        curRow = button.getX()/76;
-        curCol = button.getY()/72;
-        System.out.println("pressed: " + String.valueOf(curRow) + " " + String.valueOf(curCol));
-/*
-        possibleMoves = new Spot[2];
-        prevColor = new Color[2];
+        Spot oldSpot = gameboard[movBut.getRow()][movBut.getCol()];
+        Piece movedPiece = movBut.getPiece();
 
-        curRow = button.getX()/76;
-        curCol = button.getY()/72;
-        possibleMoves[0] = board[curRow-1][curCol];
-        possibleMoves[1] = board[curRow-2][curCol];
-        prevColor[0] = board[curRow-1][curCol].getBackground();
-        prevColor[1] = board[curRow-2][curCol].getBackground();
-
-        for(Spot move : possibleMoves){
-            move.setBackground(Color.green);
+        if (newSpot.getPiece() instanceof King){
+            handleVictory();
         }
-*/
+
+        newSpot.setIcon(movBut.getIcon());
+
+
+        newSpot.setPiece(movedPiece);
+
+        oldSpot.setIcon(null);
+        oldSpot.setPiece(null);
+
+        if (movedPiece instanceof Pawn) {
+            handleMovedPawn(newSpot, movedPiece);  //för att hålla koll på när bonden ska förvandlas
+        }
+        movBut = null;      // knappen är flyttad, ingen knapp väntar nu på att flyttas
+    }
+
+    private void handleVictory() {
+        if (whiteTurn){
+            messageLabel.setText("Vit vinner!");
+        }
+        else{
+            messageLabel.setText("Svart vinner!");
+        }
+    }
+
+    private void handleMovedPawn(Spot newSpot, Piece pawn) {
+        int stepLength = Math.abs(newSpot.getRow() - movBut.getRow());
+        ((Pawn) pawn).increasePawnMoves(stepLength);  //öka antalet steg för bonden
+        if (((Pawn) pawn).getNumOfMoves() == 6) {       //om bonden nått över till andra sidan
+            transformPawn(newSpot, pawn);               //förvandla bonden
+        }
+    }
+
+    private void transformPawn(Spot spot, Piece pawn) {
+        if (pawn.isWhite()){
+            spot.setPiece(new Queen(true));
+            Icon queenIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/WhiteQueen.png")));
+            spot.setIcon(queenIcon);
+        }
+        else {
+            spot.setPiece(new Queen(false));
+            Icon queenIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/BlackQueen.png")));
+            spot.setIcon(queenIcon);
+        }
+    }
+
+    public boolean showMoves(Spot curSpot){
+        boolean movePossible = false;
+        for(Spot[] spots : gameboard){
+            for(Spot spot : spots){
+                  if (curSpot.getPiece().acceptedMove(this, curSpot, spot)) {
+                      movePossible = true;
+                      spot.setAcceptedMoveColor();
+                      possiblemoves.push(spot);
+                  }
+            }
+        }
+        return movePossible;
+    }
+
+    private void removeShowedMoves(){
+        while (possiblemoves.peek() != null){
+            possiblemoves.pop().removeAcceptedMoveColor();
+        }
     }
 
     public void actionPerformed(ActionEvent e) {
         Spot presBut = (Spot)e.getSource();
-        System.out.println(movBut);
+
         if(movBut == null){
-            System.out.println("if");
-            movBut = presBut;
-            showMoves(movBut);
+            checkChosenSpot(presBut);
         }
         else {
-            System.out.println("else");
-            move(presBut);
-        }
+            if(movBut.getPiece().acceptedMove(this, movBut.getSpot(), presBut)){
+                messageLabel.setText("Svart/vit spelares tur");
+                move(presBut);
+                checkForCheck(); //kolla ifall motsåndaren står i schack
+                switchTurn();
+                removeShowedMoves();
 
+            }
+            else{
+                messageLabel.setText("Välj en giltig plats");
+            }
+        }
+    }
+
+    private void checkForCheck() { //metod som kollar om någon pjäs hotar motståndarens kung
+    //todo: kolla om en kung står i schack
+    }
+
+    private void checkChosenSpot(Spot presBut) {
+
+        if(presBut.getPiece() != null){
+            if (presBut.getPiece().isWhite() == whiteTurn) {
+                if (showMoves(presBut)) {
+                    messageLabel.setText("Välj ny plats");
+                    movBut = presBut;
+                }
+            }
+            else {
+                messageLabel.setText("Pjäsen går inte att flytta");
+            }
+        }
+        else {
+            if (whiteTurn){
+                messageLabel.setText("Välj din egen färg, Vit spelar!");
+            }
+            else{
+                messageLabel.setText("Välj din egen färg, Svart spelar!");
+
+            }
+        }
+    }
+
+    private void switchTurn() {
+        whiteTurn = !whiteTurn;
     }
 
     public static void main(String[] args) throws IOException {

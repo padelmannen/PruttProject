@@ -9,10 +9,11 @@ public class Bishop extends Piece {
     @Override
     public boolean acceptedMove(Board board, Spot start,
                                 Spot end) {
-        // we can't move the piece to a spot that has
-        // a piece of the same colour
-        if (end.getPiece().isWhite() == this.isWhite()) {
-            return false;
+
+        if (end.getPiece() != null) {
+            if (end.getPiece().isWhite() == this.isWhite()) {    //cannot go to square with same piece colour
+                return false;
+            }
         }
         if (!(acceptedDirection(start, end))) {
             return false;
@@ -21,45 +22,45 @@ public class Bishop extends Piece {
     }
 
     private boolean clearPath(Board board, Spot start, Spot end) {
-        int yStart = start.getY();
-        int yEnd = end.getY();
-        int xStart = start.getX();
-        int xEnd = end.getX();
+        int colStart = start.getCol();
+        int colEnd = end.getCol();
+        int rowStart = start.getRow();
+        int rowEnd = end.getRow();
 
-        int stepLength = Math.abs(yStart-yEnd);
+        int stepLength = Math.abs(colStart - colEnd);
 
-        if (xStart>xEnd && yStart>yEnd) {   //south west
+        if (rowStart > rowEnd && colStart > colEnd) {   //south west
             for (int i = 1; i < stepLength; i++){
-                int xPos = xStart - i;
-                int yPos = yStart - i;
-                if (!(spotIsNull(board, xPos, yPos))) {
+                int rowPos = rowStart - i;
+                int colPos = colStart - i;
+                if (!(spotIsNull(board, rowPos, colPos))) {
                     return false;
                 }
             }
         }
-        else if (xStart>xEnd && yStart<yEnd) { //north west
+        else if (rowStart > rowEnd && colStart < colEnd) { //north west
             for (int i = 1; i < stepLength; i++){
-                int xPos = xStart - i;
-                int yPos = yStart + i;
-                if (!(spotIsNull(board, xPos, yPos))) {
+                int rowPos = rowStart - i;
+                int colPos = colStart + i;
+                if (!(spotIsNull(board, rowPos, colPos))) {
                     return false;
                 }
             }
         }
-        else if (xStart<xEnd && yStart>yEnd) {  // south east
+        else if (rowStart < rowEnd && colStart > colEnd) {  // south east
             for (int i = 1; i < stepLength; i++){
-                int xPos = xStart + i;
-                int yPos = yStart - i;
-                if (!(spotIsNull(board, xPos, yPos))) {
+                int rowPos = rowStart + i;
+                int colPos = colStart - i;
+                if (!(spotIsNull(board, rowPos, colPos))) {
                     return false;
                 }
             }
         }
         else {                                      //north east
             for (int i = 1; i < stepLength; i++) {
-                int xPos = xStart + i;
-                int yPos = yStart + i;
-                if (!(spotIsNull(board, xPos, yPos))) {
+                int rowPos = rowStart + i;
+                int colPos = colStart + i;
+                if (!(spotIsNull(board, rowPos, colPos))) {
                     return false;
                 }
             }
@@ -68,14 +69,13 @@ public class Bishop extends Piece {
     }
 
     private boolean acceptedDirection(Spot start, Spot end) {
-        int xDiff = Math.abs(start.getX() - end.getX());
-        int yDiff = Math.abs(start.getY() - end.getY());
-
-        return (xDiff == yDiff);
+        int colDiff = Math.abs(start.getCol() - end.getCol());
+        int rowDiff = Math.abs(start.getRow() - end.getRow());
+        return (colDiff == rowDiff);
     }
 
-    private boolean spotIsNull(Board board, int x, int y) {
-        return board.getBox(x, y) == null;
+    private boolean spotIsNull(Board board, int row, int col) {
+        return board.getBox(row, col).getPiece() == null;
 
     }
 }

@@ -4,34 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="commit">
+    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/BlackBishop.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/BlackBishop.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/BlackKing.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/BlackKing.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/BlackKnight.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/BlackKnight.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/BlackPawn.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/BlackPawn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/BlackQueen.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/BlackQueen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/BlackRook.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/BlackRook.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BB.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BlackBishop.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BKi.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BlackQueen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BKn.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BlackKnight.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BP.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BlackPawn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BQ.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BlackKing.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BR.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BlackRook.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WB.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WhiteBishop.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WKi.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WhiteQueen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WKn.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WhiteKnight.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WP.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WhitePawn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WQ.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WhiteKing.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WR.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WhiteRook.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Spot.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Spot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/WhiteBishop.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/WhiteBishop.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/WhiteKing.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/WhiteKing.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/WhiteKnight.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/WhiteKnight.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/WhitePawn.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/WhitePawn.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/WhiteQueen.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/WhiteQueen.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/WhiteRook.png" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/WhiteRook.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +62,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Board" />
         <item itemvalue="Application.Board" />
       </list>
     </recent_temporary>
@@ -154,7 +130,151 @@
       <option name="presentableId" value="LOCAL−00009" />
       <updated>1641208898505</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL−00010" summary="startpos">
+      <created>1641210399488</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1641210399488</updated>
+    </task>
+    <task id="LOCAL−00011" summary="board -&gt; spots">
+      <created>1641210793169</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1641210793169</updated>
+    </task>
+    <task id="LOCAL−00012" summary="board -&gt; spots">
+      <created>1641210804841</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1641210804841</updated>
+    </task>
+    <task id="LOCAL−00013" summary="commit">
+      <created>1641211458332</created>
+      <option name="number" value="LOCAL−00013" />
+      <option name="presentableId" value="LOCAL−00013" />
+      <updated>1641211458332</updated>
+    </task>
+    <task id="LOCAL−00014" summary="commit">
+      <created>1641211667974</created>
+      <option name="number" value="LOCAL−00014" />
+      <option name="presentableId" value="LOCAL−00014" />
+      <updated>1641211667975</updated>
+    </task>
+    <task id="LOCAL−00015" summary="commit">
+      <created>1641211788259</created>
+      <option name="number" value="LOCAL−00015" />
+      <option name="presentableId" value="LOCAL−00015" />
+      <updated>1641211788259</updated>
+    </task>
+    <task id="LOCAL−00016" summary="commit">
+      <created>1641212060554</created>
+      <option name="number" value="LOCAL−00016" />
+      <option name="presentableId" value="LOCAL−00016" />
+      <updated>1641212060554</updated>
+    </task>
+    <task id="LOCAL−00017" summary="move inte klar">
+      <created>1641218294314</created>
+      <option name="number" value="LOCAL−00017" />
+      <option name="presentableId" value="LOCAL−00017" />
+      <updated>1641218294314</updated>
+    </task>
+    <task id="LOCAL−00018" summary="move inte klar">
+      <created>1641224523203</created>
+      <option name="number" value="LOCAL−00018" />
+      <option name="presentableId" value="LOCAL−00018" />
+      <updated>1641224523203</updated>
+    </task>
+    <task id="LOCAL−00019" summary="move inte klar">
+      <created>1641224597632</created>
+      <option name="number" value="LOCAL−00019" />
+      <option name="presentableId" value="LOCAL−00019" />
+      <updated>1641224597632</updated>
+    </task>
+    <task id="LOCAL−00020" summary="move inte klar">
+      <created>1641225190552</created>
+      <option name="number" value="LOCAL−00020" />
+      <option name="presentableId" value="LOCAL−00020" />
+      <updated>1641225190552</updated>
+    </task>
+    <task id="LOCAL−00021" summary="move inte klar">
+      <created>1641229141798</created>
+      <option name="number" value="LOCAL−00021" />
+      <option name="presentableId" value="LOCAL−00021" />
+      <updated>1641229141798</updated>
+    </task>
+    <task id="LOCAL−00022" summary="move inte klar">
+      <created>1641237752282</created>
+      <option name="number" value="LOCAL−00022" />
+      <option name="presentableId" value="LOCAL−00022" />
+      <updated>1641237752282</updated>
+    </task>
+    <task id="LOCAL−00023" summary="move inte klar">
+      <created>1641291415471</created>
+      <option name="number" value="LOCAL−00023" />
+      <option name="presentableId" value="LOCAL−00023" />
+      <updated>1641291415471</updated>
+    </task>
+    <task id="LOCAL−00024" summary="move inte klar">
+      <created>1641291649314</created>
+      <option name="number" value="LOCAL−00024" />
+      <option name="presentableId" value="LOCAL−00024" />
+      <updated>1641291649314</updated>
+    </task>
+    <task id="LOCAL−00025" summary="move inte klar">
+      <created>1641311857508</created>
+      <option name="number" value="LOCAL−00025" />
+      <option name="presentableId" value="LOCAL−00025" />
+      <updated>1641311857508</updated>
+    </task>
+    <task id="LOCAL−00026" summary="klar bonde startdrag">
+      <created>1641313395160</created>
+      <option name="number" value="LOCAL−00026" />
+      <option name="presentableId" value="LOCAL−00026" />
+      <updated>1641313395161</updated>
+    </task>
+    <task id="LOCAL−00027" summary="klar bonde in game">
+      <created>1641314751894</created>
+      <option name="number" value="LOCAL−00027" />
+      <option name="presentableId" value="LOCAL−00027" />
+      <updated>1641314751894</updated>
+    </task>
+    <task id="LOCAL−00028" summary="klar bonde in game">
+      <created>1641317663986</created>
+      <option name="number" value="LOCAL−00028" />
+      <option name="presentableId" value="LOCAL−00028" />
+      <updated>1641317663986</updated>
+    </task>
+    <task id="LOCAL−00029" summary="textruta tillagd">
+      <created>1641321565868</created>
+      <option name="number" value="LOCAL−00029" />
+      <option name="presentableId" value="LOCAL−00029" />
+      <updated>1641321565868</updated>
+    </task>
+    <task id="LOCAL−00030" summary="layout inte så snygg">
+      <created>1641321877417</created>
+      <option name="number" value="LOCAL−00030" />
+      <option name="presentableId" value="LOCAL−00030" />
+      <updated>1641321877417</updated>
+    </task>
+    <task id="LOCAL−00031" summary="fixat bondeförvandling, png-namn, och snyggat till board-klassen">
+      <created>1641329367264</created>
+      <option name="number" value="LOCAL−00031" />
+      <option name="presentableId" value="LOCAL−00031" />
+      <updated>1641329367264</updated>
+    </task>
+    <task id="LOCAL−00032" summary="snyggat till klasserna">
+      <created>1641329661050</created>
+      <option name="number" value="LOCAL−00032" />
+      <option name="presentableId" value="LOCAL−00032" />
+      <updated>1641329661050</updated>
+    </task>
+    <task id="LOCAL−00033" summary="känner av om kungen blivit dödad">
+      <created>1641332773004</created>
+      <option name="number" value="LOCAL−00033" />
+      <option name="presentableId" value="LOCAL−00033" />
+      <updated>1641332773004</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,9 +290,29 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="commit" />
     <MESSAGE value="test" />
     <MESSAGE value="bishop" />
-    <option name="LAST_COMMIT_MESSAGE" value="bishop" />
+    <MESSAGE value="startpos" />
+    <MESSAGE value="board -&gt; spots" />
+    <MESSAGE value="commit" />
+    <MESSAGE value="move inte klar" />
+    <MESSAGE value="klar bonde startdrag" />
+    <MESSAGE value="klar bonde in game" />
+    <MESSAGE value="textruta tillagd" />
+    <MESSAGE value="layout inte så snygg" />
+    <MESSAGE value="fixat bondeförvandling, png-namn, och snyggat till board-klassen" />
+    <MESSAGE value="snyggat till klasserna" />
+    <MESSAGE value="känner av om kungen blivit dödad" />
+    <option name="LAST_COMMIT_MESSAGE" value="känner av om kungen blivit dödad" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
