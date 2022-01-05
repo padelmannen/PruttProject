@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="viewcontrol">
+    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="commit">
+      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/GridBagLayoutDemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/ViewControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/ViewControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +74,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GridBagLayoutDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.GridBagLayoutDemo" />
+      <module name="ChessGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ViewControl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI.ViewControl" />
       <module name="ChessGame" />
@@ -105,10 +118,12 @@
     <list>
       <item itemvalue="Application.Board" />
       <item itemvalue="Application.ViewControl" />
+      <item itemvalue="Application.GridBagLayoutDemo" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Board" />
+        <item itemvalue="Application.GridBagLayoutDemo" />
         <item itemvalue="Application.ViewControl" />
         <item itemvalue="Application.ViewControl" />
         <item itemvalue="Application.Board" />
@@ -358,7 +373,13 @@
       <option name="presentableId" value="LOCAL−00039" />
       <updated>1641400647273</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL−00040" summary="commit">
+      <created>1641401465131</created>
+      <option name="number" value="LOCAL−00040" />
+      <option name="presentableId" value="LOCAL−00040" />
+      <updated>1641401465131</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -386,12 +407,12 @@
     <MESSAGE value="fixat bondeförvandling, png-namn, och snyggat till board-klassen" />
     <MESSAGE value="snyggat till klasserna" />
     <MESSAGE value="känner av om kungen blivit dödad" />
-    <MESSAGE value="commit" />
     <MESSAGE value="check funkar" />
     <MESSAGE value="fungerande schackfunktion" />
     <MESSAGE value="byta vald pjäs" />
     <MESSAGE value="viewcontrol" />
-    <option name="LAST_COMMIT_MESSAGE" value="viewcontrol" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

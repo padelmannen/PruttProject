@@ -25,24 +25,34 @@ public class Board extends JFrame implements ActionListener {
 
     public Board() throws IOException {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 800);
-        setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
-        c.fill = GridBagConstraints.HORIZONTAL;
+        setTitle("Amazing Chess Game");
+        setSize(600, 700);
 
         //setResizable(false);
         gameboard = new Spot[8][8];
         //setLayout(new FlowLayout());
-        messagePanel.setLayout(new GridLayout(3,1));
+        messagePanel.setLayout(new GridLayout(4,1));
         messageLabel.setText("Vit spelare startar");
         messagePanel.add(messageLabel);
         messagePanel.add(whiteCheckLabel);
         messagePanel.add(blackCheckLabel);
-        messagePanel.setMaximumSize(new Dimension(200, 200));
+        //messageLabel.setSize(600,50);
+        //whiteCheckLabel.setSize(600,50);
+        //blackCheckLabel.setSize(600,50);
+        //messagePanel.setMaximumSize(new Dimension(200, 200));
+        messagePanel.setSize(600,200);
 
+        messageLabel.setFont(new Font("Serif", Font.BOLD, 20));
 
-        add(messagePanel);
-        add(gamePanel);
+        setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.VERTICAL;
+        c.gridx = 0;
+        c.gridy = 0;
+        add(messagePanel, c);
+        c.gridx = 0;
+        c.gridy = 1;
+        add(gamePanel, c);
         setupBoard();
 
         setVisible(true);
@@ -231,16 +241,20 @@ public class Board extends JFrame implements ActionListener {
                 }
             }
             else {
-                messageLabel.setText("Pjäsen går inte att flytta");
+                if (whiteTurn){
+                    messageLabel.setText("Välj din egen färg, Vit spelar!");
+                }
+                else{
+                    messageLabel.setText("Välj din egen färg, Svart spelar!");
+                }
             }
         }
         else {
             if (whiteTurn){
-                messageLabel.setText("Välj din egen färg, Vit spelar!");
+                messageLabel.setText("Välj en plats med pjäs, Vit spelar!");
             }
             else{
-                messageLabel.setText("Välj din egen färg, Svart spelar!");
-
+                messageLabel.setText("Välj en plats med pjäs, Svart spelar!");
             }
         }
     }
