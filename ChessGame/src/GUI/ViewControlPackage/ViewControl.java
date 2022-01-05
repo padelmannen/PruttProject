@@ -1,4 +1,4 @@
-package GUI;
+package GUI.ViewControlPackage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +16,7 @@ class ViewControl extends JFrame implements ActionListener {
     Board gameboard = new Board();
 
     public ViewControl() throws IOException {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setupView();
     }
 
@@ -38,12 +39,14 @@ class ViewControl extends JFrame implements ActionListener {
     }
 
     public void setupMessagePanel(){
+        messagePanel.setLayout(new GridLayout(3,1));
         messagePanel.add(gameStatus);
         messagePanel.add(blackCheckStatus);
         messagePanel.add(whiteCheckStatus);
     }
 
     public void setupGamePanel(){
+        gamePanel.setLayout(new GridLayout(8,8));
         gamePanel.add(gameboard);
     }
 

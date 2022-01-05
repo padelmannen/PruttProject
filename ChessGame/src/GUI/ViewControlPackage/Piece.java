@@ -1,4 +1,5 @@
-package GUI;
+package GUI.ViewControlPackage;
+
 
 public abstract class Piece {
 

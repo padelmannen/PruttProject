@@ -1,4 +1,6 @@
-package GUI;
+package GUI.ViewControlPackage;
+
+
 
 public class Knight extends Piece {
     public Knight(boolean white)
