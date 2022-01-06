@@ -48,6 +48,10 @@ public class Board extends JPanel implements ActionListener {
         }
     }
 
+    public String getGameStatus(){
+        return this.gameStatus;
+    }
+
     public Spot getBox(int row, int col){
         return gameboard[row][col];
     }
@@ -134,6 +138,7 @@ public class Board extends JPanel implements ActionListener {
                 move(presBut);
                 checkForCheck(); //kolla ifall motsåndaren står i schack
                 switchTurn();
+                gameStatus = "bytt tur";
                 removeShowedMoves();
             }
             else if (movBut.getPiece().isWhite() == presBut.getPiece().isWhite()) {
