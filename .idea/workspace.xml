@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Icons/BlackBishop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Icons/BlackKing.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Icons/BlackKnight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Icons/BlackPawn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Icons/BlackQueen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Icons/BlackRook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Icons/WhiteBishop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Icons/WhiteKing.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Icons/WhiteKnight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Icons/WhitePawn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Icons/WhiteQueen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Icons/WhiteRook.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Spot.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Spot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Spot.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Spot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/ViewControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/ViewControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Pawn.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -408,7 +393,13 @@
       <option name="presentableId" value="LOCAL−00040" />
       <updated>1641401465131</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL−00041" summary="commit">
+      <created>1641473149872</created>
+      <option name="number" value="LOCAL−00041" />
+      <option name="presentableId" value="LOCAL−00041" />
+      <updated>1641473149872</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
