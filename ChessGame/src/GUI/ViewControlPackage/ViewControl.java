@@ -32,19 +32,18 @@ class ViewControl extends JFrame implements ActionListener {
     }
 
     public void addComponents(){
-/*        GridBagConstraints c = new GridBagConstraints();
+        GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.VERTICAL;
         c.gridx = 0;
         c.gridy = 0;
         add(messagePanel, c);
         c.gridx = 0;
         c.gridy = 1;
-        add(gamePanel, c);*/
+        add(gamePanel, c);
         add(messagePanel);
         add(gamePanel);
         setupMessagePanel();
         setupGamePanel();
-
     }
 
     public void setupMessagePanel(){
@@ -61,6 +60,7 @@ class ViewControl extends JFrame implements ActionListener {
     public void setupGamePanel(){
         //gamePanel.setLayout(new GridLayout(8,8));
         gamePanel.add(gameboard);
+
         gamePanel.setVisible(true);
         gameboard.setVisible(true);
     }
