@@ -9,16 +9,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-public class Board extends JFrame implements ActionListener {
+public class Board extends JPanel implements ActionListener {
 
-    public final Spot[][] gameboard;
-    private Spot movBut;
-    public final Stack <Spot> possiblemoves = new Stack<>();
+    public Spot[][] gameboard;
+    public Spot movBut;
+    public Stack <Spot> possiblemoves = new Stack<>();
     public boolean whiteKingCheck = false;
     public boolean blackKingCheck = false;
     public boolean whiteTurn = true;
     public boolean whiteWin = false;
     public boolean blackWin = false;
+    public String gameStatus;
 
     public Board() throws IOException, NullPointerException {
         gameboard = new Spot[8][8];
@@ -26,6 +27,7 @@ public class Board extends JFrame implements ActionListener {
     }
 
     private void setupBoard() throws IOException, NullPointerException {
+        setLayout((new GridLayout(8, 8)));
 
         BufferedReader startPos = new BufferedReader(new FileReader("ChessGame/src/GUI/startPositions.txt"));
         String line = startPos.readLine();
@@ -37,6 +39,7 @@ public class Board extends JFrame implements ActionListener {
                 Spot curBut = new Spot(pos, row, col);
                 curBut.addActionListener(this);
                 gameboard[row][col] = curBut;
+                add(gameboard[row][col]);
                 col++;
             }
             row++;
@@ -123,17 +126,17 @@ public class Board extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Spot presBut = (Spot)e.getSource();
 
-        if(movBut == null){
+        if (movBut == null) {
             checkChosenSpot(presBut);
         }
         else {
-            if(movBut.getPiece().acceptedMove(this, movBut.getSpot(), presBut)){
+            if (movBut.getPiece().acceptedMove(this, movBut.getSpot(), presBut)) {
                 move(presBut);
                 checkForCheck(); //kolla ifall motsåndaren står i schack
                 switchTurn();
                 //removeShowedMoves();
             }
-            else if(movBut.getPiece().isWhite() == presBut.getPiece().isWhite()){
+            else if (movBut.getPiece().isWhite() == presBut.getPiece().isWhite()) {
                 movBut = presBut;
                 //removeShowedMoves();
                 checkChosenSpot(presBut);
@@ -152,7 +155,8 @@ public class Board extends JFrame implements ActionListener {
                 if (spot.getPiece() != null && spot.getPiece() instanceof King) {
                     if (spot.getPiece().isWhite()) {
                         whiteKingSpot = spot;
-                    } else {
+                    }
+                    else {
                         blackKingSpot = spot;
                     }
                 }
@@ -162,13 +166,13 @@ public class Board extends JFrame implements ActionListener {
         //kollar just nu om båda är i schack eftersom egna drag kan medföra att ens kung hamnar i schack
         for (Spot[] spots : gameboard) {
             for (Spot spot : spots) {
-                if(spot.getPiece() != null){
-                    if (spot.getPiece().isWhite()){
+                if (spot.getPiece() != null) {
+                    if (spot.getPiece().isWhite()) {
                         if (spot.getPiece().acceptedMove(this, spot, blackKingSpot)) {
                             blackKingCheck = true;
                         }
                     }
-                    else{
+                    else {
                         if (spot.getPiece().acceptedMove(this, spot, whiteKingSpot)) {
                             whiteKingCheck = true;
                         }
@@ -179,8 +183,7 @@ public class Board extends JFrame implements ActionListener {
     }
 
     private void checkChosenSpot(Spot presBut) {
-
-        if(presBut.getPiece() != null){
+        if (presBut.getPiece() != null) {
             if (presBut.getPiece().isWhite() == whiteTurn) {
                 if (showMoves(presBut)) {
                     movBut = presBut;

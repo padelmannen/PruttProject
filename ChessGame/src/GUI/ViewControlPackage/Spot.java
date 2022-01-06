@@ -6,15 +6,14 @@ import java.util.Objects;
 
 
 public class Spot extends JButton {
+    public Piece piece;
+    public String pieceName = null;
+    public String color = null;
+    public final int row;
+    public final int col;
+    public final Color spotColor;
 
-    private Piece piece;
-    private String pieceName = null;
-    private String color = null;
-    private final int row;
-    private final int col;
-    private final Color spotColor;
-
-    public Spot(String spotPiece, int row, int col){
+    public Spot(String spotPiece, int row, int col) throws NullPointerException{
 
         this.row = row;
         this.col = col;
@@ -22,8 +21,12 @@ public class Spot extends JButton {
         if(!Objects.equals(spotPiece, "N")){
             this.pieceName = spotPiece.substring(5);
             this.color = spotPiece.substring(0,5);
-            Icon icon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/" + color + pieceName + ".png")));
-            this.setIcon(icon);
+            java.net.URL imgURL = getClass().getResource("Icons/"+ color + pieceName +".png");
+            if (imgURL != null) {
+                Icon icon = new ImageIcon(imgURL);
+                this.setIcon(icon);
+            }
+
         }
 
         setFirstPiece();

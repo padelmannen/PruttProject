@@ -23,8 +23,13 @@ public class Spot extends JButton {
         if(!Objects.equals(spotPiece, "N")){
             this.pieceName = spotPiece.substring(5);
             this.color = spotPiece.substring(0,5);
-            Icon icon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/" + color + pieceName + ".png")));
-            this.setIcon(icon);
+            //Icon icon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/" + color + pieceName + ".png")));
+            //this.setIcon(icon);
+            java.net.URL imgURL = getClass().getResource("Icons/"+ color + pieceName +".png");
+            if (imgURL != null) {
+                Icon icon = new ImageIcon(imgURL);
+                this.setIcon(icon);
+            }
         }
 
         setFirstPiece();
