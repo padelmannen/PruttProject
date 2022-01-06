@@ -109,7 +109,7 @@ public class Board extends JPanel implements ActionListener {
             for(Spot spot : spots){
                 if (curSpot.getPiece().acceptedMove(this, curSpot, spot)) {
                     movePossible = true;
-                    //spot.setAcceptedMoveColor();
+                    spot.setAcceptedMoveColor();
                     possiblemoves.push(spot);
                 }
             }
@@ -134,11 +134,11 @@ public class Board extends JPanel implements ActionListener {
                 move(presBut);
                 checkForCheck(); //kolla ifall motsåndaren står i schack
                 switchTurn();
-                //removeShowedMoves();
+                removeShowedMoves();
             }
             else if (movBut.getPiece().isWhite() == presBut.getPiece().isWhite()) {
                 movBut = presBut;
-                //removeShowedMoves();
+                removeShowedMoves();
                 checkChosenSpot(presBut);
             }
         }

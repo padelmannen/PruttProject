@@ -19,7 +19,7 @@ class ViewControl extends JFrame implements ActionListener {
     public ViewControl() throws IOException, NullPointerException {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Amazing Chess Game");
-        setSize(600, 700);
+        setSize(800, 1000);
         gameboard = new Board();
         setupView();
     }
@@ -27,21 +27,19 @@ class ViewControl extends JFrame implements ActionListener {
     public void setupView() {
         setLayout(new GridBagLayout());
         addComponents();
-        pack();
+        //pack();
         setVisible(true);
     }
 
     public void addComponents(){
-/*        GridBagConstraints c = new GridBagConstraints();
+        GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.VERTICAL;
         c.gridx = 0;
         c.gridy = 0;
         add(messagePanel, c);
         c.gridx = 0;
         c.gridy = 1;
-        add(gamePanel, c);*/
-        add(messagePanel);
-        add(gamePanel);
+        add(gamePanel, c);
         setupMessagePanel();
         setupGamePanel();
 
