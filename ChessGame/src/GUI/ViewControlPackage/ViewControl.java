@@ -54,6 +54,8 @@ class ViewControl extends JFrame implements ActionListener {
 
         gameStatus.setFont(new Font("Serif", Font.BOLD, 20));
         gameStatus.setText("STATUS");
+        blackCheckStatus.setText("Svart kung i schack");
+        whiteCheckStatus.setText("Vit kung i schack");
     }
 
     public void setupGamePanel(){
