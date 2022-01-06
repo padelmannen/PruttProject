@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="fungerande schackfunktion">
-      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Chess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/GameControl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Pawn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControl.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="ViewControl" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
