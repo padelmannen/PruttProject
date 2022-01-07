@@ -10,14 +10,14 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public boolean acceptedMove(Board board, Spot start, Spot end) {
+    public boolean acceptedMove(Spot[][] board, Spot start, Spot end) {
 
         if (end.getPiece() != null ) {
             if (end.getPiece().isWhite() == this.isWhite()) {    //cannot go to square with same piece colour
                 return false;
             }
         }
-        if (moves == 0) {  //other rules apply when first move of pawn
+        if (moves == 0) {  //other rules apply when first makeMove of pawn
             return acceptedFirstMove(board, start, end);
         }
 
@@ -60,7 +60,7 @@ public class Pawn extends Piece {
     }
 
 
-    private boolean acceptedFirstMove(Board board, Spot start, Spot end) {
+    private boolean acceptedFirstMove(Spot[][] board, Spot start, Spot end) {
         int sideSteps = Math.abs(start.getCol() - end.getCol());
         int forwardSteps = Math.abs(start.getRow() - end.getRow());
 
@@ -105,8 +105,9 @@ public class Pawn extends Piece {
         return true;
     }
 
-    private boolean spotIsNull(Board board, int row, int col) {
-        return board.getBox(row, col).getPiece() == null;
+    private boolean spotIsNull(Spot[][] board, int row, int col) {
+        return board[row][col].getPiece() == null;
+
     }
 
     public int getNumOfMoves(){

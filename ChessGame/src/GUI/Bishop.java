@@ -7,7 +7,7 @@ public class Bishop extends Piece {
     }
 
     @Override
-    public boolean acceptedMove(Board board, Spot start,
+    public boolean acceptedMove(Spot[][] board, Spot start,
                                 Spot end) {
 
         if (end.getPiece() != null) {
@@ -21,7 +21,7 @@ public class Bishop extends Piece {
         return clearPath(board, start, end);
     }
 
-    private boolean clearPath(Board board, Spot start, Spot end) {
+    private boolean clearPath(Spot[][] board, Spot start, Spot end) {
         int colStart = start.getCol();
         int colEnd = end.getCol();
         int rowStart = start.getRow();
@@ -74,8 +74,8 @@ public class Bishop extends Piece {
         return (colDiff == rowDiff);
     }
 
-    private boolean spotIsNull(Board board, int row, int col) {
-        return board.getBox(row, col).getPiece() == null;
+    private boolean spotIsNull(Spot[][] board, int row, int col) {
+        return board[row][col].getPiece() == null;
 
     }
 }
