@@ -7,7 +7,7 @@ public class Queen extends Piece {
     }
 
     @Override
-    public boolean acceptedMove(Board board, Spot start,
+    public boolean acceptedMove(Spot[][] board, Spot start,
                                 Spot end) {
 
         if (end.getPiece() != null ) {
@@ -21,7 +21,7 @@ public class Queen extends Piece {
         return clearPath(board, start, end);
     }
 
-    private boolean clearPath(Board board, Spot start, Spot end) {
+    private boolean clearPath(Spot[][] board, Spot start, Spot end) {
         int rowStart = start.getRow();
         int rowEnd = end.getRow();
         int colStart = start.getCol();
@@ -94,8 +94,8 @@ public class Queen extends Piece {
         return colDiff == rowDiff || colDiff == 0 || rowDiff == 0;
     }
 
-    private boolean spotIsNull(Board board, int row, int col) {
-        return board.getBox(row, col).getPiece() == null;
+    private boolean spotIsNull(Spot[][] board, int row, int col) {
+        return board[row][col].getPiece() == null;
 
     }
 }

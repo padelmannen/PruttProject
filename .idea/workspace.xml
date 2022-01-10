@@ -4,8 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="fungerande schackfunktion">
+    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/FirstClick.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Rook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BKi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BKn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BQ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WKi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WKn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WQ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WR.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +43,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Fredrik" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -34,6 +55,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="238hMZBrkGtR17kLoh1cTgKNHNm" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -302,7 +326,19 @@
       <option name="presentableId" value="LOCAL−00036" />
       <updated>1641394747951</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL−00037" summary="fungerande schackfunktion">
+      <created>1641752111243</created>
+      <option name="number" value="LOCAL−00037" />
+      <option name="presentableId" value="LOCAL−00037" />
+      <updated>1641752111243</updated>
+    </task>
+    <task id="LOCAL−00038" summary="fungerande schackfunktion">
+      <created>1641752202656</created>
+      <option name="number" value="LOCAL−00038" />
+      <option name="presentableId" value="LOCAL−00038" />
+      <updated>1641752202656</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -315,7 +351,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />

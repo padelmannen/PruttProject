@@ -7,22 +7,26 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class Board extends JFrame implements ActionListener {
 
-    private JPanel gamePanel = new JPanel();
-    private JPanel messagePanel = new JPanel();
+    private final JPanel gamePanel = new JPanel();
+    private final JPanel messagePanel = new JPanel();
     private JLabel messageLabel = new JLabel();
-    private JLabel whiteCheckLabel = new JLabel();
-    private JLabel blackCheckLabel = new JLabel();
-    private Spot[][] gameboard;
+    private final JLabel whiteCheckLabel = new JLabel();
+    private final JLabel blackCheckLabel = new JLabel();
+    private final Spot[][] gameboard;
     private Spot movBut;
-    private Stack <Spot> possiblemoves = new Stack<>();
-    private boolean whiteKingCheck = false;  //kan behövas
-    private boolean blackKingCheck = false; //kan behövas
+    private ArrayList <Spot> possibleMoves = new ArrayList<>();
+    private final Stack <Spot> coloredSpots = new Stack<>();
+
+   // private boolean whiteKingCheck = false;  //kan behövas
+    //private boolean blackKingCheck = false; //kan behövas
+    private Spot whiteKingSpot;
+    private Spot blackKingSpot;
     private boolean whiteTurn = true;
+    private boolean clickOne = true;
 
     public Board() throws IOException {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -66,31 +70,57 @@ public class Board extends JFrame implements ActionListener {
             col = 0;
             line = startPos.readLine();
         }
+        updateKingsSpot();
     }
 
-    public Spot getBox(int row, int col){
-        return gameboard[row][col];
-    }
-
-    public void move(Spot newSpot){
+    public void makeMove(Spot newSpot){
         Spot oldSpot = gameboard[movBut.getRow()][movBut.getCol()];
         Piece movedPiece = movBut.getPiece();
+        switchPos(oldSpot, newSpot, movedPiece);
 
+//        Spot oldSpot = gameboard[movBut.getRow()][movBut.getCol()];
+//        Piece movedPiece = movBut.getPiece();
+//        newSpot.setIcon(movBut.getIcon());
+//        newSpot.setPiece(movedPiece);
+//        oldSpot.setIcon(null);
+//        oldSpot.setPiece(null);
+
+        handleSpecialMoves(newSpot, movedPiece);
+
+//        if (newSpot.getPiece() instanceof King){
+//            handleVictory();
+//        }
+//        if (movedPiece instanceof King) {
+//            updateKingsSpot();  //för att hålla koll på när bonden ska förvandlas
+//        }
+//        else if (movedPiece instanceof Pawn) {
+//            handleMovedPawn(newSpot, movedPiece);  //för att hålla koll på när bonden ska förvandlas
+//        }
+        checkForCheck(); //kolla ifall motsåndaren står i schack
+        switchTurn();
+        movBut = null;      // knappen är flyttad, ingen knapp väntar nu på att flyttas
+    }
+
+    private void handleSpecialMoves(Spot newSpot, Piece movedPiece) {
         if (newSpot.getPiece() instanceof King){
             handleVictory();
         }
+        if (movedPiece instanceof King) {
+            updateKingsSpot();  //för att hålla koll på när bonden ska förvandlas
+        }
+        else if (movedPiece instanceof Pawn) {
+            handleMovedPawn(newSpot, movedPiece);  //för att hålla koll på när bonden ska förvandlas
+        }
+    }
+
+    private void switchPos(Spot oldSpot, Spot newSpot, Piece movedPiece) {
+
 
         newSpot.setIcon(movBut.getIcon());
-
         newSpot.setPiece(movedPiece);
-
         oldSpot.setIcon(null);
         oldSpot.setPiece(null);
 
-        if (movedPiece instanceof Pawn) {
-            handleMovedPawn(newSpot, movedPiece);  //för att hålla koll på när bonden ska förvandlas
-        }
-        movBut = null;      // knappen är flyttad, ingen knapp väntar nu på att flyttas
     }
 
     private void handleVictory() {
@@ -127,59 +157,89 @@ public class Board extends JFrame implements ActionListener {
         }
     }
 
-    public boolean showMoves(Spot curSpot){
-        boolean movePossible = false;
-        for(Spot[] spots : gameboard){
-            for(Spot spot : spots){
-                  if (curSpot.getPiece().acceptedMove(this, curSpot, spot)) {
-                      movePossible = true;
-                      spot.setAcceptedMoveColor();
-                      possiblemoves.push(spot);
-                  }
-            }
+    public void showMoves(){
+        for (Spot possibleSpot : possibleMoves) {
+            possibleSpot.setAcceptedMoveColor();
+            coloredSpots.push(possibleSpot);
         }
-        return movePossible;
     }
 
     private void removeShowedMoves() {
-        while (!possiblemoves.isEmpty()){
-            possiblemoves.pop().removeAcceptedMoveColor();
+
+        possibleMoves.clear();
+        while (!coloredSpots.isEmpty()){
+            coloredSpots.pop().removeAcceptedMoveColor();
         }
     }
 
     public void actionPerformed(ActionEvent e) {
-        Spot presBut = (Spot)e.getSource();
+        Spot pressedSpot = (Spot)e.getSource();
 
-        if(movBut == null){
-            checkChosenSpot(presBut);
+        if(clickOne){
+            FirstClick click = new FirstClick(pressedSpot, gameboard, whiteTurn);
+            if(click.isOkClick()) {
+                movBut = pressedSpot;
+                possibleMoves = click.getPossibleMoves();
+                messageLabel = click.getMessageLabel();
+                showMoves();
+                clickOne = false;
+            }
+            else{
+                clickOne = true;
+                messageLabel = click.getMessageLabel();
+            }
         }
         else {
-            if(movBut.getPiece().acceptedMove(this, movBut.getSpot(), presBut)){
-                move(presBut);
-                checkForCheck(); //kolla ifall motsåndaren står i schack
-                switchTurn();
-                if(whiteTurn){
-                    messageLabel.setText("Vit spelares tur");
-                }
-                else{
-                    messageLabel.setText("Svart spelares tur");
-                }
+            if (possibleMoves.contains(pressedSpot)) {
                 removeShowedMoves();
-            }
-            else if(movBut.getPiece().isWhite() == presBut.getPiece().isWhite()){
-                movBut = presBut;
-                removeShowedMoves();
-                checkChosenSpot(presBut);
+                makeMove(pressedSpot);
             }
             else{
                 messageLabel.setText("Välj en giltig plats");
             }
+            clickOne = true;
         }
     }
 
+
+
     private void checkForCheck() { //metod som kollar om någon pjäs hotar motståndarens kung
-        Spot blackKingSpot = null;
-        Spot whiteKingSpot = null;
+
+        //kollar just nu om båda är i schack eftersom egna drag kan medföra att ens kung hamnar i schack
+        for (Spot[] spots : gameboard) {
+            for (Spot spot : spots) {
+                if(spot.getPiece() != null){
+                    Piece curPiece = spot.getPiece();
+                    if (curPiece.isWhite()){
+                        if (curPiece.acceptedMove(gameboard, spot, blackKingSpot)) {
+                            blackCheckLabel.setText("Svart kung i schack");
+                        }
+                    }
+                    else{
+                        if (curPiece.acceptedMove(gameboard, spot, whiteKingSpot)) {
+                            whiteCheckLabel.setText("Vit kung i schack");
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    private void switchTurn() {
+        clickOne = true;
+        if(whiteTurn){
+            messageLabel.setText("Vit spelares tur");
+        }
+        else{
+            messageLabel.setText("Svart spelares tur");
+        }
+        whiteTurn = !whiteTurn;
+    }
+
+    private void updateKingsSpot() {
+        //blackKingSpot = null;
+        //whiteKingSpot = null;
 
         for (Spot[] spots : gameboard) {
             for (Spot spot : spots) {
@@ -192,52 +252,6 @@ public class Board extends JFrame implements ActionListener {
                 }
             }
         }
-
-        //kollar just nu om båda är i schack eftersom egna drag kan medföra att ens kung hamnar i schack
-        for (Spot[] spots : gameboard) {
-            for (Spot spot : spots) {
-                if(spot.getPiece() != null){
-                    if (spot.getPiece().isWhite()){
-                        if (spot.getPiece().acceptedMove(this, spot, blackKingSpot)) {
-                            blackCheckLabel.setText("Svart kung i schack");
-                        }
-                    }
-                    else{
-                        if (spot.getPiece().acceptedMove(this, spot, whiteKingSpot)) {
-                            whiteCheckLabel.setText("Vit kung i schack");
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private void checkChosenSpot(Spot presBut) {
-
-        if(presBut.getPiece() != null){
-            if (presBut.getPiece().isWhite() == whiteTurn) {
-                if (showMoves(presBut)) {
-                    messageLabel.setText("Välj ny plats");
-                    movBut = presBut;
-                }
-            }
-            else {
-                messageLabel.setText("Pjäsen går inte att flytta");
-            }
-        }
-        else {
-            if (whiteTurn){
-                messageLabel.setText("Välj din egen färg, Vit spelar!");
-            }
-            else{
-                messageLabel.setText("Välj din egen färg, Svart spelar!");
-
-            }
-        }
-    }
-
-    private void switchTurn() {
-        whiteTurn = !whiteTurn;
     }
 
     public static void main(String[] args) throws IOException {
