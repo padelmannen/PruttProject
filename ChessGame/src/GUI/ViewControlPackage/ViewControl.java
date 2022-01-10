@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-
+import java.util.ArrayList;
 
 
 class ViewControl extends JFrame implements ActionListener {
@@ -15,19 +15,22 @@ class ViewControl extends JFrame implements ActionListener {
     JLabel blackCheckStatus = new JLabel();
     JLabel whiteCheckStatus = new JLabel();
     Board gameboard;
+    GraphicSpot[][] visibleGameboard;
+    boolean chooseSpot = true;
+    ArrayList<GraphicSpot> changedSpots = new ArrayList<>();
 
     public ViewControl() throws IOException, NullPointerException {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Amazing Chess Game");
         setSize(800, 1000);
         gameboard = new Board();
+        visibleGameboard = new GraphicSpot[gameboard.size][gameboard.size];
         setupView();
     }
 
     public void setupView() {
         setLayout(new GridBagLayout());
         addComponents();
-        //pack();
         setVisible(true);
     }
 
@@ -54,19 +57,26 @@ class ViewControl extends JFrame implements ActionListener {
 
         gameStatus.setFont(new Font("Serif", Font.BOLD, 20));
         gameStatus.setText(gameboard.getGameStatus());
-        blackCheckStatus.setText("Svart kung i schack");
-        whiteCheckStatus.setText("Vit kung i schack");
+        //blackCheckStatus.setText("Svart kung i schack");
+        //whiteCheckStatus.setText("Vit kung i schack");
     }
 
     public void setupGamePanel(){
-        //gamePanel.setLayout(new GridLayout(8,8));
-        gamePanel.add(gameboard);
+        gamePanel.setLayout(new GridLayout(8,8));
+        for (Spot[] spots : gameboard.gameboard){
+            for (Spot spot : spots){
+                GraphicSpot newSpot = new GraphicSpot(spot);
+                newSpot.addActionListener(this);
+                visibleGameboard[spot.getRow()][spot.getCol()] = newSpot;
+                gamePanel.add(visibleGameboard[spot.getRow()][spot.getCol()]);
+
+            }
+        }
         gamePanel.setVisible(true);
-        gameboard.setVisible(true);
     }
 
     public void updateStatus(){
-        gameStatus.setText(gameboard.gameStatus);
+        gameStatus.setText(gameboard.getGameStatus());
         blackCheckStatus.setText("");
         whiteCheckStatus.setText("");
         if (gameboard.blackKingCheck) {
@@ -77,9 +87,34 @@ class ViewControl extends JFrame implements ActionListener {
         }
     }
 
+    public void updateBoard(){
+        for (Spot[] spots : gameboard.gameboard) {
+            for (Spot spot : spots) {
+                visibleGameboard[spot.getRow()][spot.getCol()].updateSpot(spot);
+            }
+        }
+    }
+
     public void actionPerformed(ActionEvent e) {
-        gameboard.actionPerformed(e);
+        GraphicSpot presBut = (GraphicSpot) e.getSource();
+        Spot spot = presBut.spot;
+        gameboard.actionPerformed(spot);
         updateStatus();
+        updateBoard();
+        if (chooseSpot){
+            for (Spot posSpot : gameboard.possiblemoves){
+                GraphicSpot changeSpot = visibleGameboard[posSpot.getRow()][posSpot.getCol()];
+                changeSpot.setAcceptedMoveColor();
+                changedSpots.add(changeSpot);
+            }
+            chooseSpot = false;
+        }
+        else{
+            for (GraphicSpot changedSpot : changedSpots){
+                changedSpot.removeAcceptedMoveColor();
+            }
+            chooseSpot = true;
+        }
     }
 
     public static void main(String[] args) throws IOException, NullPointerException {

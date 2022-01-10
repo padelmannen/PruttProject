@@ -51,8 +51,8 @@ public class Rook extends Piece {
     }
 
     private boolean acceptedDirection(Spot start, Spot end) {
-        int xDiff = Math.abs(start.getX() - end.getX());
-        int yDiff = Math.abs(start.getY() - end.getY());
+        int xDiff = Math.abs(start.getRow() - end.getRow());
+        int yDiff = Math.abs(start.getCol() - end.getCol());
 
         return xDiff == 0 || yDiff == 0;
     }

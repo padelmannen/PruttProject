@@ -33,4 +33,8 @@ public abstract class Piece {
 
     public abstract boolean acceptedMove(Board board,
                                          Spot start, Spot end);  //method depends on Piece
+
+    protected Piece getPiece(){
+        return this;
+    };
 }

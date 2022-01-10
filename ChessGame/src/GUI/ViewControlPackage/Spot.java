@@ -1,17 +1,14 @@
 package GUI.ViewControlPackage;
 
-import javax.swing.*;
-import java.awt.*;
 import java.util.Objects;
 
 
-public class Spot extends JButton {
+public class Spot {
     public Piece piece;
     public String pieceName = null;
     public String color = null;
     public final int row;
     public final int col;
-    public final Color spotColor;
 
     public Spot(String spotPiece, int row, int col) throws NullPointerException{
 
@@ -21,36 +18,9 @@ public class Spot extends JButton {
         if(!Objects.equals(spotPiece, "N")){
             this.pieceName = spotPiece.substring(5);
             this.color = spotPiece.substring(0,5);
-            java.net.URL imgURL = getClass().getResource("Icons/"+ color + pieceName +".png");
-            if (imgURL != null) {
-                Icon icon = new ImageIcon(imgURL);
-                this.setIcon(icon);
-            }
-
         }
-
         setFirstPiece();
-
-        if((row+col) % 2 == 0){
-            spotColor = new Color (233,220,211);
-            setBackground(spotColor);
-        }
-        else{
-            spotColor = new Color (141,121,106);;
-            setBackground(spotColor);
-        }
-        setOpaque(true);
-        setBorderPainted(false);
     }
-
-    public void setAcceptedMoveColor() {
-        setBackground(new Color (63, 154, 33, 107));
-    }
-
-    public void removeAcceptedMoveColor(){
-        setBackground(spotColor);
-    }
-
 
     public void setFirstPiece(){
         if (Objects.equals(color, "White")) {
@@ -100,7 +70,6 @@ public class Spot extends JButton {
     public int getRow() {
         return this.row;
     }
-
 
     public int getCol() {
         return this.col;

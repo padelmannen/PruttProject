@@ -1,17 +1,15 @@
 package GUI.ViewControlPackage;
 
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-public class Board extends JPanel implements ActionListener {
+public class Board {
 
     public Spot[][] gameboard;
+    public int size = 8;
     public Spot movBut;
     public Stack <Spot> possiblemoves = new Stack<>();
     public boolean whiteKingCheck = false;
@@ -19,15 +17,14 @@ public class Board extends JPanel implements ActionListener {
     public boolean whiteTurn = true;
     public boolean whiteWin = false;
     public boolean blackWin = false;
-    public String gameStatus;
+    public String gameStatus = "STATUS";
 
     public Board() throws IOException, NullPointerException {
-        gameboard = new Spot[8][8];
+        gameboard = new Spot[size][size];
         setupBoard();
     }
 
     private void setupBoard() throws IOException, NullPointerException {
-        setLayout((new GridLayout(8, 8)));
 
         BufferedReader startPos = new BufferedReader(new FileReader("ChessGame/src/GUI/startPositions.txt"));
         String line = startPos.readLine();
@@ -36,10 +33,8 @@ public class Board extends JPanel implements ActionListener {
         while (line != null) {
             String[] positions = line.split(" ");
             for(String pos : positions){
-                Spot curBut = new Spot(pos, row, col);
-                curBut.addActionListener(this);
-                gameboard[row][col] = curBut;
-                add(gameboard[row][col]);
+                Spot spot = new Spot(pos, row, col);
+                gameboard[row][col] = spot;
                 col++;
             }
             row++;
@@ -47,6 +42,7 @@ public class Board extends JPanel implements ActionListener {
             line = startPos.readLine();
         }
     }
+
 
     public String getGameStatus(){
         return this.gameStatus;
@@ -64,12 +60,7 @@ public class Board extends JPanel implements ActionListener {
             handleVictory();
         }
 
-        newSpot.setIcon(movBut.getIcon());
-
         newSpot.setPiece(movedPiece);
-
-        oldSpot.setIcon(null);
-        oldSpot.setPiece(null);
 
         if (movedPiece instanceof Pawn) {
             handleMovedPawn(newSpot, movedPiece);  //för att hålla koll på när bonden ska förvandlas
@@ -97,13 +88,9 @@ public class Board extends JPanel implements ActionListener {
     private void transformPawn(Spot spot, Piece pawn) {
         if (pawn.isWhite()){
             spot.setPiece(new Queen(true));
-            Icon queenIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/WhiteQueen.png")));
-            spot.setIcon(queenIcon);
         }
         else {
             spot.setPiece(new Queen(false));
-            Icon queenIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("Icons/BlackQueen.png")));
-            spot.setIcon(queenIcon);
         }
     }
 
@@ -113,7 +100,6 @@ public class Board extends JPanel implements ActionListener {
             for(Spot spot : spots){
                 if (curSpot.getPiece().acceptedMove(this, curSpot, spot)) {
                     movePossible = true;
-                    spot.setAcceptedMoveColor();
                     possiblemoves.push(spot);
                 }
             }
@@ -122,13 +108,10 @@ public class Board extends JPanel implements ActionListener {
     }
 
     private void removeShowedMoves() {
-        while (!possiblemoves.isEmpty()){
-            possiblemoves.pop().removeAcceptedMoveColor();
-        }
+            possiblemoves.clear();
     }
 
-    public void actionPerformed(ActionEvent e) {
-        Spot presBut = (Spot)e.getSource();
+    public void actionPerformed(Spot presBut) {
 
         if (movBut == null) {
             checkChosenSpot(presBut);
