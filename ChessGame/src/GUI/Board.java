@@ -161,27 +161,31 @@ public class Board extends JFrame implements ActionListener {
         if(clickOne){
 
             FirstClick click = new FirstClick(pressedSpot, gameboard, whiteTurn);
-            if(click.isOkClick()) {
-                movBut = pressedSpot;
-                possibleMoves = click.getPossibleMoves();
-                showMoves();
-                clickOne = false;
-            }
-            else{
-                clickOne = true;
-                messageLabel.setText(click.getMessageLabel());
-            }
+            handleFirstClick(click, pressedSpot);
         }
         else {
             if (possibleMoves.contains(pressedSpot)) {
-                removeShowedMoves();
                 makeMove(pressedSpot);
             }
             else{
                 messageLabel.setText("Välj en giltig plats");
-                removeShowedMoves();
+
             }
+            removeShowedMoves();
             clickOne = true;
+        }
+    }
+
+    private void handleFirstClick(FirstClick click, Spot pressedSpot) {
+        if(click.isOkClick()) {
+            movBut = pressedSpot;
+            possibleMoves = click.getPossibleMoves();
+            showMoves();
+            clickOne = false;
+        }
+        else{
+            clickOne = true;
+            messageLabel.setText(click.getMessageLabel());
         }
     }
 
