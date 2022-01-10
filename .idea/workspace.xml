@@ -5,28 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/FirstClick.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-01-02_12_08__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-01-02_12_08__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Bishop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/FirstClick.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/FirstClick.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Queen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/Rook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BB.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BKi.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BKn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BP.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BQ.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BR.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WB.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WKi.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WKn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WP.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WQ.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WR.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -377,6 +360,11 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ChessGame/src/GUI/FirstClick.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

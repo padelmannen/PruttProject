@@ -1,12 +1,11 @@
 package GUI;
 
-import javax.swing.*;
 import java.util.ArrayList;
 
 public class FirstClick {
-    private ArrayList<Spot> possibleMoves = new ArrayList();
-    private JLabel messageLabel = new JLabel();
-    private boolean whiteTurn;
+    private final ArrayList<Spot> possibleMoves = new ArrayList();
+    private String message;
+    private final boolean whiteTurn;
     private final Spot[][] curBoard;
     private final Spot curSpot;
     private boolean okClick = false;
@@ -24,18 +23,19 @@ public class FirstClick {
         if (chosenPiece != null) {
             if (chosenPiece.isWhite() == whiteTurn) {
                 if (findPossibleMoves()) {
-                    messageLabel.setText("Välj ny plats");
+                    message = ("Välj ny plats");
                     okClick = true;
                 }
-            } else {
-                messageLabel.setText("Pjäsen går inte att flytta");
+                else{
+                    message = ("Pjäsen har inga giltiga drag");
+                }
             }
-        } else {
-            if (whiteTurn) {
-                messageLabel.setText("Välj din egen färg, Vit spelar!");
-            } else {
-                messageLabel.setText("Välj din egen färg, Svart spelar!");
-
+            else {
+                if (whiteTurn) {
+                    message = ("Välj din egen färg, Vit spelar!");
+                } else {
+                    message = ("Välj din egen färg, Svart spelar!");
+                }
             }
         }
     }
@@ -60,8 +60,8 @@ public class FirstClick {
         return possibleMoves;
     }
 
-    public JLabel getMessageLabel() {
-        return messageLabel;
+    public String getMessageLabel() {
+        return message;
     }
 
 }

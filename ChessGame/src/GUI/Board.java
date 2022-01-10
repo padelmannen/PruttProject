@@ -14,15 +14,16 @@ public class Board extends JFrame implements ActionListener {
     private final JPanel gamePanel = new JPanel();
     private final JPanel messagePanel = new JPanel();
     private JLabel messageLabel = new JLabel();
+    private JLabel turnLabel = new JLabel();
     private final JLabel whiteCheckLabel = new JLabel();
     private final JLabel blackCheckLabel = new JLabel();
     private final Spot[][] gameboard;
     private Spot movBut;
     private ArrayList <Spot> possibleMoves = new ArrayList<>();
     private final Stack <Spot> coloredSpots = new Stack<>();
+    private boolean blackKingCheck;
+    private boolean whiteKingCheck;
 
-   // private boolean whiteKingCheck = false;  //kan behövas
-    //private boolean blackKingCheck = false; //kan behövas
     private Spot whiteKingSpot;
     private Spot blackKingSpot;
     private boolean whiteTurn = true;
@@ -36,7 +37,9 @@ public class Board extends JFrame implements ActionListener {
         setLayout(new FlowLayout());
         messagePanel.setLayout(new GridLayout(3,1));
         messageLabel.setText("Vit spelare startar");
+        turnLabel.setText("Vit spelar");
         messagePanel.add(messageLabel);
+        messagePanel.add(turnLabel);
         messagePanel.add(whiteCheckLabel);
         messagePanel.add(blackCheckLabel);
         messagePanel.setMaximumSize(new Dimension(200, 200));
@@ -77,34 +80,14 @@ public class Board extends JFrame implements ActionListener {
         Spot oldSpot = gameboard[movBut.getRow()][movBut.getCol()];
         Piece movedPiece = movBut.getPiece();
         switchPos(oldSpot, newSpot, movedPiece);
-
-//        Spot oldSpot = gameboard[movBut.getRow()][movBut.getCol()];
-//        Piece movedPiece = movBut.getPiece();
-//        newSpot.setIcon(movBut.getIcon());
-//        newSpot.setPiece(movedPiece);
-//        oldSpot.setIcon(null);
-//        oldSpot.setPiece(null);
-
         handleSpecialMoves(newSpot, movedPiece);
-
-//        if (newSpot.getPiece() instanceof King){
-//            handleVictory();
-//        }
-//        if (movedPiece instanceof King) {
-//            updateKingsSpot();  //för att hålla koll på när bonden ska förvandlas
-//        }
-//        else if (movedPiece instanceof Pawn) {
-//            handleMovedPawn(newSpot, movedPiece);  //för att hålla koll på när bonden ska förvandlas
-//        }
         checkForCheck(); //kolla ifall motsåndaren står i schack
         switchTurn();
         movBut = null;      // knappen är flyttad, ingen knapp väntar nu på att flyttas
     }
 
     private void handleSpecialMoves(Spot newSpot, Piece movedPiece) {
-        if (newSpot.getPiece() instanceof King){
-            handleVictory();
-        }
+
         if (movedPiece instanceof King) {
             updateKingsSpot();  //för att hålla koll på när bonden ska förvandlas
         }
@@ -114,13 +97,13 @@ public class Board extends JFrame implements ActionListener {
     }
 
     private void switchPos(Spot oldSpot, Spot newSpot, Piece movedPiece) {
-
-
+        if (newSpot.getPiece() instanceof King){
+            handleVictory();
+        }
         newSpot.setIcon(movBut.getIcon());
         newSpot.setPiece(movedPiece);
         oldSpot.setIcon(null);
         oldSpot.setPiece(null);
-
     }
 
     private void handleVictory() {
@@ -176,17 +159,17 @@ public class Board extends JFrame implements ActionListener {
         Spot pressedSpot = (Spot)e.getSource();
 
         if(clickOne){
+
             FirstClick click = new FirstClick(pressedSpot, gameboard, whiteTurn);
             if(click.isOkClick()) {
                 movBut = pressedSpot;
                 possibleMoves = click.getPossibleMoves();
-                messageLabel = click.getMessageLabel();
                 showMoves();
                 clickOne = false;
             }
             else{
                 clickOne = true;
-                messageLabel = click.getMessageLabel();
+                messageLabel.setText(click.getMessageLabel());
             }
         }
         else {
@@ -196,15 +179,15 @@ public class Board extends JFrame implements ActionListener {
             }
             else{
                 messageLabel.setText("Välj en giltig plats");
+                removeShowedMoves();
             }
             clickOne = true;
         }
     }
 
-
-
     private void checkForCheck() { //metod som kollar om någon pjäs hotar motståndarens kung
-
+        blackKingCheck = false;
+        whiteKingCheck = false;
         //kollar just nu om båda är i schack eftersom egna drag kan medföra att ens kung hamnar i schack
         for (Spot[] spots : gameboard) {
             for (Spot spot : spots) {
@@ -212,29 +195,46 @@ public class Board extends JFrame implements ActionListener {
                     Piece curPiece = spot.getPiece();
                     if (curPiece.isWhite()){
                         if (curPiece.acceptedMove(gameboard, spot, blackKingSpot)) {
-                            blackCheckLabel.setText("Svart kung i schack");
+                            //blackCheckLabel.setText("Svart kung i schack");
+                            blackKingCheck = true;
                         }
                     }
                     else{
                         if (curPiece.acceptedMove(gameboard, spot, whiteKingSpot)) {
-                            whiteCheckLabel.setText("Vit kung i schack");
+                            //whiteCheckLabel.setText("Vit kung i schack");
+                            whiteKingCheck = true;
                         }
                     }
                 }
             }
         }
+        updateCheckLabels ();
     }
 
+    private void updateCheckLabels() {
+        if (blackKingCheck) {
+            blackCheckLabel.setText("Svart kung i schack");
+        }
+        else {
+            blackCheckLabel.setText(" ");
+            }
+        if (whiteKingCheck) {
+            whiteCheckLabel.setText("Vit kung i schack");
+        }
+        else {
+            whiteCheckLabel.setText(" ");
+        }
+    }
 
     private void switchTurn() {
         clickOne = true;
+        whiteTurn = !whiteTurn;
         if(whiteTurn){
-            messageLabel.setText("Vit spelares tur");
+            turnLabel.setText("Vit spelares tur");
         }
         else{
-            messageLabel.setText("Svart spelares tur");
+            turnLabel.setText("Svart spelares tur");
         }
-        whiteTurn = !whiteTurn;
     }
 
     private void updateKingsSpot() {

@@ -64,8 +64,28 @@ public class Pawn extends Piece {
     private boolean acceptedFirstMove(Spot[][] board, Spot start, Spot end) {
         int sideSteps = Math.abs(start.getCol() - end.getCol());
         int forwardSteps = Math.abs(start.getRow() - end.getRow());
+
+
+        //uppdaterade denna, gör så att pawn kan ta om det står en pjäs snett emot vid start
         if (end.getPiece() != null ) {
+            if(sideSteps == 1 && forwardSteps == 1) {
+                return start.getPiece().isWhite() != end.getPiece().isWhite();
+            }
             return false;
+        }
+
+        //la till denna, gör så att pawn inte kan gå bakåt vid start
+        if (forwardSteps == 1){
+            if (this.isWhite()) {
+                if(end.getRow() == start.getRow()+1){
+                    return false;
+                }
+            }
+            else {
+                if(end.getRow() == start.getRow()-1){
+                    return false;
+                }
+            }
         }
 
         if (!(sideSteps == 0 && (forwardSteps == 1 || forwardSteps == 2))) {  //one OR two steps forward, not allowed to take!
