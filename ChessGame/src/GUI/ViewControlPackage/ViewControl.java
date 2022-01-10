@@ -90,7 +90,7 @@ class ViewControl extends JFrame implements ActionListener {
     public void updateBoard(){
         for (Spot[] spots : gameboard.gameboard) {
             for (Spot spot : spots) {
-                visibleGameboard[spot.getRow()][spot.getCol()].updateSpot(spot);
+                visibleGameboard[spot.getRow()][spot.getCol()].updateSpot();
             }
         }
     }
@@ -100,20 +100,18 @@ class ViewControl extends JFrame implements ActionListener {
         Spot spot = presBut.spot;
         gameboard.actionPerformed(spot);
         updateStatus();
-        updateBoard();
-        if (chooseSpot){
+        if (gameboard.movBut != null){
             for (Spot posSpot : gameboard.possiblemoves){
                 GraphicSpot changeSpot = visibleGameboard[posSpot.getRow()][posSpot.getCol()];
                 changeSpot.setAcceptedMoveColor();
                 changedSpots.add(changeSpot);
             }
-            chooseSpot = false;
         }
         else{
+            updateBoard();
             for (GraphicSpot changedSpot : changedSpots){
                 changedSpot.removeAcceptedMoveColor();
             }
-            chooseSpot = true;
         }
     }
 

@@ -43,11 +43,14 @@ public class GraphicSpot extends JButton {
                 this.setIcon(icon);
             }
         }
+        else{
+            this.setIcon(null);
+        }
     }
 
-    public void updateSpot(Spot spot){
-        this.spot = spot;
-        this.piece = this.spot.getPiece();
+    public void updateSpot(){
+        //this.setIcon(null);
+        this.piece = spot.getPiece();
         setSpotIcon();
     }
 

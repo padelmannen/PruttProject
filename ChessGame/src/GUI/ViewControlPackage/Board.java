@@ -61,6 +61,7 @@ public class Board {
         }
 
         newSpot.setPiece(movedPiece);
+        oldSpot.setPiece(null); //la till denna nu 01-11, vet inte om den behövs
 
         if (movedPiece instanceof Pawn) {
             handleMovedPawn(newSpot, movedPiece);  //för att hålla koll på när bonden ska förvandlas
