@@ -106,7 +106,7 @@ public class Board {
             possiblemoves.clear();
     }
 
-    public void actionPerformed(Spot presBut) {
+    public void handleMoves(Spot presBut) {
 
         if(clickOne){
             FirstClick click = new FirstClick(presBut, gameboard, whiteTurn);

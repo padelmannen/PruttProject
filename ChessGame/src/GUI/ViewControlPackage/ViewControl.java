@@ -118,7 +118,7 @@ class ViewControl extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         GraphicSpot presBut = (GraphicSpot) e.getSource();
         Spot spot = presBut.spot;
-        gameboard.actionPerformed(spot);
+        gameboard.handleMoves(spot);
         updateStatus();
         if (!(gameboard.clickOne)){
             for (Spot posSpot : gameboard.possiblemoves){
