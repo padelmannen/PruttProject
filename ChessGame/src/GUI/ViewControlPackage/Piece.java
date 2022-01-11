@@ -31,7 +31,7 @@ public abstract class Piece {
         this.killed = killed;
     }
 
-    public abstract boolean acceptedMove(Board board,
+    public abstract boolean acceptedMove(Spot[][] board,
                                          Spot start, Spot end);  //method depends on Piece
 
     protected Piece getPiece(){

@@ -9,7 +9,7 @@ public class Knight extends Piece {
     }
 
     @Override
-    public boolean acceptedMove(Board board, Spot start,
+    public boolean acceptedMove(Spot[][] board, Spot start,
                                 Spot end)
     {
         // we can't move the piece to a spot that has

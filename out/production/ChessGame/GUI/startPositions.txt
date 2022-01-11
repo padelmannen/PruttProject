@@ -1,8 +1,0 @@
-BlackRook BlackKnight BlackBishop BlackQueen BlackKing BlackBishop BlackKnight BlackRook
-BlackPawn BlackPawn BlackPawn BlackPawn BlackPawn BlackPawn BlackPawn BlackPawn
-N N N N N N N N
-N N N N N N N N
-N N N N N N N N
-N N N N N N N N
-WhitePawn WhitePawn WhitePawn WhitePawn WhitePawn WhitePawn WhitePawn WhitePawn
-WhiteRook WhiteKnight WhiteBishop WhiteQueen WhiteKing WhiteBishop WhiteKnight WhiteRook

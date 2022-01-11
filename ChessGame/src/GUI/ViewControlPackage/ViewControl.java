@@ -12,6 +12,7 @@ class ViewControl extends JFrame implements ActionListener {
     JPanel messagePanel = new JPanel();
     JPanel gamePanel = new JPanel();
     JLabel gameStatus = new JLabel();
+    JLabel turnStatus = new JLabel("Vit spelar");
     JLabel blackCheckStatus = new JLabel();
     JLabel whiteCheckStatus = new JLabel();
     Board gameboard;
@@ -51,6 +52,7 @@ class ViewControl extends JFrame implements ActionListener {
         messagePanel.setSize(600,200);
         messagePanel.setLayout(new GridLayout(4,1));
         messagePanel.add(gameStatus);
+        messagePanel.add(turnStatus);
         messagePanel.add(blackCheckStatus);
         messagePanel.add(whiteCheckStatus);
 
@@ -77,6 +79,18 @@ class ViewControl extends JFrame implements ActionListener {
         gameStatus.setText(gameboard.getGameStatus());
         blackCheckStatus.setText("");
         whiteCheckStatus.setText("");
+        updateCheckLabels();
+        if(gameboard.whiteTurn){
+            turnStatus.setText("Vit spelares tur");
+        }
+        else{
+            turnStatus.setText("Svart spelares tur");
+        }
+    }
+
+    private void updateCheckLabels() {
+        blackCheckStatus.setText(" ");
+        whiteCheckStatus.setText(" ");
         if (gameboard.blackKingCheck) {
             blackCheckStatus.setText("Svart kung i schack");
         }
@@ -106,7 +120,7 @@ class ViewControl extends JFrame implements ActionListener {
         Spot spot = presBut.spot;
         gameboard.actionPerformed(spot);
         updateStatus();
-        if (gameboard.movBut != null){
+        if (!(gameboard.clickOne)){
             for (Spot posSpot : gameboard.possiblemoves){
                 GraphicSpot changeSpot = visibleGameboard[posSpot.getRow()][posSpot.getCol()];
                 changeSpot.setAcceptedMoveColor();

@@ -8,7 +8,7 @@ public class King extends Piece {
     }
 
     @Override
-    public boolean acceptedMove(Board board, Spot start, Spot end) {
+    public boolean acceptedMove(Spot[][] board, Spot start, Spot end) {
             // we can't move the piece to a Spot that
             // has a piece of the same color
             if (end.getPiece() != null ) {

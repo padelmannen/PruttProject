@@ -10,13 +10,17 @@ public class Board {
     public Spot[][] gameboard;
     public int size = 8;
     public Spot movBut;
-    public Stack <Spot> possiblemoves = new Stack<>();
+    //public Stack <Spot> possiblemoves = new Stack<>();
+    public ArrayList<Spot> possiblemoves = new ArrayList<>();
     public boolean whiteKingCheck = false;
     public boolean blackKingCheck = false;
+    private Spot blackKingSpot = null;
+    private Spot whiteKingSpot = null;
     public boolean whiteTurn = true;
     public boolean whiteWin = false;
     public boolean blackWin = false;
     public String gameStatus;
+    public boolean clickOne = true;
 
     public Board() throws IOException, NullPointerException {
         gameboard = new Spot[size][size];
@@ -26,7 +30,7 @@ public class Board {
 
     private void setupBoard() throws IOException, NullPointerException {
 
-        BufferedReader startPos = new BufferedReader(new FileReader("ChessGame/src/GUI/startPositions.txt"));
+        BufferedReader startPos = new BufferedReader(new FileReader("ChessGame/src/GUI/ViewControlPackage/startPositions.txt"));
         String line = startPos.readLine();
         int row = 0;
         int col = 0;
@@ -41,15 +45,11 @@ public class Board {
             col = 0;
             line = startPos.readLine();
         }
-
+        updateKingsPos();
     }
 
     public String getGameStatus(){
         return this.gameStatus;
-    }
-
-    public Spot getBox(int row, int col){
-        return gameboard[row][col];
     }
 
     public void move(Spot newSpot){
@@ -66,6 +66,12 @@ public class Board {
         if (movedPiece instanceof Pawn) {
             handleMovedPawn(newSpot, movedPiece);  //för att hålla koll på när bonden ska förvandlas
         }
+        if (movedPiece instanceof King) {
+            updateKingsPos();  //för att hålla koll på när bonden ska förvandlas
+        }
+
+        switchTurn();
+        checkForCheck();
         movBut = null;      // knappen är flyttad, ingen knapp väntar nu på att flyttas
     }
 
@@ -97,18 +103,18 @@ public class Board {
         }
     }
 
-    public boolean showMoves(Spot curSpot){
-        boolean movePossible = false;
-        for(Spot[] spots : gameboard){
-            for(Spot spot : spots){
-                if (curSpot.getPiece().acceptedMove(this, curSpot, spot)) {
-                    movePossible = true;
-                    possiblemoves.push(spot);
-                }
-            }
-        }
-        return movePossible;
-    }
+//    public boolean showMoves(Spot curSpot){
+//        boolean movePossible = false;
+//        for(Spot[] spots : gameboard){
+//            for(Spot spot : spots){
+//                if (curSpot.getPiece().acceptedMove(gameboard, curSpot, spot)) {
+//                    movePossible = true;
+//                    possiblemoves.add(spot);
+//                }
+//            }
+//        }
+//        return movePossible;
+//    }
 
     private void removeShowedMoves() {
             possiblemoves.clear();
@@ -116,39 +122,61 @@ public class Board {
 
     public void actionPerformed(Spot presBut) {
 
-        if (movBut == null) {
-            checkChosenSpot(presBut);
+        if(clickOne){
+            FirstClick click = new FirstClick(presBut, gameboard, whiteTurn);
+            handleFirstClick(click, presBut);
         }
         else {
-            if (movBut.getPiece().acceptedMove(this, movBut.getSpot(), presBut)) {
+            if (possiblemoves.contains(presBut)) {
                 move(presBut);
-                blackKingCheck = false; whiteKingCheck = false;
-                if(!whiteWin && !blackWin){
-                    checkForCheck(); //kolla ifall motsåndaren står i schack
-                    switchTurn();
-                    if(whiteTurn){
-                        gameStatus = "Vit spelares tur";
-                    }
-                    else{
-                        gameStatus = "Svart spelares tur";
-                    }
-                }
-                removeShowedMoves();
-            }
-            else if (movBut.getPiece().isWhite() == presBut.getPiece().isWhite()) {
-                movBut = presBut;
-                removeShowedMoves();
-                checkChosenSpot(presBut);
             }
             else{
                 gameStatus = "Välj en giltig plats";
+
             }
+            removeShowedMoves();
+            clickOne = true;
+        }
+    }
+
+    private void handleFirstClick(FirstClick click, Spot pressedSpot) {
+        if(click.isOkClick()) {
+            movBut = pressedSpot;
+            possiblemoves = click.getPossibleMoves();
+            clickOne = false;
+        }
+        else{
+            clickOne = true;
+            gameStatus = click.getMessageLabel();
         }
     }
 
     private void checkForCheck() { //metod som kollar om någon pjäs hotar motståndarens kung
-        Spot blackKingSpot = null;
-        Spot whiteKingSpot = null;
+
+        blackKingCheck = false;
+        whiteKingCheck = false;
+
+        //kollar just nu om båda är i schack eftersom egna drag kan medföra att ens kung hamnar i schack
+        for (Spot[] spots : gameboard) {
+            for (Spot spot : spots) {
+                if (spot.getPiece() != null) {
+                    if (spot.getPiece().isWhite()) {
+                        if (spot.getPiece().acceptedMove(gameboard, spot, blackKingSpot)) {
+                            blackKingCheck = true;
+                        }
+                    }
+                    else {
+                        if (spot.getPiece().acceptedMove(gameboard, spot, whiteKingSpot)) {
+                            whiteKingCheck = true;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void updateKingsPos() {
+
         blackKingCheck = false;
         whiteKingCheck = false;
 
@@ -164,37 +192,10 @@ public class Board {
                 }
             }
         }
-
-        //kollar just nu om båda är i schack eftersom egna drag kan medföra att ens kung hamnar i schack
-        for (Spot[] spots : gameboard) {
-            for (Spot spot : spots) {
-                if (spot.getPiece() != null) {
-                    if (spot.getPiece().isWhite()) {
-                        if (spot.getPiece().acceptedMove(this, spot, blackKingSpot)) {
-                            blackKingCheck = true;
-                        }
-                    }
-                    else {
-                        if (spot.getPiece().acceptedMove(this, spot, whiteKingSpot)) {
-                            whiteKingCheck = true;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private void checkChosenSpot(Spot presBut) {
-        if (presBut.getPiece() != null) {
-            if (presBut.getPiece().isWhite() == whiteTurn) {
-                if (showMoves(presBut)) {
-                    movBut = presBut;
-                }
-            }
-        }
     }
 
     private void switchTurn() {
+        clickOne = true;
         whiteTurn = !whiteTurn;
     }
 
