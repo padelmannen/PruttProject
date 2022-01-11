@@ -10,7 +10,6 @@ public class Board {
     public Spot[][] gameboard;
     public int size = 8;
     public Spot movBut;
-    //public Stack <Spot> possiblemoves = new Stack<>();
     public ArrayList<Spot> possiblemoves = new ArrayList<>();
     public boolean whiteKingCheck = false;
     public boolean blackKingCheck = false;
@@ -102,18 +101,6 @@ public class Board {
         }
     }
 
-//    public boolean showMoves(Spot curSpot){
-//        boolean movePossible = false;
-//        for(Spot[] spots : gameboard){
-//            for(Spot spot : spots){
-//                if (curSpot.getPiece().acceptedMove(gameboard, curSpot, spot)) {
-//                    movePossible = true;
-//                    possiblemoves.add(spot);
-//                }
-//            }
-//        }
-//        return movePossible;
-//    }
 
     private void removeShowedMoves() {
             possiblemoves.clear();
@@ -142,7 +129,7 @@ public class Board {
     private void handleFirstClick(FirstClick click, Spot pressedSpot) {
         if(click.isOkClick()) {
             movBut = pressedSpot;
-            possiblemoves = click.getPossibleMoves();
+            possiblemoves = click.getPossibleMoves();   ///här sparas dom möjliga dragen för ett klick
             clickOne = false;
         }
         else{
@@ -174,7 +161,6 @@ public class Board {
             }
         }
     }
-
     private void updateKingsPos() {
 
         blackKingCheck = false;
