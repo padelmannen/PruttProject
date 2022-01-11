@@ -1,6 +1,5 @@
 package GUI.ViewControlPackage;
 
-import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -45,7 +44,6 @@ public class Board {
 
     }
 
-
     public String getGameStatus(){
         return this.gameStatus;
     }
@@ -63,7 +61,7 @@ public class Board {
         }
 
         newSpot.setPiece(movedPiece);
-        oldSpot.setPiece(null); //la till denna nu 01-11, vet inte om den behövs
+        oldSpot.setPiece(null);
 
         if (movedPiece instanceof Pawn) {
             handleMovedPawn(newSpot, movedPiece);  //för att hålla koll på när bonden ska förvandlas
@@ -124,13 +122,16 @@ public class Board {
         else {
             if (movBut.getPiece().acceptedMove(this, movBut.getSpot(), presBut)) {
                 move(presBut);
-                checkForCheck(); //kolla ifall motsåndaren står i schack
-                switchTurn();
-                if(whiteTurn){
-                    gameStatus = "Vit spelares tur";
-                }
-                else{
-                    gameStatus = "Svart spelares tur";
+                blackKingCheck = false; whiteKingCheck = false;
+                if(!whiteWin && !blackWin){
+                    checkForCheck(); //kolla ifall motsåndaren står i schack
+                    switchTurn();
+                    if(whiteTurn){
+                        gameStatus = "Vit spelares tur";
+                    }
+                    else{
+                        gameStatus = "Svart spelares tur";
+                    }
                 }
                 removeShowedMoves();
             }

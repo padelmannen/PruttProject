@@ -5,8 +5,8 @@ import java.util.Objects;
 
 public class Spot {
     public Piece piece;
-    public String pieceName = null;
-    public String color = null;
+    //public String pieceName = null;
+    //public String color = null;
     public final int row;
     public final int col;
 
@@ -16,13 +16,13 @@ public class Spot {
         this.col = col;
 
         if(!Objects.equals(spotPiece, "N")){
-            this.pieceName = spotPiece.substring(5);
-            this.color = spotPiece.substring(0,5);
+            String pieceName = spotPiece.substring(5);
+            String color = spotPiece.substring(0,5);
+            setFirstPiece(pieceName, color);
         }
-        setFirstPiece();
     }
 
-    public void setFirstPiece(){
+    public void setFirstPiece(String pieceName, String color){
         if (Objects.equals(color, "White")) {
             if (Objects.equals(pieceName, "Pawn")) {
                 piece = new Pawn(true);

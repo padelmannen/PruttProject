@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="uppdaterar inte ikoner på alla GraphicSpots">
+    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="funkar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/GraphicSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/GraphicSpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Spot.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Spot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/ViewControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/ViewControl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -430,7 +431,13 @@
       <option name="presentableId" value="LOCAL−00043" />
       <updated>1641856108277</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL−00044" summary="funkar">
+      <created>1641892669164</created>
+      <option name="number" value="LOCAL−00044" />
+      <option name="presentableId" value="LOCAL−00044" />
+      <updated>1641892669164</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -464,7 +471,8 @@
     <MESSAGE value="viewcontrol" />
     <MESSAGE value="commit" />
     <MESSAGE value="uppdaterar inte ikoner på alla GraphicSpots" />
-    <option name="LAST_COMMIT_MESSAGE" value="uppdaterar inte ikoner på alla GraphicSpots" />
+    <MESSAGE value="funkar" />
+    <option name="LAST_COMMIT_MESSAGE" value="funkar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

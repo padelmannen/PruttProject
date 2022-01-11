@@ -56,8 +56,7 @@ class ViewControl extends JFrame implements ActionListener {
 
         gameStatus.setFont(new Font("Serif", Font.BOLD, 20));
         gameStatus.setText(gameboard.getGameStatus());
-        //blackCheckStatus.setText("Svart kung i schack");
-        //whiteCheckStatus.setText("Vit kung i schack");
+
     }
 
     public void setupGamePanel(){
@@ -94,6 +93,14 @@ class ViewControl extends JFrame implements ActionListener {
         }
     }
 
+    private void endGame() {
+        for (GraphicSpot[] spots : visibleGameboard) {
+            for (GraphicSpot spot : spots) {
+                spot.removeActionListener(this);
+            }
+        }
+    }
+
     public void actionPerformed(ActionEvent e) {
         GraphicSpot presBut = (GraphicSpot) e.getSource();
         Spot spot = presBut.spot;
@@ -111,8 +118,12 @@ class ViewControl extends JFrame implements ActionListener {
             for (GraphicSpot changedSpot : changedSpots){
                 changedSpot.removeAcceptedMoveColor();
             }
+            if(gameboard.whiteWin || gameboard.blackWin){
+                endGame();
+            }
         }
     }
+
 
     public static void main(String[] args) throws IOException, NullPointerException {
         new ViewControl();

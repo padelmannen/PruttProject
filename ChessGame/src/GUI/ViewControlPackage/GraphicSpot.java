@@ -55,7 +55,6 @@ public class GraphicSpot extends JButton {
     }
 
     public void updateSpot(){
-        //this.setIcon(null);
         this.piece = spot.getPiece();
         setSpotIcon();
     }
@@ -67,6 +66,5 @@ public class GraphicSpot extends JButton {
     public void removeAcceptedMoveColor(){
         setBackground(spotColor);
     }
-
 
 }
