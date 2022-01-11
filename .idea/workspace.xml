@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Board.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -396,6 +397,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />
@@ -414,10 +416,10 @@
     <MESSAGE value="fungerande schackfunktion" />
     <MESSAGE value="byta vald pjäs" />
     <MESSAGE value="viewcontrol" />
-    <MESSAGE value="commit" />
     <MESSAGE value="uppdaterar inte ikoner på alla GraphicSpots" />
     <MESSAGE value="funkar" />
-    <option name="LAST_COMMIT_MESSAGE" value="funkar" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

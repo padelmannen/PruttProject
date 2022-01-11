@@ -131,6 +131,7 @@ public class Board {
             movBut = pressedSpot;
             possiblemoves = click.getPossibleMoves();   ///här sparas dom möjliga dragen för ett klick
             clickOne = false;
+            gameStatus = null;
         }
         else{
             clickOne = true;
