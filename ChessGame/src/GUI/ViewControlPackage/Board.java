@@ -17,10 +17,11 @@ public class Board {
     public boolean whiteTurn = true;
     public boolean whiteWin = false;
     public boolean blackWin = false;
-    public String gameStatus = "STATUS";
+    public String gameStatus;
 
     public Board() throws IOException, NullPointerException {
         gameboard = new Spot[size][size];
+        gameStatus = "Vit spelare startar";
         setupBoard();
     }
 
@@ -41,6 +42,7 @@ public class Board {
             col = 0;
             line = startPos.readLine();
         }
+
     }
 
 
@@ -72,9 +74,11 @@ public class Board {
     private void handleVictory() {
         if (whiteTurn){
             whiteWin = true;
+            gameStatus = "Vit vinner!";
         }
         else{
             blackWin = true;
+            gameStatus = "Svart vinner!";
         }
     }
 
@@ -122,13 +126,21 @@ public class Board {
                 move(presBut);
                 checkForCheck(); //kolla ifall motsåndaren står i schack
                 switchTurn();
-                gameStatus = "bytt tur";
+                if(whiteTurn){
+                    gameStatus = "Vit spelares tur";
+                }
+                else{
+                    gameStatus = "Svart spelares tur";
+                }
                 removeShowedMoves();
             }
             else if (movBut.getPiece().isWhite() == presBut.getPiece().isWhite()) {
                 movBut = presBut;
                 removeShowedMoves();
                 checkChosenSpot(presBut);
+            }
+            else{
+                gameStatus = "Välj en giltig plats";
             }
         }
     }

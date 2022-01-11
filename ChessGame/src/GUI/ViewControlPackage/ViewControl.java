@@ -16,7 +16,6 @@ class ViewControl extends JFrame implements ActionListener {
     JLabel whiteCheckStatus = new JLabel();
     Board gameboard;
     GraphicSpot[][] visibleGameboard;
-    boolean chooseSpot = true;
     ArrayList<GraphicSpot> changedSpots = new ArrayList<>();
 
     public ViewControl() throws IOException, NullPointerException {

@@ -17,11 +17,9 @@ public class GraphicSpot extends JButton {
         this.row = spot.getRow();
         this.col = spot.getCol();
 
-        setSpotColor();
-
         setOpaque(true);
         setBorderPainted(false);
-
+        setSpotColor();
         setSpotIcon();
     }
 
@@ -36,12 +34,20 @@ public class GraphicSpot extends JButton {
     }
 
     private void setSpotIcon() {
+        //vi skulle även kunna lagra namn och färg som instansvariabler/ha get-funktioner i pieceklasserna
         if (!Objects.equals(this.piece, null)) {
-            java.net.URL imgURL = getClass().getResource("Icons/" + spot.color + spot.pieceName + ".png");
+            String pieceName = piece.getClass().getName().split("\\.")[2];
+            String pieceColor = "Black";
+            if (piece.getPiece().isWhite()){
+                pieceColor = "White";
+            }
+
+            java.net.URL imgURL = getClass().getResource("Icons/" + pieceColor + pieceName + ".png");
             if (imgURL != null) {
                 Icon icon = new ImageIcon(imgURL);
                 this.setIcon(icon);
             }
+
         }
         else{
             this.setIcon(null);
