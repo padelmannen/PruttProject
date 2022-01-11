@@ -24,7 +24,6 @@ public class Board {
 
     public Board() throws IOException, NullPointerException {
         gameboard = new Spot[size][size];
-        gameStatus = "Vit spelare startar";
         setupBoard();
     }
 
@@ -129,6 +128,7 @@ public class Board {
         else {
             if (possiblemoves.contains(presBut)) {
                 move(presBut);
+                gameStatus = null;
             }
             else{
                 gameStatus = "Välj en giltig plats";

@@ -51,12 +51,12 @@ class ViewControl extends JFrame implements ActionListener {
     public void setupMessagePanel(){
         messagePanel.setSize(600,200);
         messagePanel.setLayout(new GridLayout(4,1));
-        messagePanel.add(gameStatus);
         messagePanel.add(turnStatus);
+        messagePanel.add(gameStatus);
         messagePanel.add(blackCheckStatus);
         messagePanel.add(whiteCheckStatus);
 
-        gameStatus.setFont(new Font("Serif", Font.BOLD, 20));
+        turnStatus.setFont(new Font("Serif", Font.BOLD, 20));
         gameStatus.setText(gameboard.getGameStatus());
 
     }

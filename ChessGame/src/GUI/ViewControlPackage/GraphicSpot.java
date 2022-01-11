@@ -7,7 +7,7 @@ import java.util.Objects;
 public class GraphicSpot extends JButton {
     int row;
     int col;
-    Spot spot;
+    GUI.ViewControlPackage.Spot spot;
     Color spotColor;
     Piece piece;
 
