@@ -3,7 +3,7 @@ package GUI.ViewControlPackage;
 
 public class Pawn extends Piece {
 
-    int moves;
+    private int moves;
 
     public Pawn(boolean white) {
         super(white);
