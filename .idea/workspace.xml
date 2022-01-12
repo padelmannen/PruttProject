@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="" />
+    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="commit">
+      <change afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Chess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/ChessBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/ChessGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/GraphicSpot.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/GUISpot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/ViewControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/ChessGUI.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,11 +64,26 @@
       <recent name="C:\Users\jespe\OneDrive\Dokument\KTH\Prutten\PruttProject\ChessGame\src\GUI" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.ChessGame">
+    <configuration name="Chess" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="GUI.ViewControlPackage.Chess" />
+      <module name="ChessGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.ViewControlPackage.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ViewControl" type="Application" factoryName="Application" temporary="true">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="GUI.ViewControlPackage.ViewControl" />
+      <option name="MAIN_CLASS_NAME" value="GUI.ViewControlPackage.ChessGUI" />
       <module name="ChessGame" />
       <extension name="coverage">
         <pattern>
@@ -89,8 +110,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.ChessGame" />
+      <item itemvalue="Application.ViewControl" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ChessGame" />
         <item itemvalue="Application.ViewControl" />
         <item itemvalue="Application.ViewControl" />
       </list>
@@ -387,13 +413,7 @@
       <option name="presentableId" value="LOCAL−00047" />
       <updated>1641902339106</updated>
     </task>
-    <task id="LOCAL−00048" summary="commit">
-      <created>1642024666313</created>
-      <option name="number" value="LOCAL−00048" />
-      <option name="presentableId" value="LOCAL−00048" />
-      <updated>1642024666313</updated>
-    </task>
-    <option name="localTasksCounter" value="49" />
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -406,6 +426,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />

@@ -4,18 +4,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
 
-public class GraphicSpot extends JButton {
-    int row;
-    int col;
-    GUI.ViewControlPackage.Spot spot;
-    Color spotColor;
-    Piece piece;
+public class GUISpot extends JButton {
+    private final int row;
+    private final int col;
+    private final Spot spot;
+    private Color spotColor;
+    private Piece piece;
 
-    GraphicSpot(Spot spot) {
-        this.spot = spot;
-        this.piece = spot.getPiece();
-        this.row = spot.getRow();
-        this.col = spot.getCol();
+    GUISpot(Spot boardSpot) {
+        spot = boardSpot;
+        piece = spot.getPiece();
+        row = spot.getRow();
+        col = spot.getCol();
 
         setOpaque(true);
         setBorderPainted(false);
@@ -26,36 +26,36 @@ public class GraphicSpot extends JButton {
     private void setSpotColor() {
         if ((row + col) % 2 == 0) {
             spotColor = new Color(233, 220, 211);
-            setBackground(spotColor);
         } else {
             spotColor = new Color(141, 121, 106);
-            setBackground(spotColor);
         }
+        setBackground(spotColor);
     }
 
     private void setSpotIcon() {
-        //vi skulle även kunna lagra namn och färg som instansvariabler/ha get-funktioner i pieceklasserna
-        if (!Objects.equals(this.piece, null)) {
+        if (!Objects.equals(piece, null)) {
             String pieceName = piece.getClass().getName().split("\\.")[2];
-            String pieceColor = "Black";
+            String pieceColor;
             if (piece.getPiece().isWhite()){
                 pieceColor = "White";
+            }
+            else{
+                pieceColor = "Black";
             }
 
             java.net.URL imgURL = getClass().getResource("Icons/" + pieceColor + pieceName + ".png");
             if (imgURL != null) {
                 Icon icon = new ImageIcon(imgURL);
-                this.setIcon(icon);
+                setIcon(icon);
             }
-
         }
         else{
-            this.setIcon(null);
+            setIcon(null);
         }
     }
 
     public void updateSpot(){
-        this.piece = spot.getPiece();
+        piece = spot.getPiece();
         setSpotIcon();
     }
 
@@ -67,4 +67,7 @@ public class GraphicSpot extends JButton {
         setBackground(spotColor);
     }
 
+    public Spot getSpot() {
+        return spot;
+    }
 }

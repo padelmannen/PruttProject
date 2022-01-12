@@ -5,25 +5,25 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-public class ChessBoard {
+public class ChessGame {
 
-    public Spot[][] gameboard;
-    public int size = 8;
-    public ArrayList<Spot> possibleMoves = new ArrayList<>();
-    public boolean whiteKingCheck = false;
-    public boolean blackKingCheck = false;
+    private final Spot[][] chessBoard;
+    private final int size = 8;
+    private ArrayList<Spot> possibleMoves = new ArrayList<>();
+    private boolean whiteKingCheck = false;
+    private boolean blackKingCheck = false;
     private Spot blackKingSpot = null;
     private Spot whiteKingSpot = null;
-    public boolean whiteTurn = true;
-    public boolean whiteWin = false;
-    public boolean blackWin = false;
-    public String gameStatus;
-    public boolean clickOne = true;
+    private boolean whiteTurn = true;
+    private boolean whiteWin = false;
+    private boolean blackWin = false;
+    private String gameStatus;
+    private boolean clickOne = true;
     private FirstClick firstClick;
     private Spot newSpot;
 
-    public ChessBoard() throws IOException {
-        gameboard = new Spot[size][size];
+    public ChessGame() throws IOException {
+        chessBoard = new Spot[size][size];
         setupBoard();
     }
 
@@ -37,7 +37,7 @@ public class ChessBoard {
             String[] pieces = line.split(" ");
             for(String piece : pieces){
                 Spot spot = new Spot(piece, row, col);
-                gameboard[row][col] = spot;
+                chessBoard[row][col] = spot;
                 col++;
             }
             row++;
@@ -50,7 +50,7 @@ public class ChessBoard {
     void handleMoves(Spot presBut) {
 
         if(clickOne){
-            firstClick = new FirstClick(presBut, gameboard, whiteTurn);
+            firstClick = new FirstClick(presBut, chessBoard, whiteTurn);
             handleFirstClick();
         }
         else {
@@ -70,7 +70,7 @@ public class ChessBoard {
 
     private void makeMove() {
 
-        Spot oldSpot = gameboard[firstClick.getClickedSpot().getRow()][firstClick.getClickedSpot().getCol()];
+        Spot oldSpot = chessBoard[firstClick.getClickedSpot().getRow()][firstClick.getClickedSpot().getCol()];
         Piece movedPiece = firstClick.getClickedSpot().getPiece();
         Piece takenSpot = newSpot.getPiece();
 
@@ -99,18 +99,18 @@ public class ChessBoard {
         whiteKingCheck = false;
 
         //kollar just nu om båda är i schack eftersom egna drag kan medföra att ens kung hamnar i schack
-        for (Spot[] spots : gameboard) {
+        for (Spot[] spots : chessBoard) {
             for (Spot spot : spots) {
 
                 if (spot.getPiece() != null) {
 
                     if (spot.getPiece().isWhite()) {
-                        if (spot.getPiece().acceptedMove(gameboard, spot, blackKingSpot)) {
+                        if (spot.getPiece().acceptedMove(chessBoard, spot, blackKingSpot)) {
                             blackKingCheck = true;
                         }
                     }
                     else {
-                        if (spot.getPiece().acceptedMove(gameboard, spot, whiteKingSpot)) {
+                        if (spot.getPiece().acceptedMove(chessBoard, spot, whiteKingSpot)) {
                             whiteKingCheck = true;
                         }
                     }
@@ -161,7 +161,7 @@ public class ChessBoard {
 
     private void updateKingsPos() {
 
-        for (Spot[] spots : gameboard) {
+        for (Spot[] spots : chessBoard) {
             for (Spot spot : spots) {
                 if (spot.getPiece() instanceof King) {
                     if (spot.getPiece().isWhite()) {
@@ -184,5 +184,36 @@ public class ChessBoard {
         return this.gameStatus;
     }
 
+    public int getSize() {
+        return size;
+    }
+
+    public Spot[][] getChessBoard() {
+        return chessBoard;
+    }
+
+    public boolean isWhiteTurn() {
+        return whiteTurn;
+    }
+
+    public boolean isBlackKingChecked() {
+        return blackKingCheck;
+    }
+
+    public boolean isWhiteKingChecked() {
+        return whiteKingCheck;
+    }
+
+    public boolean isClickOne() {
+        return clickOne;
+    }
+
+    public ArrayList<Spot> getPossibleMoves() {
+        return possibleMoves;
+    }
+
+    public boolean isWon() {
+        return whiteWin || blackWin;
+    }
 }
 
