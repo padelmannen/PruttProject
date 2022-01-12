@@ -119,7 +119,7 @@ public class Board {
         else {
             if (possiblemoves.contains(presBut)) {
                 move(presBut);
-                gameStatus = null;
+                //gameStatus = null;
             }
             else{
                 gameStatus = "Välj en giltig plats";

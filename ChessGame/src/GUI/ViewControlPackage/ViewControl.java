@@ -77,8 +77,6 @@ class ViewControl extends JFrame implements ActionListener {
 
     public void updateStatus(){
         gameStatus.setText(gameboard.getGameStatus());
-        blackCheckStatus.setText("");
-        whiteCheckStatus.setText("");
         updateCheckLabels();
         if(gameboard.whiteTurn){
             turnStatus.setText("Vit spelares tur");
@@ -89,8 +87,8 @@ class ViewControl extends JFrame implements ActionListener {
     }
 
     private void updateCheckLabels() {
-        blackCheckStatus.setText(" ");
-        whiteCheckStatus.setText(" ");
+        blackCheckStatus.setText("");
+        whiteCheckStatus.setText("");
         if (gameboard.blackKingCheck) {
             blackCheckStatus.setText("Svart kung i schack");
         }
@@ -108,7 +106,10 @@ class ViewControl extends JFrame implements ActionListener {
     }
 
     private void endGame() {
-        updateStatus();
+        messagePanel.removeAll();
+        messagePanel.add(turnStatus);
+        turnStatus.setText(gameboard.getGameStatus());
+
         for (GraphicSpot[] spots : visibleGameboard) {
             for (GraphicSpot spot : spots) {
                 spot.removeActionListener(this);
