@@ -108,6 +108,7 @@ class ViewControl extends JFrame implements ActionListener {
     }
 
     private void endGame() {
+        updateStatus();
         for (GraphicSpot[] spots : visibleGameboard) {
             for (GraphicSpot spot : spots) {
                 spot.removeActionListener(this);

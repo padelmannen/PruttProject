@@ -50,27 +50,31 @@ public class Board {
         return this.gameStatus;
     }
 
-    public void move(Spot newSpot){
+    public void move(Spot newSpot) {
         Spot oldSpot = gameboard[movBut.getRow()][movBut.getCol()];
         Piece movedPiece = movBut.getPiece();
 
-        if (newSpot.getPiece() instanceof King){
+        if (newSpot.getPiece() instanceof King) {
             handleVictory();
+            newSpot.setPiece(movedPiece);
+            oldSpot.setPiece(null);
         }
+        else {
 
-        newSpot.setPiece(movedPiece);
-        oldSpot.setPiece(null);
+            newSpot.setPiece(movedPiece);
+            oldSpot.setPiece(null);
 
-        if (movedPiece instanceof Pawn) {
-            handleMovedPawn(newSpot, movedPiece);  //för att hålla koll på när bonden ska förvandlas
+            if (movedPiece instanceof Pawn) {
+                handleMovedPawn(newSpot, movedPiece);  //för att hålla koll på när bonden ska förvandlas
+            }
+            if (movedPiece instanceof King) {
+                updateKingsPos();  //för att hålla koll på när bonden ska förvandlas
+            }
+
+            switchTurn();
+            checkForCheck();
+            movBut = null;      // knappen är flyttad, ingen knapp väntar nu på att flyttas
         }
-        if (movedPiece instanceof King) {
-            updateKingsPos();  //för att hålla koll på när bonden ska förvandlas
-        }
-
-        switchTurn();
-        checkForCheck();
-        movBut = null;      // knappen är flyttad, ingen knapp väntar nu på att flyttas
     }
 
     private void handleVictory() {
