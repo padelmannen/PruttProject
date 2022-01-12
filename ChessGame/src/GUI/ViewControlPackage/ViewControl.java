@@ -15,7 +15,7 @@ class ViewControl extends JFrame implements ActionListener {
     JLabel turnStatus = new JLabel("Vit spelar");
     JLabel blackCheckStatus = new JLabel();
     JLabel whiteCheckStatus = new JLabel();
-    Board gameboard;
+    ChessBoard gameboard;
     GraphicSpot[][] visibleGameboard;
     ArrayList<GraphicSpot> changedSpots = new ArrayList<>();
 
@@ -23,7 +23,7 @@ class ViewControl extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Amazing Chess Game");
         setSize(800, 1000);
-        gameboard = new Board();
+        gameboard = new ChessBoard();
         visibleGameboard = new GraphicSpot[gameboard.size][gameboard.size];
         setupView();
     }
@@ -123,7 +123,7 @@ class ViewControl extends JFrame implements ActionListener {
         gameboard.handleMoves(spot);
         updateStatus();
         if (!(gameboard.clickOne)){
-            for (Spot posSpot : gameboard.possiblemoves){
+            for (Spot posSpot : gameboard.possibleMoves){
                 GraphicSpot changeSpot = visibleGameboard[posSpot.getRow()][posSpot.getCol()];
                 changeSpot.setAcceptedMoveColor();
                 changedSpots.add(changeSpot);

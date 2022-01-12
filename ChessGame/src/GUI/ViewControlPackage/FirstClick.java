@@ -38,9 +38,9 @@ public class FirstClick {
                 }
             }
         }
-    }
-    public boolean isOkClick(){
-        return okClick;
+        else{
+            message = "Välj pjäs";
+        }
     }
 
     private boolean findPossibleMoves() {
@@ -62,5 +62,14 @@ public class FirstClick {
     public String getMessageLabel() {
         return message;
     }
+
+    public Spot getClickedSpot() {
+        return curSpot;
+    }
+
+    public boolean isOkClick(){
+        return okClick;
+    }
+
 
 }

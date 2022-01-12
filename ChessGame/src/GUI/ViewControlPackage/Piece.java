@@ -3,38 +3,26 @@ package GUI.ViewControlPackage;
 
 public abstract class Piece {
 
-    private boolean killed = false;
     private boolean white = false;
 
-    public Piece(boolean white)
+    Piece(boolean white)
     {
         this.setWhite(white);
     }
 
-    public boolean isWhite()
+    boolean isWhite()
     {
         return this.white;  //true or false
     }
 
-    public void setWhite(boolean white)
+    void setWhite(boolean white)
     {
         this.white = white;
     }
 
-    public boolean isKilled()
-    {
-        return this.killed;
-    }
-
-    public void setKilled(boolean killed)
-    {
-        this.killed = killed;
-    }
-
-    public abstract boolean acceptedMove(Spot[][] board,
+    abstract boolean acceptedMove(Spot[][] board,
                                          Spot start, Spot end);  //method depends on Piece
-
-    protected Piece getPiece(){
+    Piece getPiece(){
         return this;
     };
 }
