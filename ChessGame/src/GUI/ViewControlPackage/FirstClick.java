@@ -39,7 +39,7 @@ public class FirstClick {
             }
         }
         else{
-            message = "Välj pjäs";
+            //message = "Välj pjäs";
         }
     }
 

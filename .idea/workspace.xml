@@ -4,10 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="commit">
+    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/ChessGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/ChessGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BlackBishop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BlackKing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BlackKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BlackPawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BlackQueen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BlackRook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WhiteBishop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WhiteKing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WhiteKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WhitePawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WhiteQueen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WhiteRook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/ChessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/ChessGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/FirstClick.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/FirstClick.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BlackBishop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BlackKing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BlackKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BlackPawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BlackQueen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BlackRook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WhiteBishop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WhiteKing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WhiteKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WhitePawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WhiteQueen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WhiteRook.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +60,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedIndex" value="2" />
@@ -114,6 +141,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Chess" />
         <item itemvalue="Application.ViewControl" />
         <item itemvalue="Application.ViewControl" />
       </list>
@@ -127,12 +155,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641121574263</updated>
-    </task>
-    <task id="LOCAL−00003" summary="commit">
-      <created>1641131497922</created>
-      <option name="number" value="LOCAL−00003" />
-      <option name="presentableId" value="LOCAL−00003" />
-      <updated>1641131497922</updated>
     </task>
     <task id="LOCAL−00004" summary="test">
       <created>1641148685698</created>
@@ -422,7 +444,13 @@
       <option name="presentableId" value="LOCAL−00051" />
       <updated>1642032023687</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL−00052" summary="commit">
+      <created>1642034126590</created>
+      <option name="number" value="LOCAL−00052" />
+      <option name="presentableId" value="LOCAL−00052" />
+      <updated>1642034126590</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -435,7 +463,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />
