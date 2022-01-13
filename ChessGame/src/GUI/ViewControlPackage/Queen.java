@@ -2,8 +2,8 @@ package GUI.ViewControlPackage;
 
 
 public class Queen extends Piece {
-    Piece provBishop;
-    Piece provRook;
+    private final Piece provBishop;
+    private final Piece provRook;
 
     public Queen(boolean white) {
         super(white);

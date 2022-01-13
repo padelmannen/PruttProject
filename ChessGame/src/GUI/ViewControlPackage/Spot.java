@@ -4,16 +4,14 @@ import java.util.Objects;
 
 
 public class Spot {
-    public Piece piece;
-    //public String pieceName = null;
-    //public String color = null;
-    public final int row;
-    public final int col;
+    private Piece piece;
+    private final int row;
+    private final int col;
 
-    public Spot(String spotPiece, int row, int col) throws NullPointerException{
+    public Spot(String spotPiece, int spotRow, int spotCol) {
 
-        this.row = row;
-        this.col = col;
+        row = spotRow;
+        col = spotCol;
 
         if(!Objects.equals(spotPiece, "N")){
             String pieceName = spotPiece.substring(5);
@@ -22,7 +20,7 @@ public class Spot {
         }
     }
 
-    public void setFirstPiece(String pieceName, String color){
+    private void setFirstPiece(String pieceName, String color){
         if (Objects.equals(color, "White")) {
             if (Objects.equals(pieceName, "Pawn")) {
                 piece = new Pawn(true);
@@ -53,10 +51,6 @@ public class Spot {
                 piece = new Rook(false);
             }
         }
-    }
-
-    public Spot getSpot(){
-        return this;
     }
 
     public Piece getPiece(){

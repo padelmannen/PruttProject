@@ -47,7 +47,7 @@ public class ChessGame {
         updateKingsPos();
     }
 
-    void handleMoves(Spot presBut) {
+    public void handleMoves(Spot presBut) {
 
         if(clickOne){
             firstClick = new FirstClick(presBut, chessBoard, whiteTurn);
@@ -180,7 +180,7 @@ public class ChessGame {
         whiteTurn = !whiteTurn;
     }
 
-    String getGameStatus(){
+    public String getGameStatus(){
         return this.gameStatus;
     }
 

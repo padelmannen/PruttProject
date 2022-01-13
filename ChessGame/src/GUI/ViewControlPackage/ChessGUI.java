@@ -19,7 +19,7 @@ class ChessGUI extends JFrame implements ActionListener {
     private final GUISpot[][] GUIBoard;
     private final ArrayList<GUISpot> coloredSpots = new ArrayList<>();
 
-    ChessGUI(ChessGame gb) {
+    public ChessGUI(ChessGame gb) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Amazing Chess Game");
         setSize(800, 1000);

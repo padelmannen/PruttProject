@@ -11,7 +11,7 @@ public class GUISpot extends JButton {
     private Color spotColor;
     private Piece piece;
 
-    GUISpot(Spot boardSpot) {
+    public GUISpot(Spot boardSpot) {
         spot = boardSpot;
         piece = spot.getPiece();
         row = spot.getRow();
