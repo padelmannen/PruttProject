@@ -56,8 +56,8 @@ public class ChessGame {
         else {
             if (possibleMoves.contains(presBut)) {
                 newSpot = presBut;
+                gameStatus = "Välj pjäs";
                 makeMove();
-                //gameStatus = "Välj pjäs";
             }
             else{
                 gameStatus = "Välj en giltig plats";
