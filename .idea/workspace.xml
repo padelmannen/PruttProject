@@ -4,35 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BlackBishop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BlackKing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BlackKnight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BlackPawn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BlackQueen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/BlackRook.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WhiteBishop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WhiteKing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WhiteKnight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WhitePawn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WhiteQueen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/Icons/WhiteRook.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/ChessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/ChessGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/FirstClick.java" beforeDir="false" afterPath="$PROJECT_DIR$/ChessGame/src/GUI/ViewControlPackage/FirstClick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BlackBishop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BlackKing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BlackKnight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BlackPawn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BlackQueen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/BlackRook.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WhiteBishop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WhiteKing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WhiteKnight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WhitePawn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WhiteQueen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ChessGame/GUI/Icons/WhiteRook.png" beforeDir="false" />
-    </list>
+    <list default="true" id="961f0674-a462-4e6b-99eb-b1b701fdbfeb" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -155,12 +127,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641121574263</updated>
-    </task>
-    <task id="LOCAL−00004" summary="test">
-      <created>1641148685698</created>
-      <option name="number" value="LOCAL−00004" />
-      <option name="presentableId" value="LOCAL−00004" />
-      <updated>1641148685698</updated>
     </task>
     <task id="LOCAL−00005" summary="bishop">
       <created>1641204212210</created>
@@ -450,7 +416,13 @@
       <option name="presentableId" value="LOCAL−00052" />
       <updated>1642034126590</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL−00053" summary="commit">
+      <created>1642034675193</created>
+      <option name="number" value="LOCAL−00053" />
+      <option name="presentableId" value="LOCAL−00053" />
+      <updated>1642034675193</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
