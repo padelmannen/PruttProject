@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 class ChessGUI extends JFrame implements ActionListener {
     private final JPanel messagePanel = new JPanel();
-    private final  JPanel chessGamePanel = new JPanel();
+    private final JPanel chessGamePanel = new JPanel();
     private final JLabel gameStatus = new JLabel();
     private final JLabel turnLabel = new JLabel("Vit spelar");
     private final JLabel blackCheckStatus = new JLabel();
