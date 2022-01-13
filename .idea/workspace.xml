@@ -62,7 +62,7 @@
       <recent name="C:\Users\jespe\OneDrive\Dokument\KTH\Prutten\PruttProject\ChessGame\src\GUI" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ChessGame">
+  <component name="RunManager" selected="Application.Chess">
     <configuration name="Chess" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -109,12 +109,11 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.ChessGame" />
+      <item itemvalue="Application.Chess" />
       <item itemvalue="Application.ViewControl" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ChessGame" />
         <item itemvalue="Application.ViewControl" />
         <item itemvalue="Application.ViewControl" />
       </list>
